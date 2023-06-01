@@ -1,3 +1,3 @@
 export default function IndexPage() {
-  return <div>play</div>
+  return <div>content</div>
 }

@@ -7,6 +7,8 @@ import { usePathname } from "next/navigation"
 import { NavItem } from "@/types/nav"
 import { cn } from "@/lib/utils"
 
+import { Separator } from "./ui/separator"
+
 interface MainNavProps {
   items?: NavItem[]
 }
@@ -23,7 +25,6 @@ export function MainNav({ items }: MainNavProps) {
               item.href && (
                 <>
                   <Link
-                    key={item.title}
                     href={item.href}
                     className={cn(
                       "flex items-center text-sm font-medium text-muted-foreground",
@@ -34,7 +35,7 @@ export function MainNav({ items }: MainNavProps) {
                     {item.title}
                   </Link>
                   {index !== items?.length - 1 && (
-                    <span className={"text-muted-foreground"}>|</span>
+                    <Separator orientation="vertical" />
                   )}
                 </>
               )

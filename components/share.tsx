@@ -2,13 +2,10 @@
 
 import * as React from "react"
 
-import {
-  AlertDialog,
-  AlertDialogContent,
-  AlertDialogTrigger,
-} from "@/components/ui/alert-dialog"
 import { Button } from "@/components/ui/button"
 import { Icons } from "@/components/icons"
+
+import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog"
 
 export function Share() {
   return (
@@ -19,10 +16,12 @@ export function Share() {
   )
 }
 
-export function AlertDialogDemo() {
+export function ShareBottomModal() {
+  const [open, setOpen] = React.useState(false)
+
   return (
-    <AlertDialog>
-      <AlertDialogTrigger asChild>
+    <Dialog open={open} onOpenChange={setOpen}>
+      <DialogTrigger asChild>
         <Button variant="ghost" size="sm" className="px-2">
           <Icons.Share
             className="rotate-0 scale-100 transition-all"
@@ -30,17 +29,17 @@ export function AlertDialogDemo() {
           />
           <span className="sr-only">share button</span>
         </Button>
-      </AlertDialogTrigger>
-      <AlertDialogContent>
-        <Button>
+      </DialogTrigger>
+      <DialogContent className="bg-primary">
+        <Button className="justify-start">
           <Icons.Link2></Icons.Link2>
-          <span className="ml-2">Share episode</span>
+          <span className="ml-6">Share episode</span>
         </Button>
-        <Button>
+        <Button className="justify-start">
           <Icons.Cpu></Icons.Cpu>
-          <span className="ml-2">Share moment as ship</span>
+          <span className="ml-6">Share moment as ship</span>
         </Button>
-      </AlertDialogContent>
-    </AlertDialog>
+      </DialogContent>
+    </Dialog>
   )
 }

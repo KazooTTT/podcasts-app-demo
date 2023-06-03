@@ -1,8 +1,5 @@
-import { siteConfig } from "@/config/site"
-
 import { MainNavLeft } from "./MainNavLeft"
 import { MainNavRight } from "./MainNavRight"
-import { MainNav } from "./main-nav"
 
 export function SiteHeader() {
   return (

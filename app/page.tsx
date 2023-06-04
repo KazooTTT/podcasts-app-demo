@@ -52,7 +52,7 @@ export default function IndexPage() {
             <div>
               <Gauge></Gauge>
             </div>
-            <div className="absolute top-10  w-full text-xs font-semibold text-muted-foreground">
+            <div className="relative top-2 w-full text-xs font-semibold text-muted-foreground">
               {formatPlaybackRate(playbackRate)}
             </div>
           </Button>
@@ -63,7 +63,7 @@ export default function IndexPage() {
             <div>
               <Undo />
             </div>
-            <div className="absolute top-10  w-full text-xs font-semibold text-muted-foreground">
+            <div className="relative top-2 w-full text-xs font-semibold text-muted-foreground">
               -10s
             </div>
           </Button>
@@ -85,7 +85,7 @@ export default function IndexPage() {
             <div>
               <Redo></Redo>
             </div>
-            <div className="absolute top-10  w-full text-xs font-semibold text-muted-foreground">
+            <div className="relative top-2 w-full text-xs font-semibold text-muted-foreground">
               +30s
             </div>
           </Button>
@@ -96,7 +96,7 @@ export default function IndexPage() {
             <div>
               <Moon></Moon>
             </div>
-            <div className="absolute top-10  w-full text-xs font-semibold text-muted-foreground">
+            <div className="relative top-2 w-full text-xs font-semibold text-muted-foreground">
               sleep
             </div>
           </Button>

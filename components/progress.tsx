@@ -28,7 +28,8 @@ export function ProgressDemo({
   const formatTime2 = (sec: number) => {
     const min = Math.floor(sec / 60)
     const second = sec % 60
-    return `${min}:${second < 10 ? "0" + second : second}`
+    const secondStr = second < 10 ? "0" + second.toFixed(0) : second.toFixed(0)
+    return `${min}:${secondStr}`
   }
 
   // add currentSec per second when isPlaying is true., and stop when currentSec === totalSec

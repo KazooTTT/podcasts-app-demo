@@ -44,6 +44,8 @@ export default function IndexPage() {
   }
   const [open, setOpen] = React.useState(false)
 
+  const [[currentSec, totalSec], setTime] = React.useState([0, 60])
+
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="info-container pt-6">
@@ -61,7 +63,14 @@ export default function IndexPage() {
       </div>
       <div className="timeline-container mt-3 h-full w-4/5 flex-1">
         <div>
-          <ProgressDemo isPlaying={isPlaying} playbackRate={playbackRate} />
+          <ProgressDemo
+            isPlaying={isPlaying}
+            playbackRate={playbackRate}
+            currentSec={currentSec}
+            totalSec={totalSec}
+            setTime={setTime}
+            setIsPlaying={setIsPlaying}
+          />
         </div>
         <div className="sticky bottom-0 mt-4 flex w-full justify-around">
           <Dialog open={open} onOpenChange={setOpen}>
@@ -113,6 +122,11 @@ export default function IndexPage() {
           <Button
             className="flex flex-col items-center justify-center rounded-full px-2 py-3"
             variant="ghost"
+            onClick={() => {
+              // 判断是否小于0
+              const targetSec = currentSec - 10
+              setTime([targetSec <= 0 ? 0 : targetSec, totalSec])
+            }}
           >
             <div>
               <Undo />
@@ -135,6 +149,11 @@ export default function IndexPage() {
           <Button
             className="flex flex-col items-center justify-center rounded-full px-2 py-3"
             variant="ghost"
+            onClick={() => {
+              // 判断一下currentSec+30后是否超过了totalSec
+              const targetSec = currentSec + 30
+              setTime([targetSec > totalSec ? totalSec : targetSec, totalSec])
+            }}
           >
             <div>
               <Redo></Redo>

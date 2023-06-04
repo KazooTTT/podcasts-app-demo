@@ -65,7 +65,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                     </MenubarTrigger>
                   </MenubarMenu>
                   <MenubarMenu>
-                    <MenubarTrigger className="flex w-full flex-col  items-center">
+                    <MenubarTrigger className="flex w-full flex-col items-center">
                       <div>
                         <Languages></Languages>
                       </div>

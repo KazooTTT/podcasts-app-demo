@@ -32,9 +32,9 @@ export function ProgressDemo() {
         value={(currentSec / totalSec) * 100}
         className="h-1.5 w-full"
       />
-      <div className="mt-1 text-sm">
-        <span className="float-left">{formatTime2(currentSec)}</span>
-        <span className="float-right">{formatTime2(totalSec)}</span>
+      <div className="mt-1 flex items-center justify-between text-sm">
+        <div className="text-left">{formatTime2(currentSec)}</div>
+        <div className="text-right">{formatTime2(totalSec)}</div>
       </div>
     </div>
   )

@@ -4,6 +4,7 @@ import React from "react"
 import Image from "next/image"
 import { Gauge, Moon, PauseCircle, PlayCircle, Redo, Undo } from "lucide-react"
 
+import { Button } from "@/components/ui/button"
 import { ProgressDemo } from "@/components/progress"
 
 import cover from "../public/kazoottt.png"
@@ -44,49 +45,61 @@ export default function IndexPage() {
           <ProgressDemo />
         </div>
         <div className="sticky bottom-0 mt-4 flex w-full justify-around">
-          <div className="flex flex-col items-center justify-center">
+          <Button
+            className="flex flex-col items-center justify-center rounded-full px-2 py-3"
+            variant="ghost"
+          >
             <div>
               <Gauge></Gauge>
             </div>
-            <div className="mt-0.5 text-xs font-medium text-muted-foreground">
+            <div className="absolute top-10  w-full text-xs font-semibold text-muted-foreground">
               {formatPlaybackRate(playbackRate)}
             </div>
-          </div>
-          <div className="flex flex-col items-center justify-center">
+          </Button>
+          <Button
+            className="flex flex-col items-center justify-center rounded-full px-2 py-3"
+            variant="ghost"
+          >
             <div>
               <Undo />
             </div>
-            <div className="mt-0.5 text-xs font-medium text-muted-foreground">
-              回退10s
+            <div className="absolute top-10  w-full text-xs font-semibold text-muted-foreground">
+              -10s
             </div>
-          </div>
+          </Button>
           <div
             onClick={() => {
               setIsPlaying(!isPlaying)
             }}
           >
             {isPlaying ? (
-              <PauseCircle size="44" strokeWidth={1.2} />
+              <PauseCircle size="40" strokeWidth={1.2} />
             ) : (
-              <PlayCircle size="44" strokeWidth={1.2} />
+              <PlayCircle size="40" strokeWidth={1.2} />
             )}
           </div>
-          <div className="flex flex-col items-center justify-center">
+          <Button
+            className="flex flex-col items-center justify-center rounded-full px-2 py-3"
+            variant="ghost"
+          >
             <div>
               <Redo></Redo>
             </div>
-            <div className="mt-0.5 text-xs font-medium text-muted-foreground">
-              快进30s
+            <div className="absolute top-10  w-full text-xs font-semibold text-muted-foreground">
+              +30s
             </div>
-          </div>
-          <div className="flex flex-col items-center justify-center">
+          </Button>
+          <Button
+            className="flex flex-col items-center justify-center rounded-full px-2 py-3"
+            variant="ghost"
+          >
             <div>
               <Moon></Moon>
             </div>
-            <div className="mt-0.5 text-xs font-medium text-muted-foreground">
-              睡眠模式
+            <div className="absolute top-10  w-full text-xs font-semibold text-muted-foreground">
+              sleep
             </div>
-          </div>
+          </Button>
         </div>
       </div>
       {/* <div>新增snip</div> */}

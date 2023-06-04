@@ -4,7 +4,13 @@ import * as React from "react"
 
 import { Progress } from "@/components/ui/progress"
 
-export function ProgressDemo() {
+export function ProgressDemo({
+  isPlaying,
+  playbackRate,
+}: {
+  isPlaying: boolean
+  playbackRate: number
+}) {
   const [[currentSec, totalSec], setTime] = React.useState([0, 60])
 
   // convert ser to min:sec which has two digits
@@ -14,17 +20,22 @@ export function ProgressDemo() {
     return `${min}:${second < 10 ? "0" + second : second}`
   }
 
+  // add currentSec per second when isPlaying is true., and stop when currentSec === totalSec
   React.useEffect(() => {
-    // add currentSec per second,stop when currentSec === totalSec
-    const timer = setInterval(() => {
-      if (currentSec === totalSec) {
-        clearInterval(timer)
-      } else {
-        setTime(([currentSec, totalSec]) => [currentSec + 1, totalSec])
-      }
-    }, 1000)
-    return () => clearInterval(timer)
-  }, [currentSec, totalSec])
+    if (isPlaying) {
+      const timer = setInterval(() => {
+        if (currentSec === totalSec) {
+          clearInterval(timer)
+        } else {
+          setTime(([currentSec, totalSec]) => [
+            currentSec + 1 * playbackRate,
+            totalSec,
+          ])
+        }
+      }, 1000)
+      return () => clearInterval(timer)
+    }
+  }, [isPlaying, currentSec, totalSec, playbackRate])
 
   return (
     <div>

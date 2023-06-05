@@ -75,17 +75,19 @@ export default function IndexPage() {
         <div className="sticky bottom-0 mt-4 flex w-full justify-around">
           <Dialog open={open} onOpenChange={setOpen}>
             <DialogTrigger asChild>
-              <Button
-                className="flex flex-col items-center justify-center rounded-full px-2 py-3"
-                variant="ghost"
-              >
-                <div>
-                  <Gauge></Gauge>
-                </div>
-                <div className="relative top-2 w-full text-xs font-semibold text-muted-foreground">
+              <div className="text-center">
+                <Button
+                  className="flex flex-col items-center justify-center rounded-full px-2 py-3"
+                  variant="ghost"
+                >
+                  <div>
+                    <Gauge></Gauge>
+                  </div>
+                </Button>
+                <div className="relative top-1 w-full text-xs font-semibold text-muted-foreground">
                   {formatPlaybackRate(playbackRate)}
-                </div>
-              </Button>
+                </div>{" "}
+              </div>
             </DialogTrigger>
             <DialogContent className="bg-primary">
               <DialogHeader>
@@ -119,60 +121,66 @@ export default function IndexPage() {
               </DialogFooter>
             </DialogContent>
           </Dialog>
-          <Button
-            className="flex flex-col items-center justify-center rounded-full px-2 py-3"
-            variant="ghost"
-            onClick={() => {
-              // 判断是否小于0
-              const targetSec = currentSec - 10
-              setTime([targetSec <= 0 ? 0 : targetSec, totalSec])
-            }}
-          >
-            <div>
-              <Undo />
-            </div>
-            <div className="relative top-2 w-full text-xs font-semibold text-muted-foreground">
+          <div className="text-center">
+            <Button
+              className="flex flex-col items-center justify-center rounded-full px-2 py-3"
+              variant="ghost"
+              onClick={() => {
+                // 判断是否小于0
+                const targetSec = currentSec - 10
+                setTime([targetSec <= 0 ? 0 : targetSec, totalSec])
+              }}
+            >
+              <div>
+                <Undo />
+              </div>
+            </Button>
+            <div className="relative top-1 w-full text-xs font-semibold text-muted-foreground">
               -10s
             </div>
-          </Button>
+          </div>
           <div
             onClick={() => {
               setIsPlaying(!isPlaying)
             }}
           >
             {isPlaying ? (
-              <PauseCircle size="40" strokeWidth={1.2} />
+              <PauseCircle size="48" strokeWidth={1.2} />
             ) : (
-              <PlayCircle size="40" strokeWidth={1.2} />
+              <PlayCircle size="48" strokeWidth={1.2} />
             )}
           </div>
-          <Button
-            className="flex flex-col items-center justify-center rounded-full px-2 py-3"
-            variant="ghost"
-            onClick={() => {
-              // 判断一下currentSec+30后是否超过了totalSec
-              const targetSec = currentSec + 30
-              setTime([targetSec > totalSec ? totalSec : targetSec, totalSec])
-            }}
-          >
-            <div>
-              <Redo></Redo>
-            </div>
-            <div className="relative top-2 w-full text-xs font-semibold text-muted-foreground">
+          <div className="text-center">
+            <Button
+              className="flex flex-col items-center justify-center rounded-full px-2 py-3"
+              variant="ghost"
+              onClick={() => {
+                // 判断一下currentSec+30后是否超过了totalSec
+                const targetSec = currentSec + 30
+                setTime([targetSec > totalSec ? totalSec : targetSec, totalSec])
+              }}
+            >
+              <div>
+                <Redo></Redo>
+              </div>
+            </Button>
+            <div className="relative top-1 w-full text-xs font-semibold text-muted-foreground">
               +30s
             </div>
-          </Button>
-          <Button
-            className="flex flex-col items-center justify-center rounded-full px-2 py-3"
-            variant="ghost"
-          >
-            <div>
-              <Moon></Moon>
-            </div>
-            <div className="relative top-2 w-full text-xs font-semibold text-muted-foreground">
+          </div>
+          <div className="text-center">
+            <Button
+              className="flex flex-col items-center justify-center rounded-full px-2 py-3"
+              variant="ghost"
+            >
+              <div>
+                <Moon size={22}></Moon>
+              </div>
+            </Button>
+            <div className="relative top-1 w-full text-xs font-semibold text-muted-foreground">
               sleep
             </div>
-          </Button>
+          </div>
         </div>
       </div>
       {/* <div>新增snip</div> */}

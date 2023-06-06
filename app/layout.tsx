@@ -1,5 +1,3 @@
-"use client"
-
 import "@/styles/globals.css"
 import { Metadata } from "next"
 import { usePathname } from "next/navigation"
@@ -35,8 +33,6 @@ interface RootLayoutProps {
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
-  const pathname = usePathname()
-
   return (
     <>
       <html lang="en" suppressHydrationWarning>
@@ -56,7 +52,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                   <MenubarMenu>
                     <MenubarTrigger
                       className="flex w-full flex-col items-center"
-                      data-state={pathname === "/" ? "open" : undefined}
+                      // data-state={pathname === "/" ? "open" : undefined}
                     >
                       <div>
                         <Home></Home>
@@ -67,7 +63,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                   <MenubarMenu>
                     <MenubarTrigger
                       className="flex w-full flex-col  items-center"
-                      data-state={pathname === "/upload" ? "open" : undefined}
+                      // data-state={pathname === "/upload" ? "open" : undefined}
                     >
                       <div>
                         <Upload></Upload>
@@ -78,7 +74,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
                   <MenubarMenu>
                     <MenubarTrigger
                       className="flex w-full flex-col items-center"
-                      data-state={pathname === "/my" ? "open" : undefined}
+                      // data-state={pathname === "/my" ? "open" : undefined}
                     >
                       <div>
                         <User></User>

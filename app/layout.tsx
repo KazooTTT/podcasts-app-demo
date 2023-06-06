@@ -1,6 +1,9 @@
+"use client"
+
 import "@/styles/globals.css"
 import { Metadata } from "next"
-import { BookOpen, Languages, ListMusic, Pin, Quote } from "lucide-react"
+import { usePathname } from "next/navigation"
+import { Home, Upload, User } from "lucide-react"
 
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
@@ -32,6 +35,8 @@ interface RootLayoutProps {
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
+  const pathname = usePathname()
+
   return (
     <>
       <html lang="en" suppressHydrationWarning>
@@ -46,38 +51,39 @@ export default function RootLayout({ children }: RootLayoutProps) {
             <div className="relative flex min-h-screen flex-col">
               <SiteHeader />
               <div className="flex-1">{children}</div>
-              <div className="sticky bottom-0 z-40 w-full bg-background">
+              <div className="bottom-menu sticky bottom-0 z-40 w-full bg-background">
                 <Menubar className="h-20 justify-between border-t-0">
                   <MenubarMenu>
-                    <MenubarTrigger className="flex w-full flex-col items-center">
+                    <MenubarTrigger
+                      className="flex w-full flex-col items-center"
+                      data-state={pathname === "/" ? "open" : undefined}
+                    >
                       <div>
-                        <BookOpen></BookOpen>
+                        <Home></Home>
                       </div>
-                      <div>Chapters</div>
+                      <div>首页</div>
                     </MenubarTrigger>
                   </MenubarMenu>
                   <MenubarMenu>
-                    <MenubarTrigger className="flex w-full flex-col  items-center">
+                    <MenubarTrigger
+                      className="flex w-full flex-col  items-center"
+                      data-state={pathname === "/upload" ? "open" : undefined}
+                    >
                       <div>
-                        <Pin></Pin>
+                        <Upload></Upload>
                       </div>
-                      <div>Saved</div>
+                      <div>上传</div>
                     </MenubarTrigger>
                   </MenubarMenu>
                   <MenubarMenu>
-                    <MenubarTrigger className="flex w-full flex-col items-center">
+                    <MenubarTrigger
+                      className="flex w-full flex-col items-center"
+                      data-state={pathname === "/my" ? "open" : undefined}
+                    >
                       <div>
-                        <Languages></Languages>
+                        <User></User>
                       </div>
-                      <div>Transcript</div>
-                    </MenubarTrigger>
-                  </MenubarMenu>
-                  <MenubarMenu>
-                    <MenubarTrigger className="flex w-full flex-col  items-center">
-                      <div>
-                        <ListMusic></ListMusic>
-                      </div>
-                      <div>Queue</div>
+                      <div>我的</div>
                     </MenubarTrigger>
                   </MenubarMenu>
                 </Menubar>

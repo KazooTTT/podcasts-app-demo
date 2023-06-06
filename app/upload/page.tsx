@@ -1,3 +1,3 @@
 export default function IndexPage() {
-  return <div>content</div>
+  return <div>upload page</div>
 }

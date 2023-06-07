@@ -1,6 +1,6 @@
 "use client"
 
-import React from "react"
+import React, { useState } from "react"
 import Image from "next/image"
 import {
   Check,
@@ -12,6 +12,7 @@ import {
   Undo,
 } from "lucide-react"
 
+import { FlowType } from "@/types/nav"
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
@@ -31,6 +32,8 @@ export default function IndexPage() {
   const info = {
     title: "The Power of Unwavering Focus",
     subTitle: "The Art of Maniliness",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
   }
   // 当前播放速率
   const [playbackRate, setPlaybackRate] = React.useState(1)
@@ -46,22 +49,46 @@ export default function IndexPage() {
 
   const [[currentSec, totalSec], setTime] = React.useState([0, 60])
 
+  const [flowType, setFlowType] = useState<FlowType>("text")
+
+  const getContent = () => {
+    switch (flowType) {
+      case "img":
+        return (
+          <>
+            <Image
+              src={cover}
+              alt="cover img"
+              width={200}
+              height={200}
+              className="mx-auto rounded-3xl"
+            />
+            <div className="mt-2 text-center font-bold">{info.title}</div>
+            <div className="mt-0.5 text-center text-muted-foreground">
+              {info.subTitle}
+            </div>
+          </>
+        )
+      case "text":
+        return (
+          <>
+            <div className="mt-2 text-center font-bold">{info.title}</div>
+            <div className="mt-0.5 text-center text-muted-foreground">
+              {info.subTitle}
+            </div>
+            <div className="mt-1 text-muted-foreground">{info.content}</div>
+          </>
+        )
+
+      default:
+        return <></>
+    }
+  }
+
   return (
-    <div className="flex flex-col items-center justify-center">
-      <div className="info-container pt-6">
-        <Image
-          src={cover}
-          alt="cover img"
-          width={200}
-          height={200}
-          className="mx-auto rounded-3xl"
-        />
-        <div className="mt-2 text-center font-bold">{info.title}</div>
-        <div className="mt-0.5 text-center text-muted-foreground">
-          {info.subTitle}
-        </div>
-      </div>
-      <div className="timeline-container mt-3 h-full w-4/5 flex-1">
+    <div className="flex flex-col items-center justify-center px-2">
+      <div className="info-container w-4/5 pt-6">{getContent()}</div>
+      <div className="timeline-container mt-8 h-full w-4/5 flex-1">
         <div>
           <ProgressDemo
             isPlaying={isPlaying}

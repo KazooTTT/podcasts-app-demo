@@ -4,3 +4,5 @@ export interface NavItem {
   disabled?: boolean
   external?: boolean
 }
+
+export type FlowType = "text" | "img" | "video"

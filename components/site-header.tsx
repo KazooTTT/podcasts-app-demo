@@ -1,5 +1,3 @@
-import { MainNavLeft } from "./MainNavLeft"
-import { MainNavRight } from "./MainNavRight"
 import { Button } from "./ui/button"
 import { Input } from "./ui/input"
 

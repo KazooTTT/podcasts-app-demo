@@ -11,6 +11,7 @@ import {
   Redo,
   Undo,
 } from "lucide-react"
+import cover from "public/kazoottt.png"
 
 import { FlowType } from "@/types/nav"
 import { Button } from "@/components/ui/button"
@@ -25,8 +26,6 @@ import {
 } from "@/components/ui/dialog"
 import { ProgressDemo } from "@/components/progress"
 import { SliderDemo } from "@/components/slide"
-
-import cover from "../public/kazoottt.png"
 
 export default function IndexPage() {
   const info = {

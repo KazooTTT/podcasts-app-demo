@@ -63,21 +63,19 @@ export default function IndexPage(props?: { index: string }) {
   }
 
   return (
-    <div className="flex flex-col items-center justify-center px-2">
-      <div className="info-container flex w-4/5 flex-col items-center justify-center pt-6">
+    <div className="flex flex-col items-center justify-center px-4">
+      <div className="info-container flex w-4/5 flex-1 flex-col items-center justify-center  pt-6">
         {getContent(cardInfo)}
       </div>
-      <div className="timeline-container mt-8 h-full w-4/5 flex-1">
-        <div>
-          <ProgressDemo
-            isPlaying={isPlaying}
-            playbackRate={playbackRate}
-            currentSec={currentSec}
-            totalSec={totalSec}
-            setTime={setTime}
-            setIsPlaying={setIsPlaying}
-          />
-        </div>
+      <div className="timeline-container mt-8 w-4/5">
+        <ProgressDemo
+          isPlaying={isPlaying}
+          playbackRate={playbackRate}
+          currentSec={currentSec}
+          totalSec={totalSec}
+          setTime={setTime}
+          setIsPlaying={setIsPlaying}
+        />
       </div>
       {/* <div>新增snip</div> */}
     </div>

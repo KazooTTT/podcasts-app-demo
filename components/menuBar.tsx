@@ -20,7 +20,7 @@ const MenuBar = () => {
             className="mb-1 flex w-12 flex-col items-center"
             data-state={isActive("/flow") ? "open" : undefined}
             onClick={() => {
-              router.push("/flow")
+              router.push("/flow/0")
             }}
           >
             <div>

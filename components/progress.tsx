@@ -51,7 +51,7 @@ export function ProgressDemo({
   }, [isPlaying, currentSec, totalSec, playbackRate, setTime, setIsPlaying])
 
   return (
-    <div>
+    <div className='w-full'>
       {/* <Progress
         value={(currentSec / totalSec) * 100}
         className="h-1.5 w-full"

@@ -10,6 +10,7 @@ import { ImgCard, TextCard } from "@/components/flow/card"
 import { ProgressDemo } from "@/components/progress"
 
 export default function IndexPage(props?: { index: string }) {
+  console.log("%c Line:13 🍖 props", "color:#fca650", props)
   const infoList = [
     {
       title: "The Power of Unwavering Focus",
@@ -45,7 +46,7 @@ export default function IndexPage(props?: { index: string }) {
   const [cardIndex, setCardIndex] = useState(-1)
 
   useEffect(() => {
-    setCardIndex(Number(props?.index) || -1)
+    setCardIndex(Number(props?.index))
   }, [props?.index])
 
   const cardInfo = infoList[cardIndex] ?? {}

@@ -1,7 +1,6 @@
 "use client"
 
-import React, { useState } from "react"
-import Image from "next/image"
+import React, { useEffect, useState } from "react"
 import {
   Check,
   Gauge,
@@ -13,6 +12,7 @@ import {
 } from "lucide-react"
 import cover from "public/kazoottt.png"
 
+import { CardProps } from "@/types/flow"
 import { FlowType } from "@/types/nav"
 import { Button } from "@/components/ui/button"
 import {
@@ -24,16 +24,29 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
+import { ImgCard, TextCard } from "@/components/flow/card"
 import { ProgressDemo } from "@/components/progress"
 import { SliderDemo } from "@/components/slide"
 
-export default function IndexPage() {
-  const info = {
-    title: "The Power of Unwavering Focus",
-    subTitle: "The Art of Maniliness",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  }
+export default function IndexPage(props?: { index: string }) {
+  const infoList = [
+    {
+      title: "The Power of Unwavering Focus",
+      subTitle: "The Art of Maniliness",
+      type: "text",
+      content:
+        "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    },
+    {
+      title: "The Power of Unwavering Focus",
+      subTitle: "The Art of Maniliness",
+      type: "img",
+      cover: cover,
+      content:
+        "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    },
+  ]
+
   // 当前播放速率
   const [playbackRate, setPlaybackRate] = React.useState(1)
 
@@ -48,36 +61,21 @@ export default function IndexPage() {
 
   const [[currentSec, totalSec], setTime] = React.useState([0, 60])
 
-  const [flowType, setFlowType] = useState<FlowType>("text")
+  const [cardIndex, setCardIndex] = useState(0)
 
-  const getContent = () => {
-    switch (flowType) {
+  useEffect(() => {
+    setCardIndex(Number(props?.index) || 0)
+  }, [props?.index])
+
+  const cardInfo = infoList[cardIndex]
+  const currentType = cardInfo.type
+
+  const getContent = (info: CardProps) => {
+    switch (info.type) {
       case "img":
-        return (
-          <>
-            <Image
-              src={cover}
-              alt="cover img"
-              width={200}
-              height={200}
-              className="mx-auto rounded-3xl"
-            />
-            <div className="mt-2 text-center font-bold">{info.title}</div>
-            <div className="mt-0.5 text-center text-muted-foreground">
-              {info.subTitle}
-            </div>
-          </>
-        )
+        return ImgCard(info)
       case "text":
-        return (
-          <>
-            <div className="mt-2 text-center font-bold">{info.title}</div>
-            <div className="mt-0.5 text-center text-muted-foreground">
-              {info.subTitle}
-            </div>
-            <div className="mt-1 text-muted-foreground">{info.content}</div>
-          </>
-        )
+        return TextCard(info)
 
       default:
         return <></>
@@ -86,7 +84,7 @@ export default function IndexPage() {
 
   return (
     <div className="flex flex-col items-center justify-center px-2">
-      <div className="info-container w-4/5 pt-6">{getContent()}</div>
+      <div className="info-container w-4/5 pt-6">{getContent(cardInfo)}</div>
       <div className="timeline-container mt-8 h-full w-4/5 flex-1">
         <div>
           <ProgressDemo

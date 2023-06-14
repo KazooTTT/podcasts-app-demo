@@ -86,7 +86,9 @@ export default function IndexPage() {
 
   return (
     <div className="flex flex-col items-center justify-center px-2">
-      <div className="info-container w-4/5 pt-6">{getContent()}</div>
+      <div className="info-container flex w-4/5 items-center justify-center pt-6">
+        {getContent()}
+      </div>
       <div className="timeline-container mt-8 h-full w-4/5 flex-1">
         <div>
           <ProgressDemo

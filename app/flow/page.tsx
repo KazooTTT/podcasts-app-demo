@@ -10,7 +10,6 @@ import { ImgCard, TextCard } from "@/components/flow/card"
 import { ProgressDemo } from "@/components/progress"
 
 export default function IndexPage(props?: { index: string }) {
-  console.log("%c Line:13 🍻 props", "color:#3f7cff", props)
   const infoList = [
     {
       title: "The Power of Unwavering Focus",
@@ -50,7 +49,6 @@ export default function IndexPage(props?: { index: string }) {
   }, [props?.index])
 
   const cardInfo = infoList[cardIndex] ?? {}
-  console.log("%c Line:53 🍅 cardInfo", "color:#fca650", cardInfo)
 
   const getContent = (info: CardProps) => {
     switch (info.type) {

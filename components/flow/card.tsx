@@ -19,7 +19,6 @@ function TextCard({ title, subTitle, content }: CardProps) {
 }
 
 function ImgCard({ title, subTitle, cover, content }: CardProps) {
-  console.log("%c Line:22 🍺 cover", "color:#b03734", cover)
   // TODO 计算一下content的高度，content = header - 头像 - 间距-播放器- footer
   const size = useSize(document.body)
   const maxHeight =

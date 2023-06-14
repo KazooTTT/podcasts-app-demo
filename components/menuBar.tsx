@@ -13,46 +13,58 @@ const MenuBar = () => {
   return (
     <Menubar className="h-20 justify-around border-t-0">
       <MenubarMenu>
-        <MenubarTrigger
-          className="flex w-24 flex-col items-center"
-          data-state={pathname === "/flow" ? "open" : undefined}
-          onClick={() => {
-            router.push("/")
-          }}
-        >
-          <div>
-            <Home></Home>
+        <div className="text-center">
+          <MenubarTrigger
+            className="mb-1 flex w-12 flex-col items-center"
+            data-state={pathname === "/flow" ? "open" : undefined}
+            onClick={() => {
+              router.push("/")
+            }}
+          >
+            <div>
+              <Home></Home>
+            </div>
+          </MenubarTrigger>
+          <div className={pathname === "/flow" ? "text-accent" : "white"}>
+            首页
           </div>
-          <div>首页</div>
-        </MenubarTrigger>
+        </div>
       </MenubarMenu>
       <MenubarMenu>
-        <MenubarTrigger
-          className="flex w-24 flex-col items-center"
-          data-state={pathname === "/upload" ? "open" : undefined}
-          onClick={() => {
-            router.push("/upload")
-          }}
-        >
-          <div>
-            <Upload></Upload>
+        <div className="text-center">
+          <MenubarTrigger
+            className="mb-1 flex w-12 flex-col items-center"
+            data-state={pathname === "/upload" ? "open" : undefined}
+            onClick={() => {
+              router.push("/upload")
+            }}
+          >
+            <div>
+              <Upload></Upload>
+            </div>
+          </MenubarTrigger>
+          <div className={pathname === "/upload" ? "text-accent" : "white"}>
+            分享
           </div>
-          <div>上传</div>
-        </MenubarTrigger>
+        </div>
       </MenubarMenu>
       <MenubarMenu>
-        <MenubarTrigger
-          className="flex w-24 flex-col items-center"
-          data-state={pathname === "/my" ? "open" : undefined}
-          onClick={() => {
-            router.push("/my")
-          }}
-        >
-          <div>
-            <User></User>
+        <div className="text-center">
+          <MenubarTrigger
+            className="mb-1 flex w-12 flex-col items-center"
+            data-state={pathname === "/my" ? "open" : undefined}
+            onClick={() => {
+              router.push("/my")
+            }}
+          >
+            <div>
+              <User></User>
+            </div>
+          </MenubarTrigger>
+          <div className={pathname === "/my" ? "text-accent" : "white"}>
+            我的
           </div>
-          <div>我的</div>
-        </MenubarTrigger>
+        </div>
       </MenubarMenu>
     </Menubar>
   )

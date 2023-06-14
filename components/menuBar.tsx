@@ -15,7 +15,7 @@ const MenuBar = () => {
       <MenubarMenu>
         <MenubarTrigger
           className="flex w-24 flex-col items-center"
-          data-state={pathname === "/" ? "open" : undefined}
+          data-state={pathname === "/flow" ? "open" : undefined}
           onClick={() => {
             router.push("/")
           }}

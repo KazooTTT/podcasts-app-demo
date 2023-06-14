@@ -1,11 +1,9 @@
-import "@/styles/globals.css";
+import "@/styles/globals.css"
 import { Metadata } from "next"
 
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
 import { cn } from "@/lib/utils"
-import MenuBar from "@/components/menuBar"
-import { SiteHeader } from "@/components/site-header"
 import { ThemeProvider } from "@/components/theme-provider"
 import { ThemeToggle } from "@/components/theme-toggle"
 
@@ -42,14 +40,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           )}
         >
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-            <div className="relative flex min-h-screen flex-col">
-              <SiteHeader />
-              <div className="flex-1">{children}</div>
-              <div className="bottom-menu sticky bottom-0 z-40 w-full bg-background">
-                <MenuBar></MenuBar>
-              </div>
-            </div>
-            {/* <TailwindIndicator /> */}
+            {children}
             <ThemeToggle />
           </ThemeProvider>
         </body>

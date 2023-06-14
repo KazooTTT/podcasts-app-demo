@@ -1,4 +1,4 @@
-import Image, { StaticImageData } from "next/image"
+import Image from "next/image"
 
 import { CardProps } from "@/types/flow"
 
@@ -15,13 +15,15 @@ function TextCard({ title, subTitle, content }: CardProps) {
 function ImgCard({ title, subTitle, cover }: CardProps) {
   return (
     <>
-      <Image
-        src={cover}
-        alt="cover img"
-        width={200}
-        height={200}
-        className="mx-auto rounded-3xl"
-      />
+      {cover && (
+        <Image
+          src={cover}
+          alt="cover img"
+          width={200}
+          height={200}
+          className="mx-auto rounded-3xl"
+        />
+      )}
       <div className="mt-2 text-center font-bold">{title}</div>
       <div className="mt-0.5 text-center text-muted-foreground">{subTitle}</div>
     </>

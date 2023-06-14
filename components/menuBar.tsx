@@ -10,22 +10,24 @@ const MenuBar = () => {
   const pathname = usePathname()
   const router = useRouter()
 
+  const isActive = (prefix: string) => pathname.startsWith(prefix)
+
   return (
     <Menubar className="h-20 justify-around border-t-0">
       <MenubarMenu>
         <div className="text-center">
           <MenubarTrigger
             className="mb-1 flex w-12 flex-col items-center"
-            data-state={pathname === "/flow" ? "open" : undefined}
+            data-state={isActive("/flow") ? "open" : undefined}
             onClick={() => {
-              router.push("/")
+              router.push("/flow")
             }}
           >
             <div>
               <Home></Home>
             </div>
           </MenubarTrigger>
-          <div className={pathname === "/flow" ? "text-accent" : "white"}>
+          <div className={isActive("/flow") ? "text-accent" : "white"}>
             首页
           </div>
         </div>
@@ -34,7 +36,7 @@ const MenuBar = () => {
         <div className="text-center">
           <MenubarTrigger
             className="mb-1 flex w-12 flex-col items-center"
-            data-state={pathname === "/upload" ? "open" : undefined}
+            data-state={isActive("/upload") ? "open" : undefined}
             onClick={() => {
               router.push("/upload")
             }}
@@ -43,7 +45,7 @@ const MenuBar = () => {
               <Upload></Upload>
             </div>
           </MenubarTrigger>
-          <div className={pathname === "/upload" ? "text-accent" : "white"}>
+          <div className={isActive("/upload") ? "text-accent" : "white"}>
             分享
           </div>
         </div>
@@ -52,7 +54,7 @@ const MenuBar = () => {
         <div className="text-center">
           <MenubarTrigger
             className="mb-1 flex w-12 flex-col items-center"
-            data-state={pathname === "/my" ? "open" : undefined}
+            data-state={isActive("/my") ? "open" : undefined}
             onClick={() => {
               router.push("/my")
             }}
@@ -61,9 +63,7 @@ const MenuBar = () => {
               <User></User>
             </div>
           </MenubarTrigger>
-          <div className={pathname === "/my" ? "text-accent" : "white"}>
-            我的
-          </div>
+          <div className={isActive("/my") ? "text-accent" : "white"}>我的</div>
         </div>
       </MenubarMenu>
     </Menubar>

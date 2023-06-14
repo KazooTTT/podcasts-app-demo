@@ -14,7 +14,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <div className="relative flex min-h-screen flex-col">
       <SiteHeader />
       <div className="flex-1">{children}</div>
-      <div className="absolute bottom-1/3 right-0 flex flex-col space-y-8">
+      <div className="absolute bottom-1/4 right-0 flex flex-col space-y-8">
         <Button variant={"link"}>
           <div className="flex flex-col items-center justify-center space-y-0.5">
             <Share2></Share2>

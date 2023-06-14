@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation"
 
 export default function Page() {
-  redirect("/flow/1")
+  redirect("/flow/0")
 }

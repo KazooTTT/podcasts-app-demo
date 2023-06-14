@@ -1,12 +1,9 @@
 "use client"
 
-import { useState } from "react"
 import Image from "next/image"
 import { useSize } from "ahooks"
 
 import { CardProps } from "@/types/flow"
-
-import { Skeleton } from "../ui/skeleton"
 
 function TextCard({ title, subTitle, content }: CardProps) {
   //  计算一下content的高度，content = header - 头像 - 间距-播放器- footer

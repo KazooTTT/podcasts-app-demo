@@ -1,6 +1,5 @@
-import "@/styles/globals.css"
-import { Metadata } from "next";
-import { usePathname } from "next/navigation"
+import "@/styles/globals.css";
+import { Metadata } from "next"
 
 import { siteConfig } from "@/config/site"
 import { fontSans } from "@/lib/fonts"
@@ -32,10 +31,6 @@ interface RootLayoutProps {
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
-  // check if use layout by pathname in next.js add mode
-  const pathname = usePathname()
-  console.log("%c Line:37 🍊 pathname", "color:#7f2b82", pathname)
-
   return (
     <>
       <html lang="en" suppressHydrationWarning>

@@ -1,11 +1,10 @@
 "use client"
 
-import { AvatarFallback } from "@radix-ui/react-avatar"
 import { Search } from "lucide-react"
 
-import { Avatar, AvatarImage } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
-import { Button } from "../../ui/button"
+import { Button } from "../ui/button"
 
 export function SiteHeader() {
   return (
@@ -16,8 +15,8 @@ export function SiteHeader() {
           className="flex items-center space-x-2 hover:no-underline"
         >
           <Avatar className="border-2 border-solid border-[#ce395f]">
-            <AvatarImage src="https://github.com/shadcn.png" alt="album" />
-            <AvatarFallback>LP</AvatarFallback>
+            <AvatarImage src="https://p.ipic.vip/oh91co.png" alt="album" />
+            <AvatarFallback></AvatarFallback>
           </Avatar>
           <div>片段所在声音</div>
         </Button>

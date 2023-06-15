@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button"
-import { SiteHeader } from "@/components/flow/siteHeader"
+import { SiteHeader } from "@/components/album/siteHeader"
 import MenuBar from "@/components/menuBar"
 
 import "@/styles/globals.css"

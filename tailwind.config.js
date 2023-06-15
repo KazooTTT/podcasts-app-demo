@@ -40,6 +40,7 @@ module.exports = {
         },
         accent: {
           DEFAULT: "#dc375a",
+          background: "#eed3da",
           foreground: "white",
         },
         popover: {

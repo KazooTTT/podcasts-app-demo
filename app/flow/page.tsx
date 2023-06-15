@@ -1,11 +1,9 @@
 "use client"
 
 import React, { useEffect, useState } from "react"
-import cover from "public/kazoottt.png"
 
 import { CardProps } from "@/types/flow"
 import { Skeleton } from "@/components/ui/skeleton"
-import { PlayController } from "@/components/PlayController"
 import { ImgCard, TextCard } from "@/components/flow/card"
 import { ProgressDemo } from "@/components/progress"
 

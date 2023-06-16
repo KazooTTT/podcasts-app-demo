@@ -1,17 +1,17 @@
-import { Button } from "@/components/ui/button"
-import { SiteHeader } from "@/components/flow/siteHeader"
-import MenuBar from "@/components/menuBar"
+import { Button } from "@/components/ui/button";
+import { SiteHeader } from "@/components/flow/siteHeader";
+import MenuBar from "@/components/menuBar";
 
-import "@/styles/globals.css"
-import { Heart, Share2, ThumbsDown, ThumbsUp } from "lucide-react"
+import "@/styles/globals.css";
+import { Heart, Share2, ThumbsDown, ThumbsUp } from "lucide-react";
 
 interface RootLayoutProps {
-  children: React.ReactNode
+  children: React.ReactNode;
 }
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <div className="relative flex min-h-screen flex-col">
+    <div className="relative flex max-h-screen min-h-screen flex-col">
       <SiteHeader />
       <div className="flex-1">{children}</div>
       <div className="absolute bottom-1/4 right-0 flex flex-col space-y-8">
@@ -40,9 +40,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
           </div>
         </Button>
       </div>
-      <div className="bottom-menu sticky bottom-0 z-40 w-full bg-background">
+      <div className="bottom-menu sticky bottom-0 z-40 w-full">
         <MenuBar></MenuBar>
       </div>
     </div>
-  )
+  );
 }

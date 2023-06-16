@@ -12,7 +12,7 @@ export function SiteHeader() {
           variant={"link"}
           className="flex items-center space-x-2 hover:no-underline"
         >
-          <Avatar className="border-2 border-solid border-[#ce395f]">
+          <Avatar className="border-2 border-solid border-accent">
             <AvatarImage src="https://p.ipic.vip/oh91co.png" alt="album" />
             <AvatarFallback></AvatarFallback>
           </Avatar>

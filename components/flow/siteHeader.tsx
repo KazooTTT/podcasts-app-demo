@@ -1,10 +1,10 @@
-"use client"
+"use client";
 
-import { Search } from "lucide-react"
+import { Search } from "lucide-react";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 
-import { Button } from "../ui/button"
+import { Button } from "../ui/button";
 
 export function SiteHeader() {
   return (
@@ -14,7 +14,7 @@ export function SiteHeader() {
           variant={"link"}
           className="flex items-center space-x-2 hover:no-underline"
         >
-          <Avatar className="border-2 border-solid border-[#ce395f]">
+          <Avatar className="border-2 border-solid border-accent">
             <AvatarImage src="https://p.ipic.vip/oh91co.png" alt="album" />
             <AvatarFallback></AvatarFallback>
           </Avatar>
@@ -25,5 +25,5 @@ export function SiteHeader() {
         </Button>
       </div>
     </header>
-  )
+  );
 }

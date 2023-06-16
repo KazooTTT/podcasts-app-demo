@@ -1,14 +1,11 @@
 "use client";
 
-import { useRef } from "react";
 import Image from "next/image";
-import { useSize } from "ahooks";
 import { ArrowUpDown, Info, PlayCircle, Plus, Share2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { ScrollArea } from "@/components/ui/scroll-area";
 
-export default function IndexPage(props?: { index: string }) {
+export default function IndexPage() {
   const info = {
     title: "被讨厌的勇气",
     desc: "被讨厌的勇气，并不是要去吸引被讨厌的负向能量，而是，如果这是我生命想绽放出最美的光彩，那么，即使有被讨厌的可能,我都要用自己的双手双脚往那里走去。",

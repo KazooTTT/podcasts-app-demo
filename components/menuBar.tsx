@@ -1,30 +1,30 @@
-"use client"
+"use client";
 
-import { usePathname, useRouter } from "next/navigation"
-import { Home, Upload, User } from "lucide-react"
+import { usePathname, useRouter } from "next/navigation";
+import { Home, Upload, User } from "lucide-react";
 
-import { Menubar, MenubarMenu, MenubarTrigger } from "./ui/menubar"
+import { Menubar, MenubarMenu, MenubarTrigger } from "./ui/menubar";
 
 const MenuBar = () => {
   // get pathname in nextjs
-  const pathname = usePathname()
-  const router = useRouter()
+  const pathname = usePathname();
+  const router = useRouter();
 
-  const isActive = (prefix: string) => pathname.startsWith(prefix)
+  const isActive = (prefix: string) => pathname.startsWith(prefix);
 
   return (
-    <Menubar className="h-20 justify-around border-t-0">
+    <Menubar className="h-16 justify-around border-t bg-contrast">
       <MenubarMenu>
         <div className="text-center">
           <MenubarTrigger
-            className="mb-1 flex w-12 flex-col items-center"
+            className="mb-0.5 flex w-12 flex-col items-center"
             data-state={isActive("/flow") ? "open" : undefined}
             onClick={() => {
-              router.push("/flow/0")
+              router.push("/flow/0");
             }}
           >
             <div>
-              <Home></Home>
+              <Home size={20}></Home>
             </div>
           </MenubarTrigger>
           <div className={isActive("/flow") ? "text-accent" : "white"}>
@@ -35,10 +35,10 @@ const MenuBar = () => {
       <MenubarMenu>
         <div className="text-center">
           <MenubarTrigger
-            className="mb-1 flex w-12 flex-col items-center"
+            className="mb-0.5 flex w-12 flex-col items-center"
             data-state={isActive("/upload") ? "open" : undefined}
             onClick={() => {
-              router.push("/upload")
+              router.push("/upload");
             }}
           >
             <div>
@@ -53,10 +53,10 @@ const MenuBar = () => {
       <MenubarMenu>
         <div className="text-center">
           <MenubarTrigger
-            className="mb-1 flex w-12 flex-col items-center"
+            className="mb-0.5 flex w-12 flex-col items-center"
             data-state={isActive("/my") ? "open" : undefined}
             onClick={() => {
-              router.push("/my")
+              router.push("/my");
             }}
           >
             <div>
@@ -67,7 +67,7 @@ const MenuBar = () => {
         </div>
       </MenubarMenu>
     </Menubar>
-  )
-}
+  );
+};
 
-export default MenuBar
+export default MenuBar;

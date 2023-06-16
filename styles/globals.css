@@ -31,6 +31,9 @@
     --destructive: 0 100% 50%;
     --destructive-foreground: 210 40% 98%;
 
+    --contrast: #d5ced0;
+    --contrast-foreground: #080810;
+
     --ring: 215 20.2% 65.1%;
 
     --radius: 0.5rem;

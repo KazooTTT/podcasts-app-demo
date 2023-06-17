@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import { Home, Upload, User } from "lucide-react";
+import { Heart, Home, Mail, Upload, User } from "lucide-react";
 
 import { Menubar, MenubarMenu, MenubarTrigger } from "./ui/menubar";
 
@@ -28,7 +28,25 @@ const MenuBar = () => {
             </div>
           </MenubarTrigger>
           <div className={isActive("/flow") ? "text-accent" : "white"}>
-            首页
+            发现
+          </div>
+        </div>
+      </MenubarMenu>
+      <MenubarMenu>
+        <div className="text-center">
+          <MenubarTrigger
+            className="mb-0.5 flex w-12 flex-col items-center"
+            data-state={isActive("/subscribe") ? "open" : undefined}
+            onClick={() => {
+              router.push("/subscribe");
+            }}
+          >
+            <div>
+              <Heart />
+            </div>
+          </MenubarTrigger>
+          <div className={isActive("/subscribe") ? "text-accent" : "white"}>
+            订阅
           </div>
         </div>
       </MenubarMenu>
@@ -46,7 +64,25 @@ const MenuBar = () => {
             </div>
           </MenubarTrigger>
           <div className={isActive("/upload") ? "text-accent" : "white"}>
-            分享
+            上传
+          </div>
+        </div>
+      </MenubarMenu>
+      <MenubarMenu>
+        <div className="text-center">
+          <MenubarTrigger
+            className="mb-0.5 flex w-12 flex-col items-center"
+            data-state={isActive("/message") ? "open" : undefined}
+            onClick={() => {
+              router.push("/message");
+            }}
+          >
+            <div>
+              <Mail />
+            </div>
+          </MenubarTrigger>
+          <div className={isActive("/message") ? "text-accent" : "white"}>
+            消息
           </div>
         </div>
       </MenubarMenu>

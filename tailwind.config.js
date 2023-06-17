@@ -43,9 +43,8 @@ module.exports = {
           foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
-          DEFAULT: "#dc375a",
-          background: "#eed3da",
-          foreground: "white",
+          DEFAULT: "hsl(var(--accent))",
+          foreground: "hsl(var(--accent-foreground))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -54,6 +53,16 @@ module.exports = {
         card: {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
+        },
+        hightLight: {
+          DEFAULT: "#dc375a",
+          background: "#eed3da",
+          foreground: "white",
+        },
+        hightLightMenu: {
+          DEFAULT: "#ff2440",
+          background: "#eed3da",
+          foreground: "white",
         },
       },
       borderRadius: {

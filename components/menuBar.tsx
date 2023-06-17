@@ -17,7 +17,7 @@ const MenuBar = () => {
       <MenubarMenu>
         <div className="text-center">
           <MenubarTrigger
-            className="mb-0.5 flex w-12 flex-col items-center"
+            className="mb-0.5 flex w-12 flex-col items-center data-[state=open]:bg-hightLightMenu"
             data-state={isActive("/flow") ? "open" : undefined}
             onClick={() => {
               router.push("/flow/0");
@@ -27,7 +27,7 @@ const MenuBar = () => {
               <Home size={20}></Home>
             </div>
           </MenubarTrigger>
-          <div className={isActive("/flow") ? "text-accent" : "white"}>
+          <div className={isActive("/flow") ? "text-hightLightMenu" : "white"}>
             发现
           </div>
         </div>
@@ -35,7 +35,7 @@ const MenuBar = () => {
       <MenubarMenu>
         <div className="text-center">
           <MenubarTrigger
-            className="mb-0.5 flex w-12 flex-col items-center"
+            className="mb-0.5 flex w-12 flex-col items-center data-[state=open]:bg-hightLightMenu"
             data-state={isActive("/subscribe") ? "open" : undefined}
             onClick={() => {
               router.push("/subscribe");
@@ -45,7 +45,9 @@ const MenuBar = () => {
               <Heart />
             </div>
           </MenubarTrigger>
-          <div className={isActive("/subscribe") ? "text-accent" : "white"}>
+          <div
+            className={isActive("/subscribe") ? "text-hightLightMenu" : "white"}
+          >
             订阅
           </div>
         </div>
@@ -53,7 +55,7 @@ const MenuBar = () => {
       <MenubarMenu>
         <div className="text-center">
           <MenubarTrigger
-            className="mb-0.5 flex w-12 flex-col items-center"
+            className="mb-0.5 flex w-12 flex-col items-center data-[state=open]:bg-hightLightMenu"
             data-state={isActive("/upload") ? "open" : undefined}
             onClick={() => {
               router.push("/upload");
@@ -63,7 +65,9 @@ const MenuBar = () => {
               <Upload></Upload>
             </div>
           </MenubarTrigger>
-          <div className={isActive("/upload") ? "text-accent" : "white"}>
+          <div
+            className={isActive("/upload") ? "text-hightLightMenu" : "white"}
+          >
             上传
           </div>
         </div>
@@ -71,7 +75,7 @@ const MenuBar = () => {
       <MenubarMenu>
         <div className="text-center">
           <MenubarTrigger
-            className="mb-0.5 flex w-12 flex-col items-center"
+            className="mb-0.5 flex w-12 flex-col items-center data-[state=open]:bg-hightLightMenu"
             data-state={isActive("/message") ? "open" : undefined}
             onClick={() => {
               router.push("/message");
@@ -81,7 +85,9 @@ const MenuBar = () => {
               <Mail />
             </div>
           </MenubarTrigger>
-          <div className={isActive("/message") ? "text-accent" : "white"}>
+          <div
+            className={isActive("/message") ? "text-hightLightMenu" : "white"}
+          >
             消息
           </div>
         </div>
@@ -89,7 +95,7 @@ const MenuBar = () => {
       <MenubarMenu>
         <div className="text-center">
           <MenubarTrigger
-            className="mb-0.5 flex w-12 flex-col items-center"
+            className="mb-0.5 flex w-12 flex-col items-center data-[state=open]:bg-hightLightMenu"
             data-state={isActive("/my") ? "open" : undefined}
             onClick={() => {
               router.push("/my");
@@ -99,7 +105,9 @@ const MenuBar = () => {
               <User></User>
             </div>
           </MenubarTrigger>
-          <div className={isActive("/my") ? "text-accent" : "white"}>我的</div>
+          <div className={isActive("/my") ? "text-hightLightMenu" : "white"}>
+            我的
+          </div>
         </div>
       </MenubarMenu>
     </Menubar>

@@ -200,17 +200,11 @@ export default function IndexPage() {
           />
           <div className="flex flex-1 flex-col items-center justify-between">
             <div className="text-2xl font-semibold">{info.title}</div>
-            <Button
-              className="space-x-3 rounded-full bg-accent-background px-6 text-accent"
-              variant={"diy"}
-            >
+            <Button className="h-9 space-x-3 rounded-sm px-10 text-accent">
               <Share2 />
               <div className="font-semibold">分 享</div>
             </Button>
-            <Button
-              className="space-x-3 rounded-full bg-accent-background px-6 text-accent"
-              variant={"diy"}
-            >
+            <Button className="h-9 space-x-3 rounded-sm px-10 text-accent">
               <Plus />
               <div className="font-semibold">订 阅</div>
             </Button>
@@ -218,24 +212,15 @@ export default function IndexPage() {
         </div>
         <div className="mt-4 text-sm text-foreground">简介:{info.desc}</div>
         <div className="buttons mt-4 flex w-full space-x-3">
-          <Button
-            className="h-8 w-1/3 space-x-0.5 rounded-full bg-accent-background px-0 text-accent"
-            variant={"diy"}
-          >
+          <Button className=" h-8 w-1/3 space-x-0.5 rounded-sm px-0 text-accent">
             <ArrowUpDown size={20} />
             <div className="whitespace-nowrap font-semibold">时间</div>
           </Button>
-          <Button
-            className="h-8 w-1/3 space-x-0.5 rounded-full bg-accent-background px-0 text-accent"
-            variant={"diy"}
-          >
+          <Button className=" h-8 w-1/3 space-x-0.5 rounded-sm px-0 text-accent">
             <ArrowUpDown size={20} />
             <div className="whitespace-nowrap font-semibold">播放量</div>
           </Button>
-          <Button
-            className="h-8 w-1/3 space-x-0.5  rounded-full bg-accent-background px-0 text-accent"
-            variant={"diy"}
-          >
+          <Button className=" h-8 w-1/3 space-x-0.5 rounded-sm px-0 text-accent">
             <ArrowUpDown size={20} />
             <div className="whitespace-nowrap font-semibold">片段创作</div>
           </Button>

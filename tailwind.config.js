@@ -87,6 +87,9 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      textDecorationThickness: {
+        1.5: "1.5px",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

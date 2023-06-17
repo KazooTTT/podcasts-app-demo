@@ -1,7 +1,8 @@
-"use client"
+"use client";
 
-import React from "react"
+import React from "react";
 import {
+  AlignJustify,
   Check,
   Gauge,
   Moon,
@@ -9,9 +10,9 @@ import {
   PlayCircle,
   Redo,
   Undo,
-} from "lucide-react"
+} from "lucide-react";
 
-import { Button } from "@/components/ui/button"
+import { Button } from "@/components/ui/button";
 import {
   Dialog,
   DialogContent,
@@ -20,8 +21,9 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
-import { SliderDemo } from "@/components/slide"
+} from "@/components/ui/dialog";
+import { SliderDemo } from "@/components/slide";
+import { Content } from "@radix-ui/react-tabs";
 
 export function PlayController({
   open,
@@ -35,16 +37,16 @@ export function PlayController({
   setIsPlaying,
   isPlaying,
 }: {
-  open: boolean
-  setOpen: React.Dispatch<React.SetStateAction<boolean>>
-  formatPlaybackRate: (playbackRate: number) => string
-  playbackRate: number
-  setPlaybackRate: React.Dispatch<React.SetStateAction<number>>
-  currentSec: number
-  setTime: React.Dispatch<React.SetStateAction<[number, number]>>
-  totalSec: number
-  setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>
-  isPlaying: boolean
+  open: boolean;
+  setOpen: React.Dispatch<React.SetStateAction<boolean>>;
+  formatPlaybackRate: (playbackRate: number) => string;
+  playbackRate: number;
+  setPlaybackRate: React.Dispatch<React.SetStateAction<number>>;
+  currentSec: number;
+  setTime: React.Dispatch<React.SetStateAction<[number, number]>>;
+  totalSec: number;
+  setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>;
+  isPlaying: boolean;
 }) {
   return (
     <div className="sticky bottom-0 mt-4 flex w-full justify-around">
@@ -77,8 +79,8 @@ export function PlayController({
             <SliderDemo
               value={[playbackRate]}
               onValueChange={(value: number[]) => {
-                console.log("%c Line:95 🍅 value", "color:#6ec1c2", value)
-                setPlaybackRate(value[0])
+                console.log("%c Line:95 🍅 value", "color:#6ec1c2", value);
+                setPlaybackRate(value[0]);
               }}
             ></SliderDemo>
           </div>
@@ -88,7 +90,7 @@ export function PlayController({
               variant="secondary"
               className="w-fit"
               onClick={() => {
-                setOpen(false)
+                setOpen(false);
               }}
             >
               <Check></Check>保存
@@ -102,8 +104,8 @@ export function PlayController({
           variant="ghost"
           onClick={() => {
             // 判断是否小于0
-            const targetSec = currentSec - 10
-            setTime([targetSec <= 0 ? 0 : targetSec, totalSec])
+            const targetSec = currentSec - 10;
+            setTime([targetSec <= 0 ? 0 : targetSec, totalSec]);
           }}
         >
           <div>
@@ -116,7 +118,7 @@ export function PlayController({
       </div>
       <div
         onClick={() => {
-          setIsPlaying(!isPlaying)
+          setIsPlaying(!isPlaying);
         }}
       >
         {isPlaying ? (
@@ -131,8 +133,8 @@ export function PlayController({
           variant="ghost"
           onClick={() => {
             // 判断一下currentSec+30后是否超过了totalSec
-            const targetSec = currentSec + 30
-            setTime([targetSec > totalSec ? totalSec : targetSec, totalSec])
+            const targetSec = currentSec + 30;
+            setTime([targetSec > totalSec ? totalSec : targetSec, totalSec]);
           }}
         >
           <div>
@@ -149,13 +151,13 @@ export function PlayController({
           variant="ghost"
         >
           <div>
-            <Moon size={22}></Moon>
+            <AlignJustify size={22} />
           </div>
         </Button>
         <div className="relative top-1 w-full text-xs font-semibold text-muted-foreground">
-          sleep
+          目录
         </div>
       </div>
     </div>
-  )
+  );
 }

@@ -9,7 +9,7 @@ import { Button } from "../ui/button";
 export function SiteHeader() {
   return (
     <header className="sticky top-0 z-40 w-full bg-background">
-      <div className="container flex h-14 items-center justify-between space-x-4 p-2">
+      <div className="flex h-14 w-full items-center justify-between px-0 py-2">
         <Button
           variant={"link"}
           className="flex items-center space-x-2 hover:no-underline"

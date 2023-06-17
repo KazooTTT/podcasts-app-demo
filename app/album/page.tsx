@@ -14,7 +14,8 @@ export default function IndexPage() {
 
   const list = [
     {
-      title: "Mastering Social Media Marketing",
+      title:
+        "Sit et modi. Corrupti est eos alias similique. Nisi dolorum quasi provident nostrum aut accusamus aspernatur. Qui sapiente maxime quo provident suscipit est porro quisquam. Blanditiis qui doloremque quam consequatur non. Tempora occaecati nostrum et doloribus in quam quaerat. Possimus est nesciunt rem officiis voluptatum. Ducimus quia soluta reprehenderit totam quod. Facilis ut consequuntur qui dolor aspernatur cum aut sed. Exercitationem ut voluptatem ex sunt molestiae temporibus. Praesentium eum corporis quisquam dolor est eaque error.",
       updateTime: "2023-06-14 15:45:00",
       duration: 2400,
       recreateCount: 10,
@@ -250,13 +251,13 @@ export default function IndexPage() {
               <Image
                 src={item.cover}
                 alt="cover img"
-                width={64}
-                height={64}
+                width={72}
+                height={72}
                 className="rounded-md"
               />
             </div>
             <div className="flex flex-1 flex-col justify-center space-y-2">
-              <div className="text-sm">{item.title}</div>
+              <div className="line-clamp-1 text-base">{item.title}</div>
               <div className="flex items-center space-x-1 text-xs text-muted-foreground">
                 <div>{formatTime(item.updateTime)}</div>
                 <div>{formatDuration(item.duration)}</div>

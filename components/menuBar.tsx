@@ -13,7 +13,7 @@ const MenuBar = () => {
   const isActive = (prefix: string) => pathname.startsWith(prefix);
 
   return (
-    <Menubar className="h-16 justify-around border-t bg-contrast">
+    <Menubar className="h-18 justify-around border-t bg-contrast">
       <MenubarMenu>
         <div className="text-center">
           <MenubarTrigger

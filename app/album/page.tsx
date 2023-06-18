@@ -4,6 +4,18 @@ import Image from "next/image";
 import { ArrowUpDown, Info, PlayCircle, Plus, Share2 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
+import { formatDuration, formatTime } from "@/lib/format";
+
+interface AlbumItem {
+  title: string;
+  updateTime: string;
+  duration: number;
+  views: number;
+  recreateCount: number;
+  cover: string;
+  id: string;
+}
 
 export default function IndexPage() {
   const info = {
@@ -12,12 +24,13 @@ export default function IndexPage() {
     tip: "待补充文案",
   };
 
-  const list = [
+  const list: AlbumItem[] = [
     {
       title:
         "Sit et modi. Corrupti est eos alias similique. Nisi dolorum quasi provident nostrum aut accusamus aspernatur. Qui sapiente maxime quo provident suscipit est porro quisquam. Blanditiis qui doloremque quam consequatur non. Tempora occaecati nostrum et doloribus in quam quaerat. Possimus est nesciunt rem officiis voluptatum. Ducimus quia soluta reprehenderit totam quod. Facilis ut consequuntur qui dolor aspernatur cum aut sed. Exercitationem ut voluptatem ex sunt molestiae temporibus. Praesentium eum corporis quisquam dolor est eaque error.",
       updateTime: "2023-06-14 15:45:00",
       duration: 2400,
+      views: 100,
       recreateCount: 10,
       cover: "https://p.ipic.vip/oh91co.png",
       id: "5heajmeeo",
@@ -26,6 +39,7 @@ export default function IndexPage() {
       title: "Mastering Social Media Marketing",
       updateTime: "2023-06-14 15:45:00",
       duration: 2400,
+      views: 100,
       recreateCount: 10,
       cover: "https://p.ipic.vip/oh91co.png",
       id: "5heajmeeo",
@@ -34,6 +48,7 @@ export default function IndexPage() {
       title: "10 Tips for Successful Blogging",
       updateTime: "2023-06-15 10:30:00",
       duration: 1800,
+      views: 100,
       recreateCount: 22,
       cover: "https://p.ipic.vip/oh91co.png",
       id: "ylk68yo00",
@@ -42,6 +57,7 @@ export default function IndexPage() {
       title: "The Art of Storytelling in Blogging",
       updateTime: "2023-06-13 09:15:00",
       duration: 2100,
+      views: 100,
       recreateCount: 33,
       cover: "https://p.ipic.vip/oh91co.png",
       id: "fxdpxyl0l",
@@ -50,6 +66,7 @@ export default function IndexPage() {
       title: "Mastering Social Media Marketing",
       updateTime: "2023-06-14 15:45:00",
       duration: 2400,
+      views: 100,
       recreateCount: 10,
       cover: "https://p.ipic.vip/oh91co.png",
       id: "5heajmeeo",
@@ -58,6 +75,7 @@ export default function IndexPage() {
       title: "10 Tips for Successful Blogging",
       updateTime: "2023-06-15 10:30:00",
       duration: 1800,
+      views: 100,
       recreateCount: 22,
       cover: "https://p.ipic.vip/oh91co.png",
       id: "ylk68yo00",
@@ -66,6 +84,7 @@ export default function IndexPage() {
       title: "The Art of Storytelling in Blogging",
       updateTime: "2023-06-13 09:15:00",
       duration: 2100,
+      views: 100,
       recreateCount: 33,
       cover: "https://p.ipic.vip/oh91co.png",
       id: "fxdpxyl0l",
@@ -74,6 +93,7 @@ export default function IndexPage() {
       title: "Mastering Social Media Marketing",
       updateTime: "2023-06-14 15:45:00",
       duration: 2400,
+      views: 100,
       recreateCount: 10,
       cover: "https://p.ipic.vip/oh91co.png",
       id: "5heajmeeo",
@@ -82,6 +102,7 @@ export default function IndexPage() {
       title: "The Art of Storytelling in Blogging",
       updateTime: "2023-06-13 09:15:00",
       duration: 2100,
+      views: 100,
       recreateCount: 33,
       cover: "https://p.ipic.vip/oh91co.png",
       id: "fxdpxyl0l",
@@ -90,6 +111,7 @@ export default function IndexPage() {
       title: "The Art of Storytelling in Blogging",
       updateTime: "2023-06-13 09:15:00",
       duration: 2100,
+      views: 100,
       recreateCount: 33,
       cover: "https://p.ipic.vip/oh91co.png",
       id: "fxdpxyl0l",
@@ -98,6 +120,7 @@ export default function IndexPage() {
       title: "The Art of Storytelling in Blogging",
       updateTime: "2023-06-13 09:15:00",
       duration: 2100,
+      views: 100,
       recreateCount: 33,
       cover: "https://p.ipic.vip/oh91co.png",
       id: "fxdpxyl0l",
@@ -106,6 +129,7 @@ export default function IndexPage() {
       title: "Monetizing Your Blog: Strategies and Tips",
       updateTime: "2023-06-11 18:20:00",
       duration: 3200,
+      views: 100,
       recreateCount: 111,
       cover: "https://p.ipic.vip/oh91co.png",
       id: "gjzljl7v3",
@@ -114,6 +138,7 @@ export default function IndexPage() {
       title: "SEO Techniques for Better Blog Visibility",
       updateTime: "2023-06-12 12:00:00",
       duration: 2700,
+      views: 100,
       recreateCount: 44,
       cover: "https://p.ipic.vip/oh91co.png",
       id: "4fje04co1",
@@ -122,6 +147,7 @@ export default function IndexPage() {
       title: "Monetizing Your Blog: Strategies and Tips",
       updateTime: "2023-06-11 18:20:00",
       duration: 3200,
+      views: 100,
       recreateCount: 111,
       cover: "https://p.ipic.vip/oh91co.png",
       id: "gjzljl7v3",
@@ -130,6 +156,7 @@ export default function IndexPage() {
       title: "Mastering Social Media Marketing",
       updateTime: "2023-06-14 15:45:00",
       duration: 2400,
+      views: 100,
       recreateCount: 10,
       cover: "https://p.ipic.vip/oh91co.png",
       id: "5heajmeeo",
@@ -138,6 +165,7 @@ export default function IndexPage() {
       title: "Monetizing Your Blog: Strategies and Tips",
       updateTime: "2023-06-11 18:20:00",
       duration: 3200,
+      views: 100,
       recreateCount: 111,
       cover: "https://p.ipic.vip/oh91co.png",
       id: "gjzljl7v3",
@@ -146,6 +174,7 @@ export default function IndexPage() {
       title: "The Art of Storytelling in Blogging",
       updateTime: "2023-06-13 09:15:00",
       duration: 2100,
+      views: 100,
       recreateCount: 33,
       cover: "https://p.ipic.vip/oh91co.png",
       id: "fxdpxyl0l",
@@ -154,6 +183,7 @@ export default function IndexPage() {
       title: "Monetizing Your Blog: Strategies and Tips",
       updateTime: "2023-06-11 18:20:00",
       duration: 3200,
+      views: 100,
       recreateCount: 111,
       cover: "https://p.ipic.vip/oh91co.png",
       id: "gjzljl7v3",
@@ -162,6 +192,7 @@ export default function IndexPage() {
       title: "Mastering Social Media Marketing",
       updateTime: "2023-06-14 15:45:00",
       duration: 2400,
+      views: 100,
       recreateCount: 10,
       cover: "https://p.ipic.vip/oh91co.png",
       id: "5heajmeeo",
@@ -170,26 +201,20 @@ export default function IndexPage() {
       title: "10 Tips for Successful Blogging",
       updateTime: "2023-06-15 10:30:00",
       duration: 1800,
+      views: 100,
       recreateCount: 22,
       cover: "https://p.ipic.vip/oh91co.png",
       id: "ylk68yo00",
     },
   ];
-  // format 2023-06-11 18:20:00 to x月x日
-  function formatTime(time: string) {
-    const date = new Date(time);
-    return `${date.getMonth() + 1}月${date.getDate()}日`;
-  }
-  // format duration to min
-  function formatDuration(duration: number, isShowSecond?: boolean) {
-    return isShowSecond
-      ? `${Math.floor(duration / 60)}min${duration % 60}s`
-      : `${Math.floor(duration / 60)}min`;
-  }
+
+  const [sortType, setSortType] = useState<
+    "duration" | "views" | "recreateCount"
+  >("duration");
 
   return (
-    <div className="relative flex flex-col items-center justify-center px-6">
-      <div className="sticky top-0 z-10 bg-background py-6">
+    <div className="container relative flex flex-col items-center justify-center">
+      <div className="sticky top-0 z-10 bg-background py-4">
         <div className="info flex w-full">
           <Image
             src={"https://p.ipic.vip/oh91co.png"}
@@ -212,51 +237,75 @@ export default function IndexPage() {
         </div>
         <div className="mt-4 text-sm text-foreground">简介:{info.desc}</div>
         <div className="buttons mt-4 flex w-full space-x-3">
-          <Button className=" h-8 w-1/3 space-x-0.5 rounded-sm px-0 text-accent">
+          <Button
+            className="duration h-8 w-1/3 space-x-0.5 rounded-sm px-0"
+            variant={sortType === "duration" ? undefined : "secondary"}
+            onClick={() => {
+              setSortType("duration");
+            }}
+          >
             <ArrowUpDown size={20} />
             <div className="whitespace-nowrap font-semibold">时间</div>
           </Button>
-          <Button className=" h-8 w-1/3 space-x-0.5 rounded-sm px-0 text-accent">
+          <Button
+            className="views h-8 w-1/3 space-x-0.5 rounded-sm px-0"
+            variant={sortType === "views" ? undefined : "secondary"}
+            onClick={() => {
+              setSortType("views");
+            }}
+          >
             <ArrowUpDown size={20} />
             <div className="whitespace-nowrap font-semibold">播放量</div>
           </Button>
-          <Button className=" h-8 w-1/3 space-x-0.5 rounded-sm px-0 text-accent">
+          <Button
+            className="recreateCount h-8 w-1/3 space-x-0.5 rounded-sm px-0"
+            variant={sortType === "recreateCount" ? undefined : "secondary"}
+            onClick={() => {
+              setSortType("recreateCount");
+            }}
+          >
             <ArrowUpDown size={20} />
             <div className="whitespace-nowrap font-semibold">片段创作</div>
           </Button>
         </div>
       </div>
       <div className="flex-1 space-y-4 overflow-hidden py-4">
-        {list.map((item, index) => (
-          <div
-            className="item flex items-center"
-            key={[item.id, index].join("-")}
-          >
-            <div className="mr-2">
-              <Image
-                src={item.cover}
-                alt="cover img"
-                width={72}
-                height={72}
-                className="rounded-md"
-              />
-            </div>
-            <div className="flex flex-1 flex-col justify-center space-y-2">
-              <div className="line-clamp-1 text-base">{item.title}</div>
-              <div className="flex items-center space-x-1 text-xs text-muted-foreground">
-                <div>{formatTime(item.updateTime)}</div>
-                <div>{formatDuration(item.duration)}</div>
-                <div className="flex items-center">
-                  <PlayCircle strokeWidth={1.5} size={16} className="mr-0.5" />
-                  片段创作{item.recreateCount}次
+        {list
+          .sort((a, b) => a?.[sortType] - b?.[sortType])
+          .map((item, index) => (
+            <div
+              className="item flex items-center"
+              key={[item.id, index].join("-")}
+            >
+              <div className="mr-2">
+                <Image
+                  src={item.cover}
+                  alt="cover img"
+                  width={72}
+                  height={72}
+                  className="rounded-md"
+                />
+              </div>
+              <div className="flex flex-1 flex-col justify-center space-y-2">
+                <div className="line-clamp-1 text-base">{item.title}</div>
+                <div className="flex items-center space-x-1 text-xs text-muted-foreground">
+                  <div>{formatTime(item.updateTime)}</div>
+                  <div>{formatDuration(item.duration)}</div>
+                  <div className="flex items-center">
+                    <PlayCircle
+                      strokeWidth={1.5}
+                      size={16}
+                      className="mr-0.5"
+                    />
+                    片段创作{item.recreateCount}次
+                  </div>
                 </div>
               </div>
+              <div className="text-muted-foreground">
+                <Info size={24} strokeWidth={1.5} />
+              </div>
             </div>
-            <div className="text-muted-foreground">
-              <Info size={24} strokeWidth={1.5} />
-            </div>
-          </div>
-        ))}
+          ))}
       </div>
     </div>
   );

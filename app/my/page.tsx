@@ -1,9 +1,9 @@
-"use client";
-import Image from "next/image";
-import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { getRandomImage } from "@/lib/img";
+import { Client } from "../../components/my/Client";
+import { placeHolder } from "@/lib/img";
 
-export default function IndexPage() {
+export default async function IndexPage() {
+  const placeHolderBase64 = placeHolder;
+
   const data = {
     avatar: "https://p.ipic.vip/oh91co.png",
     nickName: "田子默",
@@ -14,174 +14,99 @@ export default function IndexPage() {
     interactions: 203,
   };
 
-  const getRandomImages = (count: number) => {
-    const images = [];
-    for (let i = 0; i < count; i++) {
-      images.push(getRandomImage());
-    }
-    return images;
-  };
+  const prodcastsImages = [
+    "https://source.unsplash.com/128x128/?nature",
+    "https://source.unsplash.com/128x128/?city",
+    "https://source.unsplash.com/128x128/?food",
+    "https://source.unsplash.com/128x128/?animals",
+    "https://source.unsplash.com/128x128/?travel",
+    "https://source.unsplash.com/128x128/?architecture",
+    "https://source.unsplash.com/128x128/?technology",
+    "https://source.unsplash.com/128x128/?music",
+    "https://source.unsplash.com/128x128/?sports",
+    "https://source.unsplash.com/128x128/?art",
+    "https://source.unsplash.com/128x128/?fashion",
+    "https://source.unsplash.com/128x128/?cars",
+    "https://source.unsplash.com/128x128/?books",
+    "https://source.unsplash.com/128x128/?fitness",
+    "https://source.unsplash.com/128x128/?mountains",
+    "https://source.unsplash.com/128x128/?beach",
+    "https://source.unsplash.com/128x128/?dogs",
+    "https://source.unsplash.com/128x128/?cats",
+    "https://source.unsplash.com/128x128/?wildlife",
+    "https://source.unsplash.com/128x128/?sunsets",
+  ];
+
+  const imagesList = [
+    [
+      "https://source.unsplash.com/360x640/?nature",
+      "https://source.unsplash.com/360x640/?city",
+      "https://source.unsplash.com/360x640/?food",
+      "https://source.unsplash.com/360x640/?animals",
+      "https://source.unsplash.com/360x640/?travel",
+      "https://source.unsplash.com/360x640/?architecture",
+      "https://source.unsplash.com/360x640/?technology",
+      "https://source.unsplash.com/360x640/?music",
+      "https://source.unsplash.com/360x640/?sports",
+      "https://source.unsplash.com/360x640/?art",
+      "https://source.unsplash.com/360x640/?fashion",
+      "https://source.unsplash.com/360x640/?cars",
+      "https://source.unsplash.com/360x640/?books",
+      "https://source.unsplash.com/360x640/?fitness",
+      "https://source.unsplash.com/360x640/?mountains",
+      "https://source.unsplash.com/360x640/?beach",
+      "https://source.unsplash.com/360x640/?dogs",
+      "https://source.unsplash.com/360x640/?cats",
+      "https://source.unsplash.com/360x640/?wildlife",
+      "https://source.unsplash.com/360x640/?sunsets",
+    ],
+    [
+      "https://source.unsplash.com/360x640/?nature",
+      "https://source.unsplash.com/360x640/?city",
+      "https://source.unsplash.com/360x640/?food",
+      "https://source.unsplash.com/360x640/?animals",
+      "https://source.unsplash.com/360x640/?travel",
+      "https://source.unsplash.com/360x640/?architecture",
+      "https://source.unsplash.com/360x640/?technology",
+      "https://source.unsplash.com/360x640/?music",
+      "https://source.unsplash.com/360x640/?sports",
+      "https://source.unsplash.com/360x640/?art",
+      "https://source.unsplash.com/360x640/?fashion",
+      "https://source.unsplash.com/360x640/?cars",
+      "https://source.unsplash.com/360x640/?books",
+      "https://source.unsplash.com/360x640/?fitness",
+      "https://source.unsplash.com/360x640/?mountains",
+      "https://source.unsplash.com/360x640/?beach",
+      "https://source.unsplash.com/360x640/?dogs",
+      "https://source.unsplash.com/360x640/?cats",
+      "https://source.unsplash.com/360x640/?wildlife",
+      "https://source.unsplash.com/360x640/?sunsets",
+    ],
+    [
+      "https://source.unsplash.com/360x640/?nature",
+      "https://source.unsplash.com/360x640/?city",
+      "https://source.unsplash.com/360x640/?food",
+      "https://source.unsplash.com/360x640/?animals",
+      "https://source.unsplash.com/360x640/?travel",
+      "https://source.unsplash.com/360x640/?architecture",
+      "https://source.unsplash.com/360x640/?technology",
+      "https://source.unsplash.com/360x640/?music",
+      "https://source.unsplash.com/360x640/?sports",
+      "https://source.unsplash.com/360x640/?art",
+      "https://source.unsplash.com/360x640/?fashion",
+      "https://source.unsplash.com/360x640/?cars",
+      "https://source.unsplash.com/360x640/?books",
+      "https://source.unsplash.com/360x640/?fitness",
+      "https://source.unsplash.com/360x640/?mountains",
+      "https://source.unsplash.com/360x640/?beach",
+      "https://source.unsplash.com/360x640/?dogs",
+      "https://source.unsplash.com/360x640/?cats",
+      "https://source.unsplash.com/360x640/?wildlife",
+      "https://source.unsplash.com/360x640/?sunsets",
+    ],
+  ];
 
   return (
-    <>
-      <div className="info sticky top-0 z-20 bg-background">
-        <div className="userinfo container mb-8 flex space-x-6">
-          <Image
-            src={data.avatar}
-            alt="avatar"
-            width={72}
-            height={72}
-            className="rounded-full"
-          />
-          <div className="flex flex-1 flex-col justify-center space-y-1">
-            <div className="text-xl">{data.nickName}</div>
-            <div className="text-xs text-muted-foreground">
-              @{data.userName}
-            </div>
-            <div className="text-xs text-muted-foreground">
-              ip属地：{data.ip}
-            </div>
-          </div>
-        </div>
-        <div className="data container flex items-center justify-between px-8 py-2">
-          <div className="flex-1 space-y-1 text-center">
-            <div className="text-lg font-medium">{data.following}</div>
-            <div className="text-xs text-muted-foreground">关注</div>
-          </div>
-          <div className="flex-1 space-y-1 text-center">
-            <div className="text-lg font-medium">{data.followers}</div>
-            <div className="text-xs text-muted-foreground">粉丝</div>
-          </div>
-          <div className="flex-1 space-y-1 text-center">
-            <div className="text-lg font-medium">{data.interactions}</div>
-            <div className="text-xs text-muted-foreground">获赞与收藏</div>
-          </div>
-        </div>
-      </div>
-      <div className="tabs overflow-auto">
-        <Tabs defaultValue="creation" className="container flex flex-col">
-          <TabsList className="sticky top-0 z-40 w-full rounded-none bg-background px-0">
-            <TabsTrigger
-              value="creation"
-              className="flex-1 text-center text-lg decoration-hightLightMenu decoration-1.5 underline-offset-8 data-[state=active]:underline"
-            >
-              创作
-            </TabsTrigger>
-            <TabsTrigger
-              value="collections"
-              className="flex-1 text-center text-lg decoration-hightLightMenu decoration-1.5 underline-offset-8 data-[state=active]:underline"
-            >
-              收藏
-            </TabsTrigger>
-            <TabsTrigger
-              value="likes"
-              className="flex-1 text-center text-lg decoration-hightLightMenu decoration-1.5 underline-offset-8 data-[state=active]:underline"
-            >
-              赞过
-            </TabsTrigger>
-          </TabsList>
-          <TabsContent value="creation" className="flex-1 space-y-3 py-2">
-            <div>
-              <div className="mb-2">我创作的博客</div>
-              <div className="podcasts flex items-center space-x-3 overflow-auto">
-                <Image
-                  src={"https://p.ipic.vip/oh91co.png"}
-                  alt="avatar"
-                  width={64}
-                  height={64}
-                  className="rounded-sm"
-                />
-                <Image
-                  src={"https://p.ipic.vip/oh91co.png"}
-                  alt="avatar"
-                  width={64}
-                  height={64}
-                  className="rounded-sm"
-                />
-                <Image
-                  src={"https://p.ipic.vip/oh91co.png"}
-                  alt="avatar"
-                  width={64}
-                  height={64}
-                  className="rounded-sm"
-                />
-                <Image
-                  src={"https://p.ipic.vip/oh91co.png"}
-                  alt="avatar"
-                  width={64}
-                  height={64}
-                  className="rounded-sm"
-                />
-                <Image
-                  src={"https://p.ipic.vip/oh91co.png"}
-                  alt="avatar"
-                  width={64}
-                  height={64}
-                  className="rounded-sm"
-                />
-                <Image
-                  src={"https://p.ipic.vip/oh91co.png"}
-                  alt="avatar"
-                  width={64}
-                  height={64}
-                  className="rounded-sm"
-                />
-                <Image
-                  src={"https://p.ipic.vip/oh91co.png"}
-                  alt="avatar"
-                  width={64}
-                  height={64}
-                  className="rounded-sm"
-                />
-                <Image
-                  src={"https://p.ipic.vip/oh91co.png"}
-                  alt="avatar"
-                  width={64}
-                  height={64}
-                  className="rounded-sm"
-                />
-              </div>
-            </div>
-            <div>
-              <div className="mb-2">我创作的片段</div>
-              <div className="segments grid grid-flow-row grid-cols-2 gap-4	">
-                {getRandomImages(10).map((img, index) => (
-                  <div
-                    key={`segments${img}${index}`}
-                    className="relative h-full w-full"
-                  >
-                    <img src={img} alt="avatar" className="h-full rounded-sm" />
-                  </div>
-                ))}
-              </div>
-            </div>
-          </TabsContent>
-          <TabsContent value="collections">
-            <div className="segments grid grid-flow-row grid-cols-2 gap-4	">
-              {getRandomImages(10).map((img, index) => (
-                <div
-                  key={`collections${img}${index}`}
-                  className="relative h-full w-full"
-                >
-                  <img src={img} alt="avatar" className="h-full rounded-sm" />
-                </div>
-              ))}
-            </div>
-          </TabsContent>
-          <TabsContent value="likes">
-            <div className="likes grid grid-flow-row grid-cols-2 gap-4	">
-              {getRandomImages(10).map((img, index) => (
-                <div
-                  key={`likes${img}${index}`}
-                  className="relative h-full w-full"
-                >
-                  <img src={img} alt="avatar" className="h-full rounded-sm" />
-                </div>
-              ))}
-            </div>
-          </TabsContent>
-        </Tabs>
-      </div>
-    </>
+    <Client {...{ data, prodcastsImages, imagesList, placeHolderBase64 }} />
   );
 }

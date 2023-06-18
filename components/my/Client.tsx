@@ -119,7 +119,7 @@ export function Client({
               </div>
             </div>
           </TabsContent>
-          <TabsContent value="collections" className="py-2">
+          <TabsContent value="collections">
             <div className="segments grid grid-flow-row grid-cols-2 gap-4	">
               {imagesList[1].map((img, index) => (
                 <div key={`collections${img}${index}`} className="w-full">
@@ -136,7 +136,7 @@ export function Client({
               ))}
             </div>
           </TabsContent>
-          <TabsContent value="likes" className="py-2">
+          <TabsContent value="likes">
             <div className="likes grid grid-flow-row grid-cols-2 gap-4	">
               {imagesList[2].map((img, index) => (
                 <div key={`likes${img}${index}`} className="relative w-full">

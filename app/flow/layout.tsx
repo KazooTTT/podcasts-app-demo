@@ -47,7 +47,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           </div>
         </Button>
       </div>
-      <div className="bottom-menu relative bottom-0 z-40 w-full">
+      <div className="bottom-menu sticky bottom-0 z-40 w-full">
         <MenuBar></MenuBar>
       </div>
     </div>

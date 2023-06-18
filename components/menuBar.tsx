@@ -20,7 +20,7 @@ const MenuBar = () => {
             className="mb-0.5 flex w-12 flex-col items-center data-[state=open]:bg-hightLightMenu"
             data-state={isActive("/flow") ? "open" : undefined}
             onClick={() => {
-              router.push("/flow/0");
+              router.push("/flow");
             }}
           >
             <div>

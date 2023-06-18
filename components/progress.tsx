@@ -1,11 +1,12 @@
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { cn } from "@/lib/utils"
-import { Progress } from "@/components/ui/progress"
+import { cn } from "@/lib/utils";
+import { Progress } from "@/components/ui/progress";
 
-import { Slider } from "./ui/slider"
+import { Slider } from "./ui/slider";
+import { formatTime2MinSec } from "@/lib/format";
 
 export function ProgressDemo({
   isPlaying,
@@ -16,42 +17,34 @@ export function ProgressDemo({
   setIsPlaying,
   setTime,
 }: {
-  isPlaying: boolean
-  playbackRate: number
-  currentSec: number
-  totalSec: number
-  className?: string
-  setTime: React.Dispatch<React.SetStateAction<[number, number]>>
-  setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>
+  isPlaying: boolean;
+  playbackRate: number;
+  currentSec: number;
+  totalSec: number;
+  className?: string;
+  setTime: React.Dispatch<React.SetStateAction<[number, number]>>;
+  setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
-  // convert ser to min:sec which has two digits
-  const formatTime2 = (sec: number) => {
-    const min = Math.floor(sec / 60)
-    const second = sec % 60
-    const secondStr = second < 10 ? "0" + second.toFixed(0) : second.toFixed(0)
-    return `${min}:${secondStr}`
-  }
-
   // add currentSec per second when isPlaying is true., and stop when currentSec === totalSec
   React.useEffect(() => {
     if (isPlaying) {
       const timer = setInterval(() => {
         if (currentSec === totalSec) {
-          clearInterval(timer)
-          setIsPlaying(false)
+          clearInterval(timer);
+          setIsPlaying(false);
         } else {
           setTime(([currentSec, totalSec]) => [
             currentSec + 1 * playbackRate,
             totalSec,
-          ])
+          ]);
         }
-      }, 1000)
-      return () => clearInterval(timer)
+      }, 1000);
+      return () => clearInterval(timer);
     }
-  }, [isPlaying, currentSec, totalSec, playbackRate, setTime, setIsPlaying])
+  }, [isPlaying, currentSec, totalSec, playbackRate, setTime, setIsPlaying]);
 
   return (
-    <div className='w-full'>
+    <div className="w-full">
       {/* <Progress
         value={(currentSec / totalSec) * 100}
         className="h-1.5 w-full"
@@ -64,13 +57,13 @@ export function ProgressDemo({
         value={[currentSec]}
         className={cn("w-[100%]", className)}
         onValueChange={(value) => {
-          setTime([value[0], totalSec])
+          setTime([value[0], totalSec]);
         }}
       />
       <div className="mt-1 flex items-center justify-between text-sm">
-        <div className="text-left">{formatTime2(currentSec)}</div>
-        <div className="text-right">{formatTime2(totalSec)}</div>
+        <div className="text-left">{formatTime2MinSec(currentSec)}</div>
+        <div className="text-right">{formatTime2MinSec(totalSec)}</div>
       </div>
     </div>
-  )
+  );
 }

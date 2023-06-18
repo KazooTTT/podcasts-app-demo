@@ -61,9 +61,9 @@ export function PlayController({
                 <Gauge></Gauge>
               </div>
             </Button>
-            <div className="relative top-1 w-full text-xs font-semibold text-muted-foreground">
+            <div className=" w-full text-xs font-semibold text-muted-foreground">
               {formatPlaybackRate(playbackRate)}
-            </div>{" "}
+            </div>
           </div>
         </DialogTrigger>
         <DialogContent className="bg-primary">
@@ -112,7 +112,7 @@ export function PlayController({
             <Undo />
           </div>
         </Button>
-        <div className="relative top-1 w-full text-xs font-semibold text-muted-foreground">
+        <div className=" w-full text-xs font-semibold text-muted-foreground">
           -10s
         </div>
       </div>
@@ -141,7 +141,7 @@ export function PlayController({
             <Redo></Redo>
           </div>
         </Button>
-        <div className="relative top-1 w-full text-xs font-semibold text-muted-foreground">
+        <div className=" w-full text-xs font-semibold text-muted-foreground">
           +30s
         </div>
       </div>
@@ -154,7 +154,7 @@ export function PlayController({
             <AlignJustify size={22} />
           </div>
         </Button>
-        <div className="relative top-1 w-full text-xs font-semibold text-muted-foreground">
+        <div className=" w-full text-xs font-semibold text-muted-foreground">
           目录
         </div>
       </div>

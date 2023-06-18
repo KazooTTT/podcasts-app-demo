@@ -1,22 +1,22 @@
 "use client";
 
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-
 import { Button } from "../ui/button";
+import { useRouter } from "next/navigation";
+import { ChevronLeft } from "lucide-react";
 
 export function SiteHeader() {
+  const router = useRouter();
+
   return (
     <header className="sticky top-0 z-40 w-full bg-background">
-      <div className="container flex h-14 items-center justify-between space-x-4 p-2">
+      <div>
         <Button
           variant={"link"}
-          className="flex items-center space-x-2 hover:no-underline"
+          onClick={() => {
+            router.back();
+          }}
         >
-          <Avatar className="border-2 border-solid border-hightLight">
-            <AvatarImage src="https://p.ipic.vip/oh91co.png" alt="album" />
-            <AvatarFallback></AvatarFallback>
-          </Avatar>
-          <div>声音所在专辑</div>
+          <ChevronLeft />
         </Button>
       </div>
     </header>

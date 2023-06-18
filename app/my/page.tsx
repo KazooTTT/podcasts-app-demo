@@ -23,8 +23,8 @@ export default function IndexPage() {
   };
 
   return (
-    <div>
-      <div className="info">
+    <>
+      <div className="info sticky top-0 z-20 bg-background">
         <div className="userinfo container mb-8 flex space-x-6">
           <Image
             src={data.avatar}
@@ -43,7 +43,7 @@ export default function IndexPage() {
             </div>
           </div>
         </div>
-        <div className="data container flex items-center justify-between px-8">
+        <div className="data container flex items-center justify-between px-8 py-2">
           <div className="flex-1 space-y-1 text-center">
             <div className="text-lg font-medium">{data.following}</div>
             <div className="text-xs text-muted-foreground">关注</div>
@@ -58,29 +58,29 @@ export default function IndexPage() {
           </div>
         </div>
       </div>
-      <div className="tabs mt-4">
-        <Tabs defaultValue="creation" className="container">
-          <TabsList className="w-full bg-contrast">
+      <div className="tabs overflow-auto">
+        <Tabs defaultValue="creation" className="container flex flex-col">
+          <TabsList className="sticky top-0 z-40 w-full rounded-none bg-background px-0">
             <TabsTrigger
               value="creation"
-              className="flex-1 text-lg decoration-hightLightMenu decoration-1.5 underline-offset-8 data-[state=active]:underline"
+              className="flex-1 text-center text-lg decoration-hightLightMenu decoration-1.5 underline-offset-8 data-[state=active]:underline"
             >
               创作
             </TabsTrigger>
             <TabsTrigger
               value="collections"
-              className="flex-1 text-lg decoration-hightLightMenu decoration-1.5 underline-offset-8 data-[state=active]:underline"
+              className="flex-1 text-center text-lg decoration-hightLightMenu decoration-1.5 underline-offset-8 data-[state=active]:underline"
             >
               收藏
             </TabsTrigger>
             <TabsTrigger
               value="likes"
-              className="flex-1 text-lg decoration-hightLightMenu decoration-1.5 underline-offset-8 data-[state=active]:underline"
+              className="flex-1 text-center text-lg decoration-hightLightMenu decoration-1.5 underline-offset-8 data-[state=active]:underline"
             >
               赞过
             </TabsTrigger>
           </TabsList>
-          <TabsContent value="creation" className="space-y-3">
+          <TabsContent value="creation" className="flex-1 space-y-3 py-2">
             <div>
               <div className="mb-2">我创作的博客</div>
               <div className="podcasts flex items-center space-x-3 overflow-auto">
@@ -150,7 +150,7 @@ export default function IndexPage() {
                     key={`segments${img}${index}`}
                     className="relative h-full w-full"
                   >
-                    <img src={img} alt="avatar" className="rounded-sm h-full" />
+                    <img src={img} alt="avatar" className="h-full rounded-sm" />
                   </div>
                 ))}
               </div>
@@ -163,7 +163,7 @@ export default function IndexPage() {
                   key={`collections${img}${index}`}
                   className="relative h-full w-full"
                 >
-                  <img src={img} alt="avatar" className="rounded-sm h-full" />
+                  <img src={img} alt="avatar" className="h-full rounded-sm" />
                 </div>
               ))}
             </div>
@@ -175,13 +175,13 @@ export default function IndexPage() {
                   key={`likes${img}${index}`}
                   className="relative h-full w-full"
                 >
-                  <img src={img} alt="avatar" className="rounded-sm h-full" />
+                  <img src={img} alt="avatar" className="h-full rounded-sm" />
                 </div>
               ))}
             </div>
           </TabsContent>
         </Tabs>
       </div>
-    </div>
+    </>
   );
 }

@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { useRef } from "react";
 
 export function Client({
   data,
@@ -21,6 +22,8 @@ export function Client({
   imagesList: string[][];
   placeHolderBase64: string;
 }) {
+  const tabContainer = useRef(null);
+
   return (
     <>
       <div className="info sticky top-0 z-20 bg-background">
@@ -44,7 +47,7 @@ export function Client({
             </div>
           </div>
         </div>
-        <div className="data container flex items-center justify-between px-8 py-2">
+        <div className="data container flex items-center justify-between py-2">
           <div className="flex-1 space-y-1 text-center">
             <div className="text-lg font-medium">{data.following}</div>
             <div className="text-xs text-muted-foreground">关注</div>

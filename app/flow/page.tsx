@@ -43,8 +43,8 @@ export default function IndexPage() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center px-4">
-      <div className="info-container flex w-4/5 flex-1 flex-col items-center justify-center  pt-6">
+    <div className="container flex flex-col items-center justify-center">
+      <div className="info-container flex w-full flex-1 flex-col items-center justify-center  pt-6">
         {getContent(info)}
       </div>
       <div className="timeline-container mt-8 w-4/5">

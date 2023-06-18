@@ -213,8 +213,8 @@ export default function IndexPage() {
   >("duration");
 
   return (
-    <div className="container relative flex flex-col items-center justify-center">
-      <div className="sticky top-0 z-10 bg-background py-4">
+    <div className="container relative flex w-full flex-col items-center justify-center">
+      <div className="sticky top-0 z-10 w-full bg-background py-4">
         <div className="info flex w-full">
           <Image
             src={"https://p.ipic.vip/oh91co.png"}

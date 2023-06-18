@@ -60,7 +60,7 @@ export function ProgressDemo({
           setTime([value[0], totalSec]);
         }}
       />
-      <div className="mt-1 flex items-center justify-between text-sm">
+      <div className="mt-1 flex select-none items-center justify-between text-sm">
         <div className="text-left">{formatTime2MinSec(currentSec)}</div>
         <div className="text-right">{formatTime2MinSec(totalSec)}</div>
       </div>

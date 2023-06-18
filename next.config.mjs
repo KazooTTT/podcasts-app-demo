@@ -11,7 +11,7 @@ const nextConfig = {
         destination: "/flow/0",
         permanent: true,
       },
-    ]
+    ];
   },
   images: {
     remotePatterns: [
@@ -23,8 +23,12 @@ const nextConfig = {
         protocol: "https",
         hostname: "p.ipic.vip",
       },
+      {
+        protocol: "https",
+        hostname: "kazoottt-1256684243.cos.ap-chengdu.myqcloud.com",
+      },
     ],
   },
-}
+};
 
-export default nextConfig
+export default nextConfig;

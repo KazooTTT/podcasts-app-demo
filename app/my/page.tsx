@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { getRandomImage } from "@/lib/img";
 
 export default function IndexPage() {
   const data = {
@@ -11,6 +12,14 @@ export default function IndexPage() {
     following: 203,
     followers: 22203,
     interactions: 203,
+  };
+
+  const getRandomImages = (count: number) => {
+    const images = [];
+    for (let i = 0; i < count; i++) {
+      images.push(getRandomImage());
+    }
+    return images;
   };
 
   return (
@@ -135,11 +144,42 @@ export default function IndexPage() {
             </div>
             <div>
               <div className="mb-2">我创作的片段</div>
-              <div className="segments"></div>
+              <div className="segments grid grid-flow-row grid-cols-2 gap-4	">
+                {getRandomImages(10).map((img, index) => (
+                  <div
+                    key={`segments${img}${index}`}
+                    className="relative h-full w-full"
+                  >
+                    <img src={img} alt="avatar" className="rounded-sm h-full" />
+                  </div>
+                ))}
+              </div>
             </div>
           </TabsContent>
-          <TabsContent value="collections">和我创作的片段一样</TabsContent>
-          <TabsContent value="likes">和我创作的片段一样</TabsContent>
+          <TabsContent value="collections">
+            <div className="segments grid grid-flow-row grid-cols-2 gap-4	">
+              {getRandomImages(10).map((img, index) => (
+                <div
+                  key={`collections${img}${index}`}
+                  className="relative h-full w-full"
+                >
+                  <img src={img} alt="avatar" className="rounded-sm h-full" />
+                </div>
+              ))}
+            </div>
+          </TabsContent>
+          <TabsContent value="likes">
+            <div className="likes grid grid-flow-row grid-cols-2 gap-4	">
+              {getRandomImages(10).map((img, index) => (
+                <div
+                  key={`likes${img}${index}`}
+                  className="relative h-full w-full"
+                >
+                  <img src={img} alt="avatar" className="rounded-sm h-full" />
+                </div>
+              ))}
+            </div>
+          </TabsContent>
         </Tabs>
       </div>
     </div>

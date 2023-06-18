@@ -27,15 +27,15 @@ export default function IndexPage() {
   return (
     <div className="container relative flex flex-col items-center justify-center">
       <div className="sticky top-0 z-10 mx-auto flex w-full flex-col items-center justify-center bg-background">
-        <div className="info-container w-full">
+        <div className="info-container w-3/5">
           <Image
             src={
               "https://images.unsplash.com/photo-1661956601349-f61c959a8fd4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80"
             }
             alt="avatar"
-            width={256}
-            height={144}
-            className="mx-auto rounded-xl"
+            width={831}
+            height={554}
+            className="rounded-xl"
           />
         </div>
         <div className="controller h-full w-full flex-1">

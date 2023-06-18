@@ -6,7 +6,7 @@ export default async function IndexPage() {
 
   const data = {
     avatar: "https://p.ipic.vip/oh91co.png",
-    nickName: "田子默",
+    nickName: "Anderson anding",
     userName: "Jose O'Conner",
     ip: "陕西",
     following: 203,

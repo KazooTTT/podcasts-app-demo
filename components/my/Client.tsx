@@ -22,8 +22,6 @@ export function Client({
   imagesList: string[][];
   placeHolderBase64: string;
 }) {
-  const tabContainer = useRef(null);
-
   return (
     <>
       <div className="info sticky top-0 z-20 bg-background">

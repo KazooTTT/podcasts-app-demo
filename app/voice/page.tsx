@@ -7,6 +7,7 @@ import { PlayController } from "@/components/PlayController";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Info } from "lucide-react";
+import { formatDuration, formatTime2MinSec } from "@/lib/format";
 
 export default function IndexPage() {
   // 当前播放速率
@@ -24,18 +25,20 @@ export default function IndexPage() {
   const [[currentSec, totalSec], setTime] = React.useState([0, 60]);
 
   return (
-    <div className="relative flex flex-col items-center justify-center px-2">
+    <div className="container relative flex flex-col items-center justify-center">
       <div className="sticky top-0 z-10 mx-auto flex w-full flex-col items-center justify-center bg-background">
-        <div className="info-container w-4/5 pt-6">
+        <div className="info-container w-full">
           <Image
-            src={"https://p.ipic.vip/oh91co.png"}
+            src={
+              "https://images.unsplash.com/photo-1661956601349-f61c959a8fd4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80"
+            }
             alt="avatar"
-            width={200}
-            height={200}
-            className="mx-auto rounded-sm"
+            width={256}
+            height={144}
+            className="mx-auto rounded-xl"
           />
         </div>
-        <div className="controller mt-4 h-full w-4/5 flex-1">
+        <div className="controller h-full w-full flex-1">
           <PlayController
             open={open}
             setOpen={setOpen}
@@ -48,7 +51,7 @@ export default function IndexPage() {
             setIsPlaying={setIsPlaying}
             isPlaying={isPlaying}
           ></PlayController>
-          <div className="mt-8">
+          <div className="mt-4">
             <ProgressDemo
               isPlaying={isPlaying}
               playbackRate={playbackRate}
@@ -59,12 +62,12 @@ export default function IndexPage() {
             />
           </div>
         </div>
-        <div className="container my-4">
+        <div className="my-4 w-full">
           <Button className="w-full">创建片段</Button>
         </div>
       </div>
 
-      <div className="container w-full flex-1 space-y-5 py-2">
+      <div className="w-full flex-1 space-y-5 py-2">
         {list.map((item, index) => {
           return (
             <div key={item.title} className="item flex items-center">
@@ -72,8 +75,8 @@ export default function IndexPage() {
               <div className="flex flex-1 flex-col justify-center">
                 <div className="line-clamp-1 text-sm">{item.title}</div>
                 <div className="flex items-center space-x-1 text-xs text-muted-foreground">
-                  <div>{item.duration}</div>
-                  <div>{item.position}</div>
+                  <div>{formatTime2MinSec(item.position)}</div>
+                  <div>{formatDuration(item.duration)}</div>
                 </div>
               </div>
               <div>

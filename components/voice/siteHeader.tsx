@@ -26,12 +26,15 @@ export function SiteHeader() {
         <Button
           variant={"link"}
           className="flex items-center space-x-2 hover:no-underline"
+          onClick={() => {
+            router.push("/album");
+          }}
         >
           <Avatar className="border-2 border-solid border-hightLight">
             <AvatarImage src="https://p.ipic.vip/oh91co.png" alt="album" />
             <AvatarFallback></AvatarFallback>
           </Avatar>
-          <div>片段所在声音</div>
+          <div>声音所在专辑</div>
           <Badge variant="destructive" className="rounded-sm">
             订阅
           </Badge>

@@ -8,7 +8,7 @@ const nextConfig = {
     return [
       {
         source: "/",
-        destination: "/flow/0",
+        destination: "/flow",
         permanent: true,
       },
     ];
@@ -26,6 +26,10 @@ const nextConfig = {
       {
         protocol: "https",
         hostname: "kazoottt-1256684243.cos.ap-chengdu.myqcloud.com",
+      },
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
       },
     ],
   },

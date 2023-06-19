@@ -50,6 +50,9 @@ dependencies:
   '@uidotdev/usehooks':
     specifier: ^2.0.1
     version: 2.0.1(react-dom@18.2.0)(react@18.2.0)
+  '@vercel/analytics':
+    specifier: ^1.0.1
+    version: registry.npmmirror.com/@vercel/analytics@1.0.1
   ahooks:
     specifier: ^3.7.7
     version: 3.7.7(react@18.2.0)
@@ -4348,6 +4351,12 @@ packages:
       - '@codemirror/language'
       - '@codemirror/lint'
       - '@codemirror/search'
+    dev: false
+
+  registry.npmmirror.com/@vercel/analytics@1.0.1:
+    resolution: {integrity: sha512-Ux0c9qUfkcPqng3vrR0GTrlQdqNJ2JREn/2ydrVuKwM3RtMfF2mWX31Ijqo1opSjNAq6rK76PwtANw6kl6TAow==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vercel/analytics/-/analytics-1.0.1.tgz}
+    name: '@vercel/analytics'
+    version: 1.0.1
     dev: false
 
   registry.npmmirror.com/@vercel/error-utils@1.0.10:

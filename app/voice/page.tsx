@@ -71,7 +71,7 @@ export default function IndexPage() {
         </div>
       </div>
       <div className="w-full flex-1">
-        <Swiper spaceBetween={50} slidesPerView={1} autoHeight={true}>
+        <Swiper spaceBetween={100} slidesPerView={1} autoHeight={true}>
           <SwiperSlide>
             <div className="h-fit w-full space-y-5 py-2">
               {podcastItemList.map((item, index) => {

@@ -27,7 +27,7 @@ export default function IndexPage() {
   const [[currentSec, totalSec], setTime] = React.useState([0, 268]);
 
   return (
-    <>
+    <div>
       <div
         className="container relative flex w-full flex-col items-center justify-center"
         onClick={() => setIsPlaying(!isPlaying)}
@@ -130,6 +130,6 @@ export default function IndexPage() {
         </div>
         <div className="mt-1">Totally agreed.Everything he said need to be</div>
       </div>
-    </>
+    </div>
   );
 }

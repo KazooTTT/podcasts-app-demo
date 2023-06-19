@@ -31,7 +31,10 @@ export function SiteHeader() {
           }}
         >
           <Avatar className="border-2 border-solid border-hightLight">
-            <AvatarImage src="https://p.ipic.vip/oh91co.png" alt="album" />
+            <AvatarImage
+              src="https://source.unsplash.com/360x360/?mountains"
+              alt="album"
+            />
             <AvatarFallback></AvatarFallback>
           </Avatar>
           <div>声音所在专辑</div>

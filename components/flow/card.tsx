@@ -17,7 +17,7 @@ function TextCard({ title, subTitle, content }: CardProps) {
 function ImgCard({ title, subTitle, cover, content }: CardProps) {
   return (
     <>
-      <div className="wx-auto flex w-3/5 items-center justify-center">
+      <div className="wx-auto flex items-center justify-center">
         <Image
           src={cover as string}
           alt="cover img"
@@ -26,7 +26,7 @@ function ImgCard({ title, subTitle, cover, content }: CardProps) {
           className={`rounded-3xl`}
         />
       </div>
-      <div className="mt-2 text-center text-xl font-bold">{title}</div>
+      <div className="mt-2 text-center text-lg font-bold">{title}</div>
       <div className="mt-0.5 text-center text-muted-foreground">{subTitle}</div>
     </>
   );

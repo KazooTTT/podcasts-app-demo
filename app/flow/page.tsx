@@ -1,10 +1,8 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React from "react";
 
-import { CardProps } from "@/types/flow";
-import { Skeleton } from "@/components/ui/skeleton";
-import { ImgCard, TextCard } from "@/components/flow/card";
+import { ImgCard } from "@/components/flow/card";
 import { ProgressDemo } from "@/components/progress";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
@@ -30,7 +28,7 @@ export default function IndexPage() {
   return (
     <>
       <div className="container relative flex w-full flex-col items-center justify-center">
-        <div className="sticky top-14 z-10 flex w-full flex-col items-center justify-center bg-background py-4">
+        <div className="sticky top-14 z-10 flex w-4/5 flex-col items-center justify-center bg-background py-4">
           <ImgCard {...info}></ImgCard>
         </div>
         <div className="timeline-container mt-2 flex w-4/5 flex-1 flex-col items-center space-y-1 overflow-auto text-xs text-muted-foreground">

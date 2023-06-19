@@ -5,7 +5,7 @@ export default async function IndexPage() {
   const placeHolderBase64 = placeHolder;
 
   const data = {
-    avatar: "https://p.ipic.vip/oh91co.png",
+    avatar: "https://source.unsplash.com/360x360/?mountains",
     nickName: "Anderson anding",
     userName: "Jose O'Conner",
     ip: "陕西",

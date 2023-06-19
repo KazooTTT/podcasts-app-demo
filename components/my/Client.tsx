@@ -84,7 +84,7 @@ export function Client({
           </TabsList>
           <TabsContent value="creation" className="flex-1 space-y-3 py-2">
             <div>
-              <div className="mb-2">我创作的博客</div>
+              <div className="mb-2">我创作的播客</div>
               <div className="podcasts flex items-center space-x-3 overflow-auto">
                 {prodcastsImages.map((url, index) => (
                   <Image

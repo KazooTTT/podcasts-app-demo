@@ -20,7 +20,10 @@ export function SiteHeader() {
           }}
         >
           <Avatar className="border-2 border-solid border-hightLight">
-            <AvatarImage src="https://p.ipic.vip/oh91co.png" alt="album" />
+            <AvatarImage
+              src="https://source.unsplash.com/64x64/?mountains"
+              alt="album"
+            />
             <AvatarFallback></AvatarFallback>
           </Avatar>
           <div className="flex items-center">

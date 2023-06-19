@@ -17,7 +17,7 @@ function TextCard({ title, subTitle, content }: CardProps) {
 function ImgCard({ title, subTitle, cover, content }: CardProps) {
   return (
     <>
-      <div className="wx-auto flex items-center justify-center">
+      <div className="wx-auto flex w-3/4 items-center justify-center">
         <Image
           src={cover as string}
           alt="cover img"

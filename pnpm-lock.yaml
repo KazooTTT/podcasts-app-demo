@@ -133,6 +133,9 @@ devDependencies:
   prettier:
     specifier: ^2.8.8
     version: registry.npmmirror.com/prettier@2.8.8
+  tailwind-scrollbar:
+    specifier: ^3.0.4
+    version: 3.0.4(tailwindcss@3.3.2)
   tailwindcss:
     specifier: ^3.3.2
     version: registry.npmmirror.com/tailwindcss@3.3.2
@@ -2088,6 +2091,15 @@ packages:
     dependencies:
       has-flag: 3.0.0
     dev: false
+
+  /tailwind-scrollbar@3.0.4(tailwindcss@3.3.2):
+    resolution: {integrity: sha512-X/QBsn/C5u9x6/YvTc1Zo7b09Gqs5BfDe0UK/8LDQUv8IEBKF+p2ISTRwvAr50MH0hn/wTyCEOann7uXoa1/2Q==}
+    engines: {node: '>=12.13.0'}
+    peerDependencies:
+      tailwindcss: 3.x
+    dependencies:
+      tailwindcss: registry.npmmirror.com/tailwindcss@3.3.2
+    dev: true
 
   /through2@2.0.5:
     resolution: {integrity: sha512-/mrRod8xqpA+IHSLyGCQ2s8SPHiCDEeQJSep1jqLYeEUClOFG2Qsh+4FU6G9VeqpZnGW/Su8LQGc4YKni5rYSQ==}
@@ -4354,7 +4366,7 @@ packages:
     dev: false
 
   registry.npmmirror.com/@vercel/analytics@1.0.1:
-    resolution: {integrity: sha512-Ux0c9qUfkcPqng3vrR0GTrlQdqNJ2JREn/2ydrVuKwM3RtMfF2mWX31Ijqo1opSjNAq6rK76PwtANw6kl6TAow==, registry: https://registry.npm.taobao.org/, tarball: https://registry.npmmirror.com/@vercel/analytics/-/analytics-1.0.1.tgz}
+    resolution: {integrity: sha512-Ux0c9qUfkcPqng3vrR0GTrlQdqNJ2JREn/2ydrVuKwM3RtMfF2mWX31Ijqo1opSjNAq6rK76PwtANw6kl6TAow==, registry: https://registry.npmjs.org/, tarball: https://registry.npmmirror.com/@vercel/analytics/-/analytics-1.0.1.tgz}
     name: '@vercel/analytics'
     version: 1.0.1
     dev: false

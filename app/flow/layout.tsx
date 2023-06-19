@@ -11,7 +11,7 @@ interface RootLayoutProps {
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <>
-      <div className="relative flex max-h-screen min-h-screen flex-col overflow-auto">
+      <div className="relative flex max-h-screen min-h-screen flex-col overflow-auto scrollbar-none">
         <SiteHeader />
         <div className="flex-1">{children}</div>
         <div className="bottom-menu sticky bottom-0 z-40 w-full">

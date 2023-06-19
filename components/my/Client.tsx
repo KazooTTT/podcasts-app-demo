@@ -60,7 +60,7 @@ export function Client({
           </div>
         </div>
       </div>
-      <div className="tabs overflow-auto">
+      <div className="tabs overflow-auto scrollbar-none">
         <Tabs defaultValue="creation" className="container flex flex-col">
           <TabsList className="sticky top-0 z-40 w-full rounded-none bg-background px-0">
             <TabsTrigger
@@ -85,7 +85,7 @@ export function Client({
           <TabsContent value="creation" className="flex-1 space-y-3 py-2">
             <div>
               <div className="mb-2">我创作的播客</div>
-              <div className="podcasts flex items-center space-x-3 overflow-auto">
+              <div className="podcasts flex items-center space-x-3 overflow-auto scrollbar-none">
                 {prodcastsImages.map((url, index) => (
                   <Image
                     src={url}

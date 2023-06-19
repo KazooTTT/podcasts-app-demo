@@ -24,6 +24,8 @@ export default function IndexPage() {
     tip: "待补充文案",
   };
 
+  const url = "https://source.unsplash.com/360x360/?mountains";
+
   const list: AlbumItem[] = [
     {
       title:
@@ -32,7 +34,7 @@ export default function IndexPage() {
       duration: 2400,
       views: 100,
       recreateCount: 10,
-      cover: "https://p.ipic.vip/oh91co.png",
+      cover: url,
       id: "5heajmeeo",
     },
     {
@@ -41,7 +43,7 @@ export default function IndexPage() {
       duration: 2400,
       views: 100,
       recreateCount: 10,
-      cover: "https://p.ipic.vip/oh91co.png",
+      cover: url,
       id: "5heajmeeo",
     },
     {
@@ -50,7 +52,7 @@ export default function IndexPage() {
       duration: 1800,
       views: 100,
       recreateCount: 22,
-      cover: "https://p.ipic.vip/oh91co.png",
+      cover: url,
       id: "ylk68yo00",
     },
     {
@@ -59,7 +61,7 @@ export default function IndexPage() {
       duration: 2100,
       views: 100,
       recreateCount: 33,
-      cover: "https://p.ipic.vip/oh91co.png",
+      cover: url,
       id: "fxdpxyl0l",
     },
     {
@@ -68,7 +70,7 @@ export default function IndexPage() {
       duration: 2400,
       views: 100,
       recreateCount: 10,
-      cover: "https://p.ipic.vip/oh91co.png",
+      cover: url,
       id: "5heajmeeo",
     },
     {
@@ -77,7 +79,7 @@ export default function IndexPage() {
       duration: 1800,
       views: 100,
       recreateCount: 22,
-      cover: "https://p.ipic.vip/oh91co.png",
+      cover: url,
       id: "ylk68yo00",
     },
     {
@@ -86,7 +88,7 @@ export default function IndexPage() {
       duration: 2100,
       views: 100,
       recreateCount: 33,
-      cover: "https://p.ipic.vip/oh91co.png",
+      cover: url,
       id: "fxdpxyl0l",
     },
     {
@@ -95,7 +97,7 @@ export default function IndexPage() {
       duration: 2400,
       views: 100,
       recreateCount: 10,
-      cover: "https://p.ipic.vip/oh91co.png",
+      cover: url,
       id: "5heajmeeo",
     },
     {
@@ -104,7 +106,7 @@ export default function IndexPage() {
       duration: 2100,
       views: 100,
       recreateCount: 33,
-      cover: "https://p.ipic.vip/oh91co.png",
+      cover: url,
       id: "fxdpxyl0l",
     },
     {
@@ -113,7 +115,7 @@ export default function IndexPage() {
       duration: 2100,
       views: 100,
       recreateCount: 33,
-      cover: "https://p.ipic.vip/oh91co.png",
+      cover: url,
       id: "fxdpxyl0l",
     },
     {
@@ -122,7 +124,7 @@ export default function IndexPage() {
       duration: 2100,
       views: 100,
       recreateCount: 33,
-      cover: "https://p.ipic.vip/oh91co.png",
+      cover: url,
       id: "fxdpxyl0l",
     },
     {
@@ -131,7 +133,7 @@ export default function IndexPage() {
       duration: 3200,
       views: 100,
       recreateCount: 111,
-      cover: "https://p.ipic.vip/oh91co.png",
+      cover: url,
       id: "gjzljl7v3",
     },
     {
@@ -140,7 +142,7 @@ export default function IndexPage() {
       duration: 2700,
       views: 100,
       recreateCount: 44,
-      cover: "https://p.ipic.vip/oh91co.png",
+      cover: url,
       id: "4fje04co1",
     },
     {
@@ -149,7 +151,7 @@ export default function IndexPage() {
       duration: 3200,
       views: 100,
       recreateCount: 111,
-      cover: "https://p.ipic.vip/oh91co.png",
+      cover: url,
       id: "gjzljl7v3",
     },
     {
@@ -158,7 +160,7 @@ export default function IndexPage() {
       duration: 2400,
       views: 100,
       recreateCount: 10,
-      cover: "https://p.ipic.vip/oh91co.png",
+      cover: url,
       id: "5heajmeeo",
     },
     {
@@ -167,7 +169,7 @@ export default function IndexPage() {
       duration: 3200,
       views: 100,
       recreateCount: 111,
-      cover: "https://p.ipic.vip/oh91co.png",
+      cover: url,
       id: "gjzljl7v3",
     },
     {
@@ -176,7 +178,7 @@ export default function IndexPage() {
       duration: 2100,
       views: 100,
       recreateCount: 33,
-      cover: "https://p.ipic.vip/oh91co.png",
+      cover: url,
       id: "fxdpxyl0l",
     },
     {
@@ -185,7 +187,7 @@ export default function IndexPage() {
       duration: 3200,
       views: 100,
       recreateCount: 111,
-      cover: "https://p.ipic.vip/oh91co.png",
+      cover: url,
       id: "gjzljl7v3",
     },
     {
@@ -194,7 +196,7 @@ export default function IndexPage() {
       duration: 2400,
       views: 100,
       recreateCount: 10,
-      cover: "https://p.ipic.vip/oh91co.png",
+      cover: url,
       id: "5heajmeeo",
     },
     {
@@ -203,7 +205,7 @@ export default function IndexPage() {
       duration: 1800,
       views: 100,
       recreateCount: 22,
-      cover: "https://p.ipic.vip/oh91co.png",
+      cover: url,
       id: "ylk68yo00",
     },
   ];
@@ -217,7 +219,7 @@ export default function IndexPage() {
       <div className="sticky top-0 z-10 w-full bg-background py-4">
         <div className="info flex w-full">
           <Image
-            src={"https://p.ipic.vip/oh91co.png"}
+            src={url}
             alt="cover img"
             width={144}
             height={144}

@@ -28,11 +28,11 @@ export default function IndexPage() {
 
   return (
     <>
-      <div className="container relative flex w-full flex-col items-center justify-center">
-        <div
-          className="sticky top-14 z-10 flex w-4/5 flex-col items-center justify-center bg-background py-4"
-          onClick={() => setIsPlaying(!isPlaying)}
-        >
+      <div
+        className="container relative flex w-full flex-col items-center justify-center"
+        onClick={() => setIsPlaying(!isPlaying)}
+      >
+        <div className="sticky top-14 z-10 flex w-4/5 flex-col items-center justify-center bg-background py-4">
           <ImgCard {...info}></ImgCard>
           {!isPlaying && (
             <div className="fixed inset-0 flex justify-center bg-black opacity-50">

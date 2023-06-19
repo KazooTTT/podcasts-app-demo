@@ -26,7 +26,7 @@ function ImgCard({ title, subTitle, cover, content }: CardProps) {
           className={`rounded-3xl`}
         />
       </div>
-      <div className="mt-2 text-center text-lg font-bold">{title}</div>
+      <div className="text- mt-2 text-center font-bold">{title}</div>
       <div className="mt-0.5 text-center text-muted-foreground">{subTitle}</div>
     </>
   );

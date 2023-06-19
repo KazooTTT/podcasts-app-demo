@@ -6,6 +6,7 @@ import { ImgCard } from "@/components/flow/card";
 import { ProgressDemo } from "@/components/progress";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Play, PlayCircle } from "lucide-react";
 
 export default function IndexPage() {
   const info = {
@@ -21,15 +22,27 @@ export default function IndexPage() {
   const [playbackRate, setPlaybackRate] = React.useState(1);
 
   // 是否正在播放
-  const [isPlaying, setIsPlaying] = React.useState(false);
+  const [isPlaying, setIsPlaying] = React.useState(true);
 
   const [[currentSec, totalSec], setTime] = React.useState([0, 268]);
 
   return (
     <>
       <div className="container relative flex w-full flex-col items-center justify-center">
-        <div className="sticky top-14 z-10 flex w-4/5 flex-col items-center justify-center bg-background py-4">
+        <div
+          className="sticky top-14 z-10 flex w-4/5 flex-col items-center justify-center bg-background py-4"
+          onClick={() => setIsPlaying(!isPlaying)}
+        >
           <ImgCard {...info}></ImgCard>
+          {!isPlaying && (
+            <div className="fixed inset-0 flex justify-center bg-black opacity-50">
+              <PlayCircle
+                size={96}
+                strokeWidth={1.5}
+                className="absolute top-1/4 text-white"
+              />
+            </div>
+          )}
         </div>
         <div className="timeline-container mt-2 flex w-4/5 flex-1 flex-col items-center space-y-1 overflow-auto text-xs text-muted-foreground">
           {[

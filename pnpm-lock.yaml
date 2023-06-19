@@ -80,12 +80,18 @@ dependencies:
   react-dom:
     specifier: ^18.2.0
     version: registry.npmmirror.com/react-dom@18.2.0(react@18.2.0)
+  react-responsive-carousel:
+    specifier: ^3.2.23
+    version: 3.2.23
   sanity:
     specifier: '3'
     version: registry.npmmirror.com/sanity@3.12.0(@types/node@17.0.45)(@types/react@18.2.7)(react-dom@18.2.0)(react@18.2.0)(styled-components@5.3.11)
   sharp:
     specifier: ^0.31.3
     version: registry.npmmirror.com/sharp@0.31.3
+  swiper:
+    specifier: ^9.4.1
+    version: 9.4.1
   tailwind-merge:
     specifier: ^1.12.0
     version: registry.npmmirror.com/tailwind-merge@1.12.0
@@ -1632,6 +1638,10 @@ packages:
     resolution: {integrity: sha512-mKKUkUbhPpQlCOfIuZkvSEgktjPFIsZKRRbC6KWVEMvlzblj3i3asQv5ODsrwt0N3pHAEvjP8KTQPHkp0+6jOg==}
     dev: false
 
+  /classnames@2.3.2:
+    resolution: {integrity: sha512-CSbhY4cFEJRe6/GQzIk5qXZ4Jeg5pcsP7b5peFSDpffpe1cqjASH/n9UTjBwOp6XpMSTwQ8Za2K5V02ueA7Tmw==}
+    dev: false
+
   /codemirror@6.0.1(@lezer/common@1.0.3):
     resolution: {integrity: sha512-J8j+nZ+CdWmIeFIGXEFbFPtpiYacFMDR8GlHK3IyHQJMCaVRfGx9NT+Hxivv1ckLWPvNdZqndbr/7lVhrf/Svg==}
     dependencies:
@@ -1967,6 +1977,13 @@ packages:
       xtend: 4.0.2
     dev: false
 
+  /react-easy-swipe@0.0.21:
+    resolution: {integrity: sha512-OeR2jAxdoqUMHIn/nS9fgreI5hSpgGoL5ezdal4+oO7YSSgJR8ga+PkYGJrSrJ9MKlPcQjMQXnketrD7WNmNsg==}
+    engines: {node: '>= 6'}
+    dependencies:
+      prop-types: 15.8.1
+    dev: false
+
   /react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
     dev: false
@@ -1985,6 +2002,14 @@ packages:
       refractor: 3.6.0
       unist-util-filter: 2.0.3
       unist-util-visit-parents: 3.1.1
+    dev: false
+
+  /react-responsive-carousel@3.2.23:
+    resolution: {integrity: sha512-pqJLsBaKHWJhw/ItODgbVoziR2z4lpcJg+YwmRlSk4rKH32VE633mAtZZ9kDXjy4wFO+pgUZmDKPsPe1fPmHCg==}
+    dependencies:
+      classnames: 2.3.2
+      prop-types: 15.8.1
+      react-easy-swipe: 0.0.21
     dev: false
 
   /readable-stream@2.3.8:
@@ -2052,6 +2077,10 @@ packages:
     resolution: {integrity: sha512-lgxErLl/7A5+vgIIXsh9MbeukOaCb2axgQ+bKCdIE+ibNT4XNYGNCR1qFEGq6F+YDASXK3Fh/c5FgtZchFolxw==}
     dev: false
 
+  /ssr-window@4.0.2:
+    resolution: {integrity: sha512-ISv/Ch+ig7SOtw7G2+qkwfVASzazUnvlDTwypdLoPoySv+6MqlOV10VwPSE6EWkGjhW50lUmghPmpYZXMu/+AQ==}
+    dev: false
+
   /string_decoder@1.1.1:
     resolution: {integrity: sha512-n/ShnvDi6FHbbVfviro+WojiFzv+s8MPMHBczVePfUpDJLwoLT0ht1l4YwBCbi8pJAveEEdnkHyPyTP/mzRfwg==}
     dependencies:
@@ -2090,6 +2119,13 @@ packages:
     engines: {node: '>=4'}
     dependencies:
       has-flag: 3.0.0
+    dev: false
+
+  /swiper@9.4.1:
+    resolution: {integrity: sha512-1nT2T8EzUpZ0FagEqaN/YAhRj33F2x/lN6cyB0/xoYJDMf8KwTFT3hMOeoB8Tg4o3+P/CKqskP+WX0Df046fqA==}
+    engines: {node: '>= 4.7.0'}
+    dependencies:
+      ssr-window: 4.0.2
     dev: false
 
   /tailwind-scrollbar@3.0.4(tailwindcss@3.3.2):
@@ -8593,7 +8629,7 @@ packages:
       react: ^15.3.0 || 16 || 17 || 18
     dependencies:
       copy-to-clipboard: registry.npmmirror.com/copy-to-clipboard@3.3.3
-      prop-types: registry.npmmirror.com/prop-types@15.8.1
+      prop-types: 15.8.1
       react: registry.npmmirror.com/react@18.2.0
     dev: false
 
@@ -8631,7 +8667,7 @@ packages:
       '@babel/runtime': 7.22.3
       '@types/react': registry.npmmirror.com/@types/react@18.2.7
       focus-lock: registry.npmmirror.com/focus-lock@0.11.6
-      prop-types: registry.npmmirror.com/prop-types@15.8.1
+      prop-types: 15.8.1
       react: registry.npmmirror.com/react@18.2.0
       react-clientside-effect: registry.npmmirror.com/react-clientside-effect@1.2.6(react@18.2.0)
       use-callback-ref: registry.npmmirror.com/use-callback-ref@1.3.0(@types/react@18.2.7)(react@18.2.0)
@@ -8663,7 +8699,7 @@ packages:
     peerDependencies:
       react: '>=15.0.0'
     dependencies:
-      prop-types: registry.npmmirror.com/prop-types@15.8.1
+      prop-types: 15.8.1
       react: registry.npmmirror.com/react@18.2.0
       refractor: registry.npmmirror.com/refractor@3.6.0
       unist-util-filter: registry.npmmirror.com/unist-util-filter@2.0.3
@@ -8738,7 +8774,7 @@ packages:
     name: react-style-proptype
     version: 3.2.2
     dependencies:
-      prop-types: registry.npmmirror.com/prop-types@15.8.1
+      prop-types: 15.8.1
     dev: false
 
   registry.npmmirror.com/react-style-singleton@2.2.1(@types/react@18.2.7)(react@18.2.0):

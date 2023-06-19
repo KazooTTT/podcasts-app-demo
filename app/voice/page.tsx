@@ -9,6 +9,8 @@ import { Button } from "@/components/ui/button";
 import { Info } from "lucide-react";
 import { formatDuration, formatTime2MinSec } from "@/lib/format";
 import { Badge } from "@/components/ui/badge";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
 
 export default function IndexPage() {
   // 当前播放速率
@@ -68,38 +70,41 @@ export default function IndexPage() {
           <Button className="w-full">创建片段</Button>
         </div>
       </div>
-
-      {isShowDetail ? (
-        <div className="space-y-3 py-2">
-          {subTitleList.map((item) => (
-            <ContentItem {...item} />
-          ))}
-        </div>
-      ) : (
-        <div className="w-full flex-1 space-y-5 py-2">
-          {podcastItemList.map((item, index) => {
-            return (
-              <div key={item.title} className="item flex items-center">
-                <div className="mr-5 w-4 text-base">{index + 1}</div>
-                <div className="flex flex-1 flex-col justify-center">
-                  <div className="line-clamp-1 text-sm">{item.title}</div>
-                  <div className="flex items-center space-x-1 text-xs text-muted-foreground">
-                    <div>{formatTime2MinSec(item.position)}</div>
-                    <div>{formatDuration(item.duration)}</div>
+      <div className="w-full flex-1">
+        <Swiper spaceBetween={50} slidesPerView={1} autoHeight={true}>
+          <SwiperSlide>
+            <div className="h-fit w-full space-y-5 py-2">
+              {podcastItemList.map((item, index) => {
+                return (
+                  <div
+                    key={`${item.title}${index}`}
+                    className="item flex items-center"
+                  >
+                    <div className="mr-5 w-4 text-base">{index + 1}</div>
+                    <div className="flex flex-1 flex-col justify-center">
+                      <div className="line-clamp-1 text-sm">{item.title}</div>
+                      <div className="flex items-center space-x-1 text-xs text-muted-foreground">
+                        <div>{formatTime2MinSec(item.position)}</div>
+                        <div>{formatDuration(item.duration)}</div>
+                      </div>
+                    </div>
+                    <div>
+                      <Info size={24} strokeWidth={1.5} />
+                    </div>
                   </div>
-                </div>
-                <div
-                  onClick={() => {
-                    setIsShowDetail(true);
-                  }}
-                >
-                  <Info size={24} strokeWidth={1.5} />
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      )}
+                );
+              })}
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="space-y-3 py-2">
+              {subTitleList.map((item, index) => (
+                <ContentItem {...item} key={`${item.content}${index}`} />
+              ))}
+            </div>
+          </SwiperSlide>
+        </Swiper>
+      </div>
     </div>
   );
 }

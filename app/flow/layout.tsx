@@ -3,6 +3,7 @@ import { SiteHeader } from "@/components/flow/siteHeader";
 import MenuBar from "@/components/menuBar";
 
 import "@/styles/globals.css";
+import { PlayCircle } from "lucide-react";
 
 interface RootLayoutProps {
   children: React.ReactNode;

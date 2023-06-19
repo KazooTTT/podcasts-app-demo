@@ -27,24 +27,15 @@ export default function IndexPage() {
   const [[currentSec, totalSec], setTime] = React.useState([0, 268]);
 
   return (
-    <div>
+    <div className="relative">
       <div
         className="container relative flex w-full flex-col items-center justify-center"
         onClick={() => setIsPlaying(!isPlaying)}
       >
         <div className="sticky top-14 z-10 flex w-full flex-col items-center justify-center bg-background py-4">
           <ImgCard {...info}></ImgCard>
-          {!isPlaying && (
-            <div className="fixed inset-0 flex justify-center bg-black opacity-50">
-              <PlayCircle
-                size={96}
-                strokeWidth={1.5}
-                className="absolute top-1/4 text-white"
-              />
-            </div>
-          )}
         </div>
-        <div className="timeline-container mt-2 flex w-4/5 flex-1 flex-col items-center space-y-1 overflow-auto scrollbar-none text-xs text-muted-foreground">
+        <div className="timeline-container mt-2 flex w-4/5 flex-1 flex-col items-center space-y-1 overflow-auto text-xs text-muted-foreground scrollbar-none">
           {[
             "ocean rain sun sky rain",
             "ocean love forever forever",
@@ -130,6 +121,16 @@ export default function IndexPage() {
         </div>
         <div className="mt-1">Totally agreed.Everything he said need to be</div>
       </div>
+      {!isPlaying && (
+        <div className="fixed inset-0 z-30 flex justify-center bg-black opacity-50">
+          <PlayCircle
+            size={96}
+            strokeWidth={1.5}
+            className="absolute top-1/4 text-white"
+            onClick={() => setIsPlaying(!isPlaying)}
+          />
+        </div>
+      )}
     </div>
   );
 }

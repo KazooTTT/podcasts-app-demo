@@ -1,5 +1,5 @@
-import { Button } from "./ui/button"
-import { Input } from "./ui/input"
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
 
 export function SiteHeader() {
   return (
@@ -13,5 +13,5 @@ export function SiteHeader() {
         </div>
       </div>
     </header>
-  )
+  );
 }

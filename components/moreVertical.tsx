@@ -1,15 +1,15 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { CheckCircle2, Podcast, Settings2, Star } from "lucide-react"
+import * as React from "react";
+import { CheckCircle2, Podcast, Settings2, Star } from "lucide-react";
 
-import { Button } from "@/components/ui/button"
-import { Icons } from "@/components/icons"
+import { Button } from "@/components/ui/button";
+import { Icons } from "@/components/icons";
 
-import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog"
+import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
 
 export function MoreVertical() {
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = React.useState(false);
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -49,5 +49,5 @@ export function MoreVertical() {
         </Button>
       </DialogContent>
     </Dialog>
-  )
+  );
 }

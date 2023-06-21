@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 
-import { Button } from "@/components/ui/button"
-import { Icons } from "@/components/icons"
+import { Button } from "@/components/ui/button";
+import { Icons } from "@/components/icons";
 
-import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog"
+import { Dialog, DialogContent, DialogTrigger } from "./ui/dialog";
 
 export function Share() {
   return (
@@ -13,11 +13,11 @@ export function Share() {
       <Icons.Share className="rotate-0 scale-100 transition-all" size={18} />
       <span className="sr-only">share button</span>
     </Button>
-  )
+  );
 }
 
 export function ShareBottomModal() {
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = React.useState(false);
 
   return (
     <Dialog open={open} onOpenChange={setOpen}>
@@ -41,5 +41,5 @@ export function ShareBottomModal() {
         </Button>
       </DialogContent>
     </Dialog>
-  )
+  );
 }

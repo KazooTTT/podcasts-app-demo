@@ -1,5 +1,5 @@
-import { MoreVertical } from "./moreVertical"
-import { ShareBottomModal } from "./share"
+import { MoreVertical } from "./moreVertical";
+import { ShareBottomModal } from "./share";
 
 export function MainNavRight() {
   return (
@@ -7,5 +7,5 @@ export function MainNavRight() {
       <ShareBottomModal></ShareBottomModal>
       <MoreVertical></MoreVertical>
     </div>
-  )
+  );
 }

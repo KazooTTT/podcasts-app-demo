@@ -1,20 +1,20 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import Link from "next/link"
-import { usePathname } from "next/navigation"
+import * as React from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-import { NavItem } from "@/types/nav"
-import { cn } from "@/lib/utils"
+import { NavItem } from "@/types/nav";
+import { cn } from "@/lib/utils";
 
-import { Separator } from "./ui/separator"
+import { Separator } from "./ui/separator";
 
 interface MainNavProps {
-  items?: NavItem[]
+  items?: NavItem[];
 }
 
 export function MainNav({ items }: MainNavProps) {
-  const pathname = usePathname()
+  const pathname = usePathname();
 
   return (
     <div className="flex w-full justify-center gap-6 md:gap-10 ">
@@ -43,5 +43,5 @@ export function MainNav({ items }: MainNavProps) {
         </nav>
       ) : null}
     </div>
-  )
+  );
 }

@@ -1,5 +1,5 @@
-import { Icons } from "./icons"
-import { Button } from "./ui/button"
+import { Icons } from "./icons";
+import { Button } from "./ui/button";
 
 export function MainNavLeft() {
   return (
@@ -8,5 +8,5 @@ export function MainNavLeft() {
         <Icons.chevronDown size="20"></Icons.chevronDown>
       </Button>
     </div>
-  )
+  );
 }

@@ -1,8 +1,8 @@
 export interface NavItem {
-  title: string
-  href?: string
-  disabled?: boolean
-  external?: boolean
+  title: string;
+  href?: string;
+  disabled?: boolean;
+  external?: boolean;
 }
 
-export type FlowType = "text" | "img" | "video"
+export type FlowType = "text" | "img" | "video";

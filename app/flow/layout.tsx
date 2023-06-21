@@ -14,7 +14,9 @@ export default function RootLayout({ children }: RootLayoutProps) {
     <>
       <div className="relative flex max-h-screen min-h-screen flex-col overflow-auto scrollbar-none">
         <SiteHeader />
-        <div className="flex-1">{children}</div>
+        <div className="flex flex-1 justify-center overflow-auto scrollbar-none">
+          {children}
+        </div>
         <div className="bottom-menu sticky bottom-0 z-40 w-full">
           <MenuBar></MenuBar>
         </div>

@@ -22,7 +22,7 @@ export function ProgressDemo({
   totalSec: number;
   className?: string;
   setTime: React.Dispatch<React.SetStateAction<[number, number]>>;
-  setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>;
+  setIsPlaying: (newVal: boolean) => void;
 }) {
   // add currentSec per second when isPlaying is true., and stop when currentSec === totalSec
   React.useEffect(() => {

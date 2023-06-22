@@ -91,8 +91,8 @@ export function Client({
                     src={url}
                     key={`${url}${index}`}
                     alt="cover"
-                    width={64}
-                    height={64}
+                    width={128}
+                    height={128}
                     className="h-full w-full rounded-sm"
                     placeholder="blur"
                     blurDataURL={placeHolderBase64}
@@ -108,8 +108,8 @@ export function Client({
                     <Image
                       src={img}
                       alt="cover"
-                      width={360}
-                      height={640}
+                      width={403}
+                      height={538}
                       className="w-full rounded-sm"
                       placeholder="blur"
                       blurDataURL={placeHolderBase64}
@@ -126,8 +126,8 @@ export function Client({
                   <Image
                     src={img}
                     alt="cover"
-                    width={360}
-                    height={640}
+                    width={403}
+                    height={538}
                     className="w-full rounded-sm"
                     placeholder="blur"
                     blurDataURL={placeHolderBase64}
@@ -143,8 +143,8 @@ export function Client({
                   <Image
                     src={img}
                     alt="cover"
-                    width={362}
-                    height={640}
+                    width={403}
+                    height={538}
                     className="w-full rounded-sm"
                     placeholder="blur"
                     blurDataURL={placeHolderBase64}

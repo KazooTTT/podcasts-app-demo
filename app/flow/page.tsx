@@ -1,106 +1,106 @@
 "use client";
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import { ImgCard } from "@/components/flow/card";
 import { ProgressDemo } from "@/components/progress";
 import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Play, PlayCircle } from "lucide-react";
+import { PlayCircle } from "lucide-react";
+import { SideBar } from "@/components/flow/siteBar";
+import { CardProps } from "@/types/flow";
+import { useMount } from "ahooks";
 
-export default function IndexPage() {
-  const info = {
-    title: "The Power of Unwavering Focus",
-    subTitle: "The Art of Maniliness",
-    type: "img",
-    cover: "https://source.unsplash.com/416x277/?mountains",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  };
-
-  // 当前播放速率
-  const [playbackRate, setPlaybackRate] = React.useState(1);
-
-  // 是否正在播放
-  const [isPlaying, setIsPlaying] = React.useState(true);
+function FlowItem(props: {
+  info: React.JSX.IntrinsicAttributes & CardProps;
+  height: number;
+}) {
+  const { height } = props;
 
   const [[currentSec, totalSec], setTime] = React.useState([0, 268]);
+  const [isPlaying, setIsPlaying] = React.useState(false);
 
   return (
-    <div className="relative">
+    <div
+      className="flowitem relative flex flex-1 flex-col items-center justify-center bg-background"
+      style={{
+        minHeight: (height ?? window.innerHeight) - 128,
+        maxHeight: (height ?? window.innerHeight) - 128,
+      }}
+    >
       <div
-        className="container relative flex w-full flex-col items-center justify-center"
+        className="container flex w-full flex-col items-center justify-center self-start"
         onClick={() => setIsPlaying(!isPlaying)}
       >
-        <div className="sticky top-14 z-10 flex w-full flex-col items-center justify-center bg-background py-4">
-          <ImgCard {...info}></ImgCard>
-        </div>
-        <div className="timeline-container mt-2 flex w-4/5 flex-1 flex-col items-center space-y-1 overflow-auto text-xs text-muted-foreground scrollbar-none">
-          {[
-            "ocean rain sun sky rain",
-            "ocean love forever forever",
-            "love dream",
-            "dream forever love love dream",
-            "sun sun ocean sun love",
-            "rain love",
-            "time time sun forever",
-            "forever time sky",
-            "sun ocean dream time time forever",
-            "love love ocean heart",
-            "dream forever love love dream",
-            "sun sun ocean sun love",
-            "rain love",
-            "time time sun forever",
-            "forever time sky",
-            "sun ocean dream time time forever",
-            "love love ocean heart",
-            "dream forever love love dream",
-            "sun sun ocean sun love",
-            "rain love",
-            "time time sun forever",
-            "forever time sky",
-            "sun ocean dream time time forever",
-            "love love ocean heart",
-            "dream forever love love dream",
-            "sun sun ocean sun love",
-            "rain love",
-            "time time sun forever",
-            "forever time sky",
-            "sun ocean dream time time forever",
-            "love love ocean heart",
-            "dream forever love love dream",
-            "sun sun ocean sun love",
-            "rain love",
-            "time time sun forever",
-            "forever time sky",
-            "sun ocean dream time time forever",
-            "love love ocean heart",
-            "dream forever love love dream",
-            "sun sun ocean sun love",
-            "rain love",
-            "time time sun forever",
-            "forever time sky",
-            "sun ocean dream time time forever",
-            "love love ocean heart",
-            "dream forever love love dream",
-            "sun sun ocean sun love",
-            "rain love",
-            "time time sun forever",
-            "forever time sky",
-            "sun ocean dream time time forever",
-            "love love ocean heart",
-          ].map((item, index) => (
-            <div key={`${item}${index}`}>
-              {index}-{item}
-            </div>
-          ))}
+        <div className="z-10 flex w-full flex-col items-center justify-center bg-background py-4">
+          <ImgCard {...props.info}></ImgCard>
         </div>
       </div>
-      <div className="container sticky bottom-18 z-20 flex w-full flex-col bg-background py-2">
+      <div className="timeline-container mt-2 flex w-4/5 flex-1 flex-col items-center space-y-1 overflow-auto text-xs text-muted-foreground scrollbar-none">
+        {[
+          "ocean rain sun sky rain",
+          "ocean love forever forever",
+          "love dream",
+          "dream forever love love dream",
+          "sun sun ocean sun love",
+          "rain love",
+          "time time sun forever",
+          "forever time sky",
+          "sun ocean dream time time forever",
+          "love love ocean heart",
+          "dream forever love love dream",
+          "sun sun ocean sun love",
+          "rain love",
+          "time time sun forever",
+          "forever time sky",
+          "sun ocean dream time time forever",
+          "love love ocean heart",
+          "dream forever love love dream",
+          "sun sun ocean sun love",
+          "rain love",
+          "time time sun forever",
+          "forever time sky",
+          "sun ocean dream time time forever",
+          "love love ocean heart",
+          "dream forever love love dream",
+          "sun sun ocean sun love",
+          "rain love",
+          "time time sun forever",
+          "forever time sky",
+          "sun ocean dream time time forever",
+          "love love ocean heart",
+          "dream forever love love dream",
+          "sun sun ocean sun love",
+          "rain love",
+          "time time sun forever",
+          "forever time sky",
+          "sun ocean dream time time forever",
+          "love love ocean heart",
+          "dream forever love love dream",
+          "sun sun ocean sun love",
+          "rain love",
+          "time time sun forever",
+          "forever time sky",
+          "sun ocean dream time time forever",
+          "love love ocean heart",
+          "dream forever love love dream",
+          "sun sun ocean sun love",
+          "rain love",
+          "time time sun forever",
+          "forever time sky",
+          "sun ocean dream time time forever",
+          "love love ocean heart",
+        ].map((item, index) => (
+          <div key={`${item}${index}`}>
+            {index}-{item}
+          </div>
+        ))}
+      </div>
+      <div className="container bottom-18 z-20 flex w-full flex-col bg-background py-2">
         <ProgressDemo
           className="my-2"
           isPlaying={isPlaying}
-          playbackRate={playbackRate}
+          playbackRate={1}
           currentSec={currentSec}
           totalSec={totalSec}
           setTime={setTime}
@@ -121,7 +121,8 @@ export default function IndexPage() {
         </div>
         <div className="mt-1">Totally agreed.Everything he said need to be</div>
       </div>
-      {!isPlaying && (
+      <SideBar></SideBar>
+      {isPlaying && (
         <div className="fixed inset-0 z-30 flex justify-center bg-black opacity-50">
           <PlayCircle
             size={96}
@@ -132,5 +133,34 @@ export default function IndexPage() {
         </div>
       )}
     </div>
+  );
+}
+
+export default function IndexPage() {
+  const [height, setheight] = useState(0);
+  useEffect(() => {
+    setheight(window.innerHeight);
+  }, []);
+
+  const info = {
+    title: "The Power of Unwavering Focus",
+    subTitle: "The Art of Maniliness",
+    type: "img",
+    cover: "https://source.unsplash.com/416x277/?mountains",
+    content:
+      "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+  };
+
+  return (
+    <>
+      <FlowItem info={info} height={height} />
+      <FlowItem info={info} height={height} />
+      <FlowItem info={info} height={height} />
+      <FlowItem info={info} height={height} />
+      <FlowItem info={info} height={height} />
+      <FlowItem info={info} height={height} />
+      <FlowItem info={info} height={height} />
+      <FlowItem info={info} height={height} />
+    </>
   );
 }

@@ -1,0 +1,7 @@
+.items-container {
+  scroll-snap-type: y mandatory;
+}
+
+.flowitem {
+  scroll-snap-align: start;
+}

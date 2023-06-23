@@ -10,6 +10,7 @@ import { PlayCircle } from "lucide-react";
 import { SideBar } from "@/components/flow/siteBar";
 import { CardProps } from "@/types/flow";
 import { useMount } from "ahooks";
+import Loading from "./loading";
 
 function FlowItem(props: {
   info: React.JSX.IntrinsicAttributes & CardProps;
@@ -139,6 +140,10 @@ function FlowItem(props: {
 export default function IndexPage() {
   const [height, setheight] = useState(0);
 
+  useMount(() => {
+    setheight(window.innerHeight);
+  });
+
   useEffect(() => {
     const handleResize = () => setheight(window.innerHeight);
     window.addEventListener("resize", handleResize);
@@ -158,14 +163,20 @@ export default function IndexPage() {
 
   return (
     <>
-      <FlowItem info={info} height={height} />
-      <FlowItem info={info} height={height} />
-      <FlowItem info={info} height={height} />
-      <FlowItem info={info} height={height} />
-      <FlowItem info={info} height={height} />
-      <FlowItem info={info} height={height} />
-      <FlowItem info={info} height={height} />
-      <FlowItem info={info} height={height} />
+      {height === 0 ? (
+        <Loading></Loading>
+      ) : (
+        <>
+          <FlowItem info={info} height={height} />
+          <FlowItem info={info} height={height} />
+          <FlowItem info={info} height={height} />
+          <FlowItem info={info} height={height} />
+          <FlowItem info={info} height={height} />
+          <FlowItem info={info} height={height} />
+          <FlowItem info={info} height={height} />
+          <FlowItem info={info} height={height} />
+        </>
+      )}
     </>
   );
 }

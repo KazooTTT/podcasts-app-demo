@@ -138,8 +138,13 @@ function FlowItem(props: {
 
 export default function IndexPage() {
   const [height, setheight] = useState(0);
+
   useEffect(() => {
-    setheight(window.innerHeight);
+    const handleResize = () => setheight(window.innerHeight);
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
   }, []);
 
   const info = {

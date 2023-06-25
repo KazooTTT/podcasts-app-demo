@@ -3,7 +3,6 @@ import MenuBar from "@/components/menuBar";
 import Flow from "../components/flow/page";
 
 export default function Page() {
-  // redirect("/flow");
   return (
     <>
       <div className="relative flex max-h-screen min-h-screen flex-col">

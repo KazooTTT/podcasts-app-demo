@@ -10,7 +10,8 @@ const MenuBar = () => {
   const pathname = usePathname();
   const router = useRouter();
 
-  const isActive = (prefix: string) => pathname.startsWith(prefix);
+  const isActive = (prefix: string) =>
+    prefix === "/" ? pathname === "/" : pathname.startsWith(prefix);
 
   return (
     <Menubar className="z-50 h-18 justify-around border-t bg-background">
@@ -18,16 +19,16 @@ const MenuBar = () => {
         <div className="text-center">
           <MenubarTrigger
             className="mb-0.5 flex w-12 flex-col items-center data-[state=open]:bg-hightLightMenu"
-            data-state={isActive("/flow") ? "open" : undefined}
+            data-state={isActive("/") ? "open" : undefined}
             onClick={() => {
-              router.push("/flow");
+              router.push("/");
             }}
           >
             <div>
               <Home size={20}></Home>
             </div>
           </MenubarTrigger>
-          <div className={isActive("/flow") ? "text-hightLightMenu" : "white"}>
+          <div className={isActive("/") ? "text-hightLightMenu" : "white"}>
             发现
           </div>
         </div>

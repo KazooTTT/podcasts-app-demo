@@ -32,7 +32,7 @@ export function SiteHeader() {
           </div>
         </Button>
         <Button variant={"link"}>
-          <Search className="float-left"></Search>
+          <Search className="float-left" alt="search"></Search>
         </Button>
       </div>
     </header>

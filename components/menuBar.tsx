@@ -25,7 +25,7 @@ const MenuBar = () => {
             }}
           >
             <div>
-              <Home size={20}></Home>
+              <Home size={20} alt="home"></Home>
             </div>
           </MenubarTrigger>
           <div className={isActive("/") ? "text-hightLightMenu" : "white"}>
@@ -43,7 +43,7 @@ const MenuBar = () => {
             }}
           >
             <div>
-              <Heart />
+              <Heart alt="heart" />
             </div>
           </MenubarTrigger>
           <div
@@ -63,7 +63,7 @@ const MenuBar = () => {
             }}
           >
             <div>
-              <Upload></Upload>
+              <Upload alt="upload"></Upload>
             </div>
           </MenubarTrigger>
           <div
@@ -83,7 +83,7 @@ const MenuBar = () => {
             }}
           >
             <div>
-              <Mail />
+              <Mail alt="message" />
             </div>
           </MenubarTrigger>
           <div
@@ -103,7 +103,7 @@ const MenuBar = () => {
             }}
           >
             <div>
-              <User></User>
+              <User alt="my"></User>
             </div>
           </MenubarTrigger>
           <div className={isActive("/my") ? "text-hightLightMenu" : "white"}>

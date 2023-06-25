@@ -3,7 +3,7 @@
   "version": "0.0.2",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
@@ -28,7 +28,6 @@
     "@radix-ui/react-tooltip": "^1.0.6",
     "@sanity/image-url": "1",
     "@sanity/vision": "3",
-    "@sentry/nextjs": "^7.56.0",
     "@uidotdev/usehooks": "^2.0.1",
     "@vercel/analytics": "^1.0.1",
     "ahooks": "^3.7.7",

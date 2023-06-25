@@ -34,7 +34,7 @@ export default function IndexPage() {
         <div className="info-container w-3/5">
           <Image
             src={
-              "https://images.unsplash.com/photo-1661956601349-f61c959a8fd4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1471&q=80"
+              "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252109920.jpeg"
             }
             alt="avatar"
             width={831}

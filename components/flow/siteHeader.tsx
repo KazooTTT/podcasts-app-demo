@@ -21,7 +21,7 @@ export function SiteHeader() {
         >
           <Avatar className="border-2 border-solid border-hightLight">
             <AvatarImage
-              src="https://source.unsplash.com/64x64/?mountains"
+              src="https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252109726.jpeg"
               alt="album"
             />
             <AvatarFallback></AvatarFallback>

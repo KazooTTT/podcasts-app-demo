@@ -8,14 +8,29 @@ import { Badge } from "@/components/ui/badge";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { PlayCircle } from "lucide-react";
 import { SideBar } from "@/components/flow/siteBar";
-import { CardProps } from "@/types/flow";
+import { CardProps, UploaderInfo } from "@/types/flow";
 import { useMount } from "ahooks";
 import Loading from "./loading";
 
-function FlowItem(props: {
-  info: React.JSX.IntrinsicAttributes & CardProps;
-  height: number;
-}) {
+function UploaderInfo(props: { uploadInfo: UploaderInfo }) {
+  return (
+    <div>
+      <div className="flex items-center space-x-2">
+        <Avatar className="h-8 w-8">
+          <AvatarImage src={props.uploadInfo.avatar} alt="album" />
+          <AvatarFallback></AvatarFallback>
+        </Avatar>
+        <span>@&nbsp;{props.uploadInfo.name}</span>
+        <Badge variant="destructive" className="rounded-sm text-xs">
+          关注
+        </Badge>
+      </div>
+      <div className="mt-1">{props.uploadInfo.desc}</div>
+    </div>
+  );
+}
+
+function FlowItem(props: { info: CardProps; height: number }) {
   const { height } = props;
 
   const [[currentSec, totalSec], setTime] = React.useState([0, 268]);
@@ -107,20 +122,9 @@ function FlowItem(props: {
           setTime={setTime}
           setIsPlaying={setIsPlaying}
         />
-        <div className="flex items-center space-x-2">
-          <Avatar className="h-8 w-8">
-            <AvatarImage
-              src="https://source.unsplash.com/64x64/?nature"
-              alt="album"
-            />
-            <AvatarFallback></AvatarFallback>
-          </Avatar>
-          <span>@ 喜马马马</span>
-          <Badge variant="destructive" className="rounded-sm text-xs">
-            关注
-          </Badge>
-        </div>
-        <div className="mt-1">Totally agreed.Everything he said need to be</div>
+        {props.info.uploaderInfo && (
+          <UploaderInfo uploadInfo={props.info.uploaderInfo}></UploaderInfo>
+        )}
       </div>
       <SideBar></SideBar>
       {isPlaying && (
@@ -152,30 +156,149 @@ export default function IndexPage() {
     };
   }, []);
 
-  const info = {
-    title: "The Power of Unwavering Focus",
-    subTitle: "The Art of Maniliness",
-    type: "img",
-    cover: "https://source.unsplash.com/416x277/?mountains",
-    content:
-      "Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Lorem ipsum dolor sit amet, consectetur adipisci elit, sed eiusmod tempor incidunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur. Quis aute iure reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint obcaecat cupiditat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-  };
+  const infos = [
+    {
+      title: "Serene Nature",
+      subTitle: "Experience the calm",
+      type: "img",
+      cover: "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/416x277",
+      uploaderInfo: {
+        avatar: "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/64x64",
+        name: "Nature Novelist",
+        desc: "A passionate nature enthusiast and storyteller.",
+      },
+    },
+    {
+      title: "Urban Exploration",
+      subTitle: "Discover city life",
+      type: "img",
+      cover:
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252102616.jpeg",
+      uploaderInfo: {
+        avatar:
+          "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252128870.jpg",
+        name: "Urban",
+        desc: "Always eager to uncover city secrets.",
+      },
+    },
+    {
+      title: "Gastronomy Delights",
+      subTitle: "Feast your eyes",
+      type: "img",
+      cover:
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252107930.jpeg",
+      uploaderInfo: {
+        avatar:
+          "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252101137.jpeg",
+        name: "Gourmet Guru",
+        desc: "A foodie passionate about culinary art.",
+      },
+    },
+    {
+      title: "Galactic Wonders",
+      subTitle: "Explore the cosmos",
+      type: "img",
+      cover:
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252107341.jpeg",
+      uploaderInfo: {
+        avatar:
+          "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252102446.jpeg",
+        name: "Space Spectator",
+        desc: "Curious observer of the starry expanses.",
+      },
+    },
+    {
+      title: "Ocean's Depth",
+      subTitle: "Dive into the blue",
+      type: "img",
+      cover:
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252106825.jpeg",
+      uploaderInfo: {
+        avatar:
+          "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252103731.jpeg",
+        name: "Marine Maven",
+        desc: "Dedicated to uncovering the mysteries of the deep.",
+      },
+    },
+    {
+      title: "Mountain Majesty",
+      subTitle: "Climb to new heights",
+      type: "img",
+      cover:
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252105062.jpeg",
+      uploaderInfo: {
+        avatar:
+          "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252103706.jpeg",
+        name: "Peak Pioneer",
+        desc: "Adventurer with a passion for high peaks.",
+      },
+    },
+    {
+      title: "Intricate Architecture",
+      subTitle: "Witness human ingenuity",
+      type: "img",
+      cover:
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252105062.jpeg",
+      uploaderInfo: {
+        avatar:
+          "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252105166.jpeg",
+        name: "Architectural Aficionado",
+        desc: "Admiring human creativity in architectural designs.",
+      },
+    },
+    {
+      title: "Wildlife Wonders",
+      subTitle: "Meet our fellow inhabitants",
+      type: "img",
+      cover:
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252105300.jpeg",
+      uploaderInfo: {
+        avatar:
+          "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252103301.jpeg",
+        name: "Wildlife Whisperer",
+        desc: "Cherishing our cohabitant creatures.",
+      },
+    },
+    {
+      title: "Vintage Vibes",
+      subTitle: "Relive the past",
+      type: "img",
+      cover:
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252104006.jpeg",
+      uploaderInfo: {
+        avatar:
+          "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252104704.jpeg",
+        name: "Retro Revivalist",
+        desc: "Bringing the charm of the past to the present.",
+      },
+    },
+    {
+      title: "Artistic Inspirations",
+      subTitle: "Feast your creative soul",
+      type: "img",
+      cover:
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252107816.jpeg",
+      uploaderInfo: {
+        avatar:
+          "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252103706.jpeg",
+        name: "Art Advocate",
+        desc: "Enlightening the world with the beauty of art.",
+      },
+    },
+  ];
 
   return (
     <>
       {height === 0 ? (
         <Loading></Loading>
       ) : (
-        <>
-          <FlowItem info={info} height={height} />
-          <FlowItem info={info} height={height} />
-          <FlowItem info={info} height={height} />
-          <FlowItem info={info} height={height} />
-          <FlowItem info={info} height={height} />
-          <FlowItem info={info} height={height} />
-          <FlowItem info={info} height={height} />
-          <FlowItem info={info} height={height} />
-        </>
+        infos.map((item, index) => (
+          <FlowItem
+            info={item}
+            height={height}
+            key={[item.title, index].join("_")}
+          />
+        ))
       )}
     </>
   );

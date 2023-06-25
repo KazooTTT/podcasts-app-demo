@@ -24,7 +24,8 @@ export default function IndexPage() {
     tip: "待补充文案",
   };
 
-  const url = "https://source.unsplash.com/360x360/?mountains";
+  const url =
+    "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252109948.jpeg";
 
   const list: AlbumItem[] = [
     {

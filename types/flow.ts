@@ -1,4 +1,9 @@
-
+export interface Reactions {
+  likes: number;
+  comments: number;
+  stars: number;
+  share: number;
+}
 export interface CardProps {
   type: string;
   title?: string;
@@ -6,6 +11,7 @@ export interface CardProps {
   content?: string;
   cover?: string;
   uploaderInfo?: UploaderInfo
+  reactions: Reactions
 }
 
 

@@ -3,13 +3,13 @@
 import React, { useEffect, useState } from "react";
 
 import { ImgCard } from "@/components/flow/card";
-import { ProgressDemo } from "@/components/progress";
-import { Badge } from "@/components/ui/badge";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { PlayCircle } from "lucide-react";
 import { SideBar } from "@/components/flow/siteBar";
+import { ProgressDemo } from "@/components/progress";
+import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Badge } from "@/components/ui/badge";
 import { CardProps, UploaderInfo } from "@/types/flow";
 import { useMount } from "ahooks";
+import { PlayCircle } from "lucide-react";
 import Loading from "./loading";
 
 function UploaderInfo(props: { uploadInfo: UploaderInfo }) {
@@ -126,7 +126,7 @@ function FlowItem(props: { info: CardProps; height: number }) {
           <UploaderInfo uploadInfo={props.info.uploaderInfo}></UploaderInfo>
         )}
       </div>
-      <SideBar></SideBar>
+      <SideBar reactions={props.info.reactions}></SideBar>
       {isPlaying && (
         <div className="fixed inset-0 z-30 flex justify-center bg-black opacity-50">
           <PlayCircle
@@ -167,6 +167,12 @@ export default function IndexPage() {
         name: "Nature Novelist",
         desc: "A passionate nature enthusiast and storyteller.",
       },
+      reactions: {
+        likes: 997,
+        comments: 372,
+        stars: 473,
+        share: 165,
+      },
     },
     {
       title: "Urban Exploration",
@@ -179,6 +185,12 @@ export default function IndexPage() {
           "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252128870.jpg",
         name: "Urban",
         desc: "Always eager to uncover city secrets.",
+      },
+      reactions: {
+        likes: 177,
+        comments: 523,
+        stars: 404,
+        share: 501,
       },
     },
     {
@@ -193,6 +205,12 @@ export default function IndexPage() {
         name: "Gourmet Guru",
         desc: "A foodie passionate about culinary art.",
       },
+      reactions: {
+        likes: 697,
+        comments: 573,
+        stars: 325,
+        share: 946,
+      },
     },
     {
       title: "Galactic Wonders",
@@ -205,6 +223,12 @@ export default function IndexPage() {
           "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252102446.jpeg",
         name: "Space Spectator",
         desc: "Curious observer of the starry expanses.",
+      },
+      reactions: {
+        likes: 621,
+        comments: 50,
+        stars: 983,
+        share: 381,
       },
     },
     {
@@ -219,70 +243,11 @@ export default function IndexPage() {
         name: "Marine Maven",
         desc: "Dedicated to uncovering the mysteries of the deep.",
       },
-    },
-    {
-      title: "Mountain Majesty",
-      subTitle: "Climb to new heights",
-      type: "img",
-      cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252105062.jpeg",
-      uploaderInfo: {
-        avatar:
-          "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252103706.jpeg",
-        name: "Peak Pioneer",
-        desc: "Adventurer with a passion for high peaks.",
-      },
-    },
-    {
-      title: "Intricate Architecture",
-      subTitle: "Witness human ingenuity",
-      type: "img",
-      cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252105062.jpeg",
-      uploaderInfo: {
-        avatar:
-          "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252105166.jpeg",
-        name: "Architectural Aficionado",
-        desc: "Admiring human creativity in architectural designs.",
-      },
-    },
-    {
-      title: "Wildlife Wonders",
-      subTitle: "Meet our fellow inhabitants",
-      type: "img",
-      cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252105300.jpeg",
-      uploaderInfo: {
-        avatar:
-          "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252103301.jpeg",
-        name: "Wildlife Whisperer",
-        desc: "Cherishing our cohabitant creatures.",
-      },
-    },
-    {
-      title: "Vintage Vibes",
-      subTitle: "Relive the past",
-      type: "img",
-      cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252104006.jpeg",
-      uploaderInfo: {
-        avatar:
-          "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252104704.jpeg",
-        name: "Retro Revivalist",
-        desc: "Bringing the charm of the past to the present.",
-      },
-    },
-    {
-      title: "Artistic Inspirations",
-      subTitle: "Feast your creative soul",
-      type: "img",
-      cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252107816.jpeg",
-      uploaderInfo: {
-        avatar:
-          "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252103706.jpeg",
-        name: "Art Advocate",
-        desc: "Enlightening the world with the beauty of art.",
+      reactions: {
+        likes: 250,
+        comments: 798,
+        stars: 122,
+        share: 354,
       },
     },
   ];

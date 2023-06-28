@@ -31,14 +31,14 @@ export default function IndexPage() {
   return (
     <div className="container relative flex flex-col items-center justify-center">
       <div className="sticky top-0 z-10 mx-auto flex w-full flex-col items-center justify-center bg-background">
-        <div className="info-container w-3/5">
+        <div className="info-container w-1/2">
           <Image
             src={
-              "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252109920.jpeg"
+              "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%92%AD%E6%94%BE%E9%A1%B5-%E5%A3%B0%E9%9F%B3%26%E4%B8%93%E8%BE%91%E5%A4%B4%E5%83%8F%E3%80%8A%E7%BB%84%E7%BB%87%E8%BF%9B%E5%8C%96%E8%AE%BA%E3%80%8B.jpeg"
             }
             alt="avatar"
-            width={831}
-            height={554}
+            width={500}
+            height={500}
             className="rounded-xl"
           />
         </div>
@@ -81,11 +81,11 @@ export default function IndexPage() {
                     className="item flex items-center"
                   >
                     <div className="mr-5 w-4 text-base">{index + 1}</div>
-                    <div className="flex flex-1 flex-col justify-center">
+                    <div className="flex flex-1 flex-col justify-center space-y-1">
                       <div className="line-clamp-1 text-sm">{item.title}</div>
-                      <div className="flex items-center space-x-1 text-xs text-muted-foreground">
+                      <div className="flex items-center space-x-2 text-xs text-muted-foreground">
                         <div>{formatTime2MinSec(item.position)}</div>
-                        <div>{formatDuration(item.duration)}</div>
+                        <div>{formatDuration(item.duration, true)}</div>
                       </div>
                     </div>
                     <div>
@@ -111,54 +111,19 @@ export default function IndexPage() {
 
 const podcastItemList = [
   {
-    title: "Introduction to Large Language Models",
-    duration: 300,
-    position: 0,
+    title: "崔崔的快速晋升之路",
+    duration: 122,
+    position: 150,
   },
   {
-    title: "The Architecture of Large Language Models",
-    duration: 320,
-    position: 300,
+    title: "不断打磨专业能力，让自己成为行业中的“针尖”",
+    duration: 139,
+    position: 273,
   },
   {
-    title: "Training Large Language Models",
-    duration: 330,
-    position: 620,
-  },
-  {
-    title: "Applications of Large Language Models",
-    duration: 350,
-    position: 950,
-  },
-  {
-    title: "Ethics in Large Language Models",
-    duration: 370,
-    position: 1300,
-  },
-  {
-    title: "Challenges in Large Language Model Development",
-    duration: 400,
-    position: 1670,
-  },
-  {
-    title: "The Future of Large Language Models",
-    duration: 410,
-    position: 2070,
-  },
-  {
-    title: "Large Language Models in Business",
-    duration: 430,
-    position: 2480,
-  },
-  {
-    title: "Large Language Models in Education",
-    duration: 440,
-    position: 2910,
-  },
-  {
-    title: "Closing Thoughts on Large Language Models",
-    duration: 450,
-    position: 3350,
+    title: "职场交换的是你最顶尖的价值",
+    duration: 37,
+    position: 411,
   },
 ];
 

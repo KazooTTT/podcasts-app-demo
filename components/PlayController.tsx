@@ -132,8 +132,8 @@ export function PlayController({
           className="flex flex-col items-center justify-center rounded-full px-2 py-3"
           variant="ghost"
           onClick={() => {
-            // 判断一下currentSec+30后是否超过了totalSec
-            const targetSec = currentSec + 30;
+            // 判断一下currentSec+10后是否超过了totalSec
+            const targetSec = currentSec + 10;
             setTime([targetSec > totalSec ? totalSec : targetSec, totalSec]);
           }}
         >
@@ -142,7 +142,7 @@ export function PlayController({
           </div>
         </Button>
         <div className=" w-full text-xs font-semibold text-muted-foreground">
-          +30s
+          +10s
         </div>
       </div>
       <div className="text-center">

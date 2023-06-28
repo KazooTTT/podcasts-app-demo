@@ -1,12 +1,13 @@
 "use client";
 import Image from "next/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
-import { useRef } from "react";
 
 export function Client({
   data,
   prodcastsImages,
-  imagesList,
+  mySnips,
+  collections,
+  stars,
   placeHolderBase64,
 }: {
   data: {
@@ -17,33 +18,51 @@ export function Client({
     following: number;
     followers: number;
     interactions: number;
+    desc: string;
   };
-  prodcastsImages: string[];
-  imagesList: string[][];
+  prodcastsImages: {
+    title: string;
+    cover: string;
+  }[];
+  mySnips: {
+    title: string;
+    cover: string;
+  }[];
+  collections: {
+    title: string;
+    cover: string;
+  }[];
+  stars: {
+    title: string;
+    cover: string;
+  }[];
   placeHolderBase64: string;
 }) {
   return (
     <>
-      <div className="info sticky top-0 z-20 bg-background">
-        <div className="userinfo container mb-8 flex space-x-6">
-          <Image
-            src={data.avatar}
-            alt="avatar"
-            width={72}
-            height={72}
-            className="rounded-full"
-            placeholder="blur"
-            blurDataURL={placeHolderBase64}
-          />
-          <div className="flex flex-1 flex-col justify-center space-y-1">
-            <div className="text-xl">{data.nickName}</div>
-            <div className="text-xs text-muted-foreground">
-              @{data.userName}
-            </div>
-            <div className="text-xs text-muted-foreground">
-              ip属地：{data.ip}
+      <div className="info sticky top-0 z-20 -mb-1 bg-background">
+        <div className="userinfo container mb-8">
+          <div className="flex space-x-6">
+            <Image
+              src={data.avatar}
+              alt="avatar"
+              width={72}
+              height={72}
+              className="rounded-full"
+              placeholder="blur"
+              blurDataURL={placeHolderBase64}
+            />
+            <div className="flex flex-1 flex-col justify-center space-y-1">
+              <div className="text-xl">{data.nickName}</div>
+              <div className="text-xs text-muted-foreground">
+                @{data.userName}
+              </div>
+              <div className="text-xs text-muted-foreground">
+                ip属地：{data.ip}
+              </div>
             </div>
           </div>
+          <div className="mt-4 text-sm">{data.desc}</div>
         </div>
         <div className="data container flex items-center justify-between py-2">
           <div className="flex-1 space-y-1 text-center">
@@ -86,34 +105,47 @@ export function Client({
             <div>
               <div className="mb-2">我创作的播客</div>
               <div className="podcasts flex items-center space-x-3 overflow-auto scrollbar-none">
-                {prodcastsImages.map((url, index) => (
-                  <Image
-                    src={url}
-                    key={`${url}${index}`}
-                    alt="cover"
-                    width={128}
-                    height={128}
-                    className="h-full w-full rounded-sm"
-                    placeholder="blur"
-                    blurDataURL={placeHolderBase64}
-                  />
+                {prodcastsImages.map(({ cover: url, title }, index) => (
+                  <div
+                    key={url}
+                    className="flex w-32 flex-col items-center justify-center space-y-1"
+                  >
+                    <div className="flex w-32 flex-col">
+                      <Image
+                        src={url}
+                        alt="cover"
+                        width={128}
+                        height={128}
+                        className="block rounded-sm"
+                        placeholder="blur"
+                        blurDataURL={placeHolderBase64}
+                      />
+                    </div>
+                    <div className="text-sm">{title}</div>
+                  </div>
                 ))}
               </div>
             </div>
             <div>
               <div className="mb-2">我创作的片段</div>
-              <div className="segments grid grid-flow-row grid-cols-2 gap-4	">
-                {imagesList[0].map((img, index) => (
-                  <div key={`segments${img}${index}`} className="w-full">
-                    <Image
-                      src={img}
-                      alt="cover"
-                      width={403}
-                      height={538}
-                      className="w-full rounded-sm"
-                      placeholder="blur"
-                      blurDataURL={placeHolderBase64}
-                    />
+              <div className="segments grid grid-flow-row grid-cols-2 gap-4 gap-y-6">
+                {mySnips?.map(({ cover: img, title }, index) => (
+                  <div
+                    key={`segments${img}${index}`}
+                    className="w-full space-y-2"
+                  >
+                    <div className="flex">
+                      <Image
+                        src={img}
+                        alt="cover"
+                        width={877}
+                        height={1169}
+                        className="w-full rounded-sm"
+                        placeholder="blur"
+                        blurDataURL={placeHolderBase64}
+                      />
+                    </div>
+                    <div className="text-sm">{title}</div>
                   </div>
                 ))}
               </div>
@@ -121,7 +153,7 @@ export function Client({
           </TabsContent>
           <TabsContent value="collections">
             <div className="segments grid grid-flow-row grid-cols-2 gap-4	">
-              {imagesList[1].map((img, index) => (
+              {collections?.map(({ cover: img }, index) => (
                 <div key={`collections${img}${index}`} className="w-full">
                   <Image
                     src={img}
@@ -138,7 +170,7 @@ export function Client({
           </TabsContent>
           <TabsContent value="likes">
             <div className="likes grid grid-flow-row grid-cols-2 gap-4	">
-              {imagesList[2].map((img, index) => (
+              {stars.map(({ cover: img }, index) => (
                 <div key={`likes${img}${index}`} className="relative w-full">
                   <Image
                     src={img}

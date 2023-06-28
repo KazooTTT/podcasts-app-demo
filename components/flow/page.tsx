@@ -42,8 +42,10 @@ function FlowItem(props: { info: CardProps; height: number }) {
   const togglePlay = () => {
     const audioElement = audioRef.current;
     if (isPlaying) {
+      // @ts-ignore
       audioElement.pause();
     } else {
+      // @ts-ignore
       audioElement.play();
     }
     setIsPlaying(!isPlaying);
@@ -51,22 +53,26 @@ function FlowItem(props: { info: CardProps; height: number }) {
 
   const handleTimeUpdate = () => {
     const audioElement = audioRef.current;
+    // @ts-ignore
     setCurrentTime(audioElement.currentTime);
   };
 
   const handleLoadedMetadata = () => {
     const audioElement = audioRef.current;
+    // @ts-ignore
     setDuration(audioElement.duration);
   };
 
   const handleProgressChange = (newTime: number) => {
     const audioElement = audioRef.current;
+    // @ts-ignore
     audioElement.currentTime = newTime;
     setCurrentTime(newTime);
   };
 
   const handleCanPlayThrough = () => {
     const audioElement = audioRef.current;
+    // @ts-ignore
     audioElement.play();
   };
 
@@ -79,6 +85,7 @@ function FlowItem(props: { info: CardProps; height: number }) {
       }}
     >
       <audio
+        // @ts-ignore
         ref={audioRef}
         src={info.source}
         type="audio/mpeg"

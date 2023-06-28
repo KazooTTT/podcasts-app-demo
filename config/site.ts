@@ -1,4 +1,4 @@
-import { Podcast } from 'lucide-react';
+import { Podcast } from "lucide-react";
 export type SiteConfig = typeof siteConfig;
 
 export const siteConfig = {

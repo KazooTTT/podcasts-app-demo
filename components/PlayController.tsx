@@ -40,7 +40,7 @@ export function PlayController({
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
   formatPlaybackRate: (playbackRate: number) => string;
   playbackRate: number;
-  setPlaybackRate: React.Dispatch<React.SetStateAction<number>>;
+  setPlaybackRate: (newVal: number) => void;
   currentSec: number;
   setCurrentTime: (newTime: number) => void;
   totalSec: number;

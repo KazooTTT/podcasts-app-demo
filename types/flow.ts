@@ -10,11 +10,10 @@ export interface CardProps {
   subTitle?: string;
   content?: string;
   cover?: string;
-  uploaderInfo?: UploaderInfo
-  reactions: Reactions,
-  source?: string
+  uploaderInfo?: UploaderInfo;
+  reactions: Reactions;
+  source?: string;
 }
-
 
 export interface UploaderInfo {
   avatar: string | undefined;

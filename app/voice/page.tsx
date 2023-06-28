@@ -34,37 +34,42 @@ export default function IndexPage() {
 
   const togglePlay = () => {
     const audioElement = audioRef.current;
+
     if (isPlaying) {
+      // @ts-ignore
       audioElement.pause();
     } else {
+      // @ts-ignore
       audioElement.play();
     }
     setIsPlaying(!isPlaying);
   };
 
   const handleTimeUpdate = () => {
-    const audioElement = audioRef.current;
+    const audioElement = audioRef.current; // @ts-ignore
     setCurrentTime(audioElement.currentTime);
   };
 
   const handleLoadedMetadata = () => {
-    const audioElement = audioRef.current;
+    const audioElement = audioRef.current; // @ts-ignore
     setDuration(audioElement.duration);
   };
 
   const handleProgressChange = (newTime: number) => {
-    const audioElement = audioRef.current;
+    const audioElement = audioRef.current; // @ts-ignore
     audioElement.currentTime = newTime;
     setCurrentTime(newTime);
   };
 
   const handleCanPlayThrough = () => {
-    const audioElement = audioRef.current;
+    const audioElement = audioRef.current; // @ts-ignore
     audioElement.play();
   };
 
-  const handlePlaybackRateChange = (newRate) => {
+  const handlePlaybackRateChange = (newRate: number) => {
+    // @ts-ignore
     const rate = parseFloat(newRate);
+    // @ts-ignore
     audioRef.current.playbackRate = rate;
     setPlaybackRate(newRate);
   };
@@ -73,6 +78,7 @@ export default function IndexPage() {
     <div className="container relative flex flex-col items-center justify-center">
       {/* 插入本地的音频文件 */}
       <audio
+        // @ts-ignore
         ref={audioRef}
         src="/podcast.MP3"
         type="audio/mpeg"

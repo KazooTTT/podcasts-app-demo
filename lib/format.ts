@@ -17,7 +17,6 @@ export function formatDuration2MinSec(duration: number) {
   return `${min}:${secStr}`;
 }
 
-
 // convert ser to min:sec which has two digits
 export const formatTime2MinSec = (sec: number) => {
   const min = Math.floor(sec / 60);

@@ -152,35 +152,44 @@ export function Client({
             </div>
           </TabsContent>
           <TabsContent value="collections">
-            <div className="segments grid grid-flow-row grid-cols-2 gap-4	">
-              {collections?.map(({ cover: img }, index) => (
-                <div key={`collections${img}${index}`} className="w-full">
-                  <Image
-                    src={img}
-                    alt="cover"
-                    width={403}
-                    height={538}
-                    className="w-full rounded-sm"
-                    placeholder="blur"
-                    blurDataURL={placeHolderBase64}
-                  />
+            <div className="collections grid grid-flow-row grid-cols-2 gap-4	">
+              {collections?.map(({ cover: img, title }, index) => (
+                <div
+                  key={`collections${img}${index}`}
+                  className="w-full space-y-2"
+                >
+                  <div className="flex">
+                    <Image
+                      src={img}
+                      alt="cover"
+                      width={877}
+                      height={1169}
+                      className="w-full rounded-sm"
+                      placeholder="blur"
+                      blurDataURL={placeHolderBase64}
+                    />
+                  </div>
+                  <div className="text-sm">{title}</div>
                 </div>
               ))}
             </div>
           </TabsContent>
           <TabsContent value="likes">
             <div className="likes grid grid-flow-row grid-cols-2 gap-4	">
-              {stars.map(({ cover: img }, index) => (
-                <div key={`likes${img}${index}`} className="relative w-full">
-                  <Image
-                    src={img}
-                    alt="cover"
-                    width={403}
-                    height={538}
-                    className="w-full rounded-sm"
-                    placeholder="blur"
-                    blurDataURL={placeHolderBase64}
-                  />
+              {stars?.map(({ cover: img, title }, index) => (
+                <div key={`likes${img}${index}`} className="w-full space-y-2">
+                  <div className="flex">
+                    <Image
+                      src={img}
+                      alt="cover"
+                      width={877}
+                      height={1169}
+                      className="w-full rounded-sm"
+                      placeholder="blur"
+                      blurDataURL={placeHolderBase64}
+                    />
+                  </div>
+                  <div className="text-sm">{title}</div>
                 </div>
               ))}
             </div>

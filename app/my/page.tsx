@@ -64,52 +64,52 @@ export default async function IndexPage() {
     {
       title: "如果你最近不快乐，一定要来听这期播客！",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E4%B8%AA%E4%BA%BA%E9%A1%B5-%E6%88%91%E5%88%9B%E4%BD%9C%E7%9A%84%E7%89%87%E6%AE%B5%E3%80%90%E6%AF%8F2%E4%B8%AA%E4%B8%80%E6%8E%92%E3%80%91/1.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%9B%BF%E6%8D%A2/1.JPG",
     },
     {
       title: "想都不敢想的嘉宾组合，来看理想做客啦！",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E4%B8%AA%E4%BA%BA%E9%A1%B5-%E6%88%91%E5%88%9B%E4%BD%9C%E7%9A%84%E7%89%87%E6%AE%B5%E3%80%90%E6%AF%8F2%E4%B8%AA%E4%B8%80%E6%8E%92%E3%80%91/2.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%9B%BF%E6%8D%A2/2.JPG",
     },
     {
       title: "无数个失眠的夜晚，都是道长治愈我的...",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E4%B8%AA%E4%BA%BA%E9%A1%B5-%E6%88%91%E5%88%9B%E4%BD%9C%E7%9A%84%E7%89%87%E6%AE%B5%E3%80%90%E6%AF%8F2%E4%B8%AA%E4%B8%80%E6%8E%92%E3%80%91/3.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%9B%BF%E6%8D%A2/3.JPG",
     },
     {
       title: "女性播客推荐：用有效信息抵抗无效焦虑",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E4%B8%AA%E4%BA%BA%E9%A1%B5-%E6%88%91%E5%88%9B%E4%BD%9C%E7%9A%84%E7%89%87%E6%AE%B5%E3%80%90%E6%AF%8F2%E4%B8%AA%E4%B8%80%E6%8E%92%E3%80%91/4.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%9B%BF%E6%8D%A2/4.JPG",
     },
     {
       title: "没时间看书？开始听这些播客吧！",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E4%B8%AA%E4%BA%BA%E9%A1%B5-%E6%88%91%E5%88%9B%E4%BD%9C%E7%9A%84%E7%89%87%E6%AE%B5%E3%80%90%E6%AF%8F2%E4%B8%AA%E4%B8%80%E6%8E%92%E3%80%91/5.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%9B%BF%E6%8D%A2/5.JPG",
     },
     {
       title: "生活一地鸡毛？这个播客让你如沐春风！",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E4%B8%AA%E4%BA%BA%E9%A1%B5-%E6%88%91%E5%88%9B%E4%BD%9C%E7%9A%84%E7%89%87%E6%AE%B5%E3%80%90%E6%AF%8F2%E4%B8%AA%E4%B8%80%E6%8E%92%E3%80%91/6.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%9B%BF%E6%8D%A2/6.JPG",
     },
     {
       title: "最近这期播客，你一定要听听",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E4%B8%AA%E4%BA%BA%E9%A1%B5-%E6%88%91%E5%88%9B%E4%BD%9C%E7%9A%84%E7%89%87%E6%AE%B5%E3%80%90%E6%AF%8F2%E4%B8%AA%E4%B8%80%E6%8E%92%E3%80%91/7.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%9B%BF%E6%8D%A2/7.JPG",
     },
     {
       title: "10个设计师必听的品牌播客【收藏版】",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E4%B8%AA%E4%BA%BA%E9%A1%B5-%E6%88%91%E5%88%9B%E4%BD%9C%E7%9A%84%E7%89%87%E6%AE%B5%E3%80%90%E6%AF%8F2%E4%B8%AA%E4%B8%80%E6%8E%92%E3%80%91/8.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%9B%BF%E6%8D%A2/8.JPG",
     },
     {
       title: "大过年的，来聊聊市井里的烟火与乡俗",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E4%B8%AA%E4%BA%BA%E9%A1%B5-%E6%88%91%E5%88%9B%E4%BD%9C%E7%9A%84%E7%89%87%E6%AE%B5%E3%80%90%E6%AF%8F2%E4%B8%AA%E4%B8%80%E6%8E%92%E3%80%91/9.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%9B%BF%E6%8D%A2/9.JPG",
     },
     {
       title: "回家吧，听着这些让你一秒归家的歌",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E4%B8%AA%E4%BA%BA%E9%A1%B5-%E6%88%91%E5%88%9B%E4%BD%9C%E7%9A%84%E7%89%87%E6%AE%B5%E3%80%90%E6%AF%8F2%E4%B8%AA%E4%B8%80%E6%8E%92%E3%80%91/10.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%9B%BF%E6%8D%A2/10.JPG",
     },
   ];
 
@@ -117,52 +117,52 @@ export default async function IndexPage() {
     {
       title: "生活一地鸡毛？这个播客让你如沐春风！",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E4%B8%AA%E4%BA%BA%E9%A1%B5-%E6%88%91%E5%88%9B%E4%BD%9C%E7%9A%84%E7%89%87%E6%AE%B5%E3%80%90%E6%AF%8F2%E4%B8%AA%E4%B8%80%E6%8E%92%E3%80%91/6.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%9B%BF%E6%8D%A2/6.JPG",
     },
     {
       title: "回家吧，听着这些让你一秒归家的歌",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E4%B8%AA%E4%BA%BA%E9%A1%B5-%E6%88%91%E5%88%9B%E4%BD%9C%E7%9A%84%E7%89%87%E6%AE%B5%E3%80%90%E6%AF%8F2%E4%B8%AA%E4%B8%80%E6%8E%92%E3%80%91/10.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%9B%BF%E6%8D%A2/10.JPG",
     },
     {
       title: "如果你最近不快乐，一定要来听这期播客！",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E4%B8%AA%E4%BA%BA%E9%A1%B5-%E6%88%91%E5%88%9B%E4%BD%9C%E7%9A%84%E7%89%87%E6%AE%B5%E3%80%90%E6%AF%8F2%E4%B8%AA%E4%B8%80%E6%8E%92%E3%80%91/1.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%9B%BF%E6%8D%A2/1.JPG",
     },
     {
       title: "没时间看书？开始听这些播客吧！",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E4%B8%AA%E4%BA%BA%E9%A1%B5-%E6%88%91%E5%88%9B%E4%BD%9C%E7%9A%84%E7%89%87%E6%AE%B5%E3%80%90%E6%AF%8F2%E4%B8%AA%E4%B8%80%E6%8E%92%E3%80%91/5.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%9B%BF%E6%8D%A2/5.JPG",
     },
     {
       title: "10个设计师必听的品牌播客【收藏版】",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E4%B8%AA%E4%BA%BA%E9%A1%B5-%E6%88%91%E5%88%9B%E4%BD%9C%E7%9A%84%E7%89%87%E6%AE%B5%E3%80%90%E6%AF%8F2%E4%B8%AA%E4%B8%80%E6%8E%92%E3%80%91/8.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%9B%BF%E6%8D%A2/8.JPG",
     },
     {
       title: "无数个失眠的夜晚，都是道长治愈我的...",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E4%B8%AA%E4%BA%BA%E9%A1%B5-%E6%88%91%E5%88%9B%E4%BD%9C%E7%9A%84%E7%89%87%E6%AE%B5%E3%80%90%E6%AF%8F2%E4%B8%AA%E4%B8%80%E6%8E%92%E3%80%91/3.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%9B%BF%E6%8D%A2/3.JPG",
     },
     {
       title: "最近这期播客，你一定要听听",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E4%B8%AA%E4%BA%BA%E9%A1%B5-%E6%88%91%E5%88%9B%E4%BD%9C%E7%9A%84%E7%89%87%E6%AE%B5%E3%80%90%E6%AF%8F2%E4%B8%AA%E4%B8%80%E6%8E%92%E3%80%91/7.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%9B%BF%E6%8D%A2/7.JPG",
     },
     {
       title: "大过年的，来聊聊市井里的烟火与乡俗",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E4%B8%AA%E4%BA%BA%E9%A1%B5-%E6%88%91%E5%88%9B%E4%BD%9C%E7%9A%84%E7%89%87%E6%AE%B5%E3%80%90%E6%AF%8F2%E4%B8%AA%E4%B8%80%E6%8E%92%E3%80%91/9.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%9B%BF%E6%8D%A2/9.JPG",
     },
     {
       title: "女性播客推荐：用有效信息抵抗无效焦虑",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E4%B8%AA%E4%BA%BA%E9%A1%B5-%E6%88%91%E5%88%9B%E4%BD%9C%E7%9A%84%E7%89%87%E6%AE%B5%E3%80%90%E6%AF%8F2%E4%B8%AA%E4%B8%80%E6%8E%92%E3%80%91/4.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%9B%BF%E6%8D%A2/4.JPG",
     },
     {
       title: "想都不敢想的嘉宾组合，来看理想做客啦！",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E4%B8%AA%E4%BA%BA%E9%A1%B5-%E6%88%91%E5%88%9B%E4%BD%9C%E7%9A%84%E7%89%87%E6%AE%B5%E3%80%90%E6%AF%8F2%E4%B8%AA%E4%B8%80%E6%8E%92%E3%80%91/2.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%9B%BF%E6%8D%A2/2.JPG",
     },
   ];
 
@@ -170,52 +170,52 @@ export default async function IndexPage() {
     {
       title: "大过年的，来聊聊市井里的烟火与乡俗",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E4%B8%AA%E4%BA%BA%E9%A1%B5-%E6%88%91%E5%88%9B%E4%BD%9C%E7%9A%84%E7%89%87%E6%AE%B5%E3%80%90%E6%AF%8F2%E4%B8%AA%E4%B8%80%E6%8E%92%E3%80%91/9.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%9B%BF%E6%8D%A2/9.JPG",
     },
     {
       title: "如果你最近不快乐，一定要来听这期播客！",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E4%B8%AA%E4%BA%BA%E9%A1%B5-%E6%88%91%E5%88%9B%E4%BD%9C%E7%9A%84%E7%89%87%E6%AE%B5%E3%80%90%E6%AF%8F2%E4%B8%AA%E4%B8%80%E6%8E%92%E3%80%91/1.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%9B%BF%E6%8D%A2/1.JPG",
     },
     {
       title: "最近这期播客，你一定要听听",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E4%B8%AA%E4%BA%BA%E9%A1%B5-%E6%88%91%E5%88%9B%E4%BD%9C%E7%9A%84%E7%89%87%E6%AE%B5%E3%80%90%E6%AF%8F2%E4%B8%AA%E4%B8%80%E6%8E%92%E3%80%91/7.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%9B%BF%E6%8D%A2/7.JPG",
     },
     {
       title: "回家吧，听着这些让你一秒归家的歌",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E4%B8%AA%E4%BA%BA%E9%A1%B5-%E6%88%91%E5%88%9B%E4%BD%9C%E7%9A%84%E7%89%87%E6%AE%B5%E3%80%90%E6%AF%8F2%E4%B8%AA%E4%B8%80%E6%8E%92%E3%80%91/10.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%9B%BF%E6%8D%A2/10.JPG",
     },
     {
       title: "想都不敢想的嘉宾组合，来看理想做客啦！",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E4%B8%AA%E4%BA%BA%E9%A1%B5-%E6%88%91%E5%88%9B%E4%BD%9C%E7%9A%84%E7%89%87%E6%AE%B5%E3%80%90%E6%AF%8F2%E4%B8%AA%E4%B8%80%E6%8E%92%E3%80%91/2.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%9B%BF%E6%8D%A2/2.JPG",
     },
     {
       title: "10个设计师必听的品牌播客【收藏版】",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E4%B8%AA%E4%BA%BA%E9%A1%B5-%E6%88%91%E5%88%9B%E4%BD%9C%E7%9A%84%E7%89%87%E6%AE%B5%E3%80%90%E6%AF%8F2%E4%B8%AA%E4%B8%80%E6%8E%92%E3%80%91/8.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%9B%BF%E6%8D%A2/8.JPG",
     },
     {
       title: "没时间看书？开始听这些播客吧！",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E4%B8%AA%E4%BA%BA%E9%A1%B5-%E6%88%91%E5%88%9B%E4%BD%9C%E7%9A%84%E7%89%87%E6%AE%B5%E3%80%90%E6%AF%8F2%E4%B8%AA%E4%B8%80%E6%8E%92%E3%80%91/5.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%9B%BF%E6%8D%A2/5.JPG",
     },
     {
       title: "生活一地鸡毛？这个播客让你如沐春风！",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E4%B8%AA%E4%BA%BA%E9%A1%B5-%E6%88%91%E5%88%9B%E4%BD%9C%E7%9A%84%E7%89%87%E6%AE%B5%E3%80%90%E6%AF%8F2%E4%B8%AA%E4%B8%80%E6%8E%92%E3%80%91/6.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%9B%BF%E6%8D%A2/6.JPG",
     },
     {
       title: "女性播客推荐：用有效信息抵抗无效焦虑",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E4%B8%AA%E4%BA%BA%E9%A1%B5-%E6%88%91%E5%88%9B%E4%BD%9C%E7%9A%84%E7%89%87%E6%AE%B5%E3%80%90%E6%AF%8F2%E4%B8%AA%E4%B8%80%E6%8E%92%E3%80%91/4.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%9B%BF%E6%8D%A2/4.JPG",
     },
     {
       title: "无数个失眠的夜晚，都是道长治愈我的...",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E4%B8%AA%E4%BA%BA%E9%A1%B5-%E6%88%91%E5%88%9B%E4%BD%9C%E7%9A%84%E7%89%87%E6%AE%B5%E3%80%90%E6%AF%8F2%E4%B8%AA%E4%B8%80%E6%8E%92%E3%80%91/3.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%9B%BF%E6%8D%A2/3.JPG",
     },
   ];
 

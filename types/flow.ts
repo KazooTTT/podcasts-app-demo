@@ -6,7 +6,7 @@ export interface Reactions {
 }
 export interface CardProps {
   type: string;
-  title?: string;
+  title?: string | string[];
   subTitle?: string;
   content?: string;
   cover?: string;

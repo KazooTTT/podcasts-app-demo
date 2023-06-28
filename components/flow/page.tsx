@@ -158,14 +158,14 @@ export default function IndexPage() {
 
   const infos = [
     {
-      title: "Serene Nature",
-      subTitle: "Experience the calm",
+      title: ["为什么晋升总是轮不到你？", "可能是因为忽视了这项能力"],
       type: "img",
-      cover: "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/416x277",
+      cover:
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%92%AD%E6%94%BE%E9%A1%B5-%E5%96%9C%E9%A9%AC%E5%8A%A0%E6%B2%B9%E7%AB%99%E5%A4%B4%E5%83%8F.jpg",
       uploaderInfo: {
         avatar: "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/64x64",
-        name: "Nature Novelist",
-        desc: "A passionate nature enthusiast and storyteller.",
+        name: "喜马播客主加油站",
+        desc: "喜马播客主成长平台官方账号。挖掘优质播客主，听到不一样的声音！",
       },
       reactions: {
         likes: 997,
@@ -176,7 +176,6 @@ export default function IndexPage() {
     },
     {
       title: "Urban Exploration",
-      subTitle: "Discover city life",
       type: "img",
       cover:
         "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252102616.jpeg",
@@ -195,7 +194,6 @@ export default function IndexPage() {
     },
     {
       title: "Gastronomy Delights",
-      subTitle: "Feast your eyes",
       type: "img",
       cover:
         "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252107930.jpeg",
@@ -214,7 +212,6 @@ export default function IndexPage() {
     },
     {
       title: "Galactic Wonders",
-      subTitle: "Explore the cosmos",
       type: "img",
       cover:
         "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252107341.jpeg",
@@ -233,7 +230,6 @@ export default function IndexPage() {
     },
     {
       title: "Ocean's Depth",
-      subTitle: "Dive into the blue",
       type: "img",
       cover:
         "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252106825.jpeg",

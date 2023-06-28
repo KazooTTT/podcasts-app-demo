@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 
 import { ProgressDemo } from "@/components/progress";
 import { PlayController } from "@/components/PlayController";
@@ -8,9 +8,9 @@ import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Info } from "lucide-react";
 import { formatDuration, formatTime2MinSec } from "@/lib/format";
-import { Badge } from "@/components/ui/badge";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
+import { srtList } from "@/components/voice/contant";
 
 export default function IndexPage() {
   // 当前播放速率
@@ -25,11 +25,61 @@ export default function IndexPage() {
   };
   const [open, setOpen] = React.useState(false);
 
-  const [[currentSec, totalSec], setTime] = React.useState([0, 270]);
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(270);
 
-  const [isShowDetail, setIsShowDetail] = useState(false);
+  // 从public文件中导入音频文件
+
+  const audioRef = useRef<HTMLSourceElement>(null);
+
+  const togglePlay = () => {
+    const audioElement = audioRef.current;
+    if (isPlaying) {
+      audioElement.pause();
+    } else {
+      audioElement.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
+
+  const handleTimeUpdate = () => {
+    const audioElement = audioRef.current;
+    setCurrentTime(audioElement.currentTime);
+  };
+
+  const handleLoadedMetadata = () => {
+    const audioElement = audioRef.current;
+    setDuration(audioElement.duration);
+  };
+
+  const handleProgressChange = (newTime: number) => {
+    const audioElement = audioRef.current;
+    audioElement.currentTime = newTime;
+    setCurrentTime(newTime);
+  };
+
+  const handleCanPlayThrough = () => {
+    const audioElement = audioRef.current;
+    audioElement.play();
+  };
+
+  const handlePlaybackRateChange = (newRate) => {
+    const rate = parseFloat(newRate);
+    audioRef.current.playbackRate = rate;
+    setPlaybackRate(newRate);
+  };
+
   return (
     <div className="container relative flex flex-col items-center justify-center">
+      {/* 插入本地的音频文件 */}
+      <audio
+        ref={audioRef}
+        src="/podcast.MP3"
+        type="audio/mpeg"
+        onTimeUpdate={handleTimeUpdate}
+        onLoadedMetadata={handleLoadedMetadata}
+        onCanPlayThrough={handleCanPlayThrough}
+      ></audio>
       <div className="sticky top-0 z-10 mx-auto flex w-full flex-col items-center justify-center bg-background">
         <div className="info-container w-1/2">
           <Image
@@ -48,20 +98,21 @@ export default function IndexPage() {
             setOpen={setOpen}
             formatPlaybackRate={formatPlaybackRate}
             playbackRate={playbackRate}
-            setPlaybackRate={setPlaybackRate}
-            currentSec={currentSec}
-            setTime={setTime}
-            totalSec={totalSec}
+            setPlaybackRate={handlePlaybackRateChange }
+            currentSec={currentTime}
+            setCurrentTime={setCurrentTime}
+            totalSec={duration}
             setIsPlaying={setIsPlaying}
             isPlaying={isPlaying}
+            handlePlayButtonClick={togglePlay}
           ></PlayController>
           <div className="mt-4">
             <ProgressDemo
               isPlaying={isPlaying}
               playbackRate={playbackRate}
-              currentSec={currentSec}
-              totalSec={totalSec}
-              setTime={setTime}
+              currentSec={currentTime}
+              totalSec={duration}
+              setTime={handleProgressChange}
               setIsPlaying={setIsPlaying}
             />
           </div>
@@ -98,8 +149,8 @@ export default function IndexPage() {
           </SwiperSlide>
           <SwiperSlide>
             <div className="space-y-3 py-2">
-              {subTitleList.map((item, index) => (
-                <ContentItem {...item} key={`${item.content}${index}`} />
+              {srtList.map((item, index: number) => (
+                <ContentItem {...item} key={`${item.id}${index}`} />
               ))}
             </div>
           </SwiperSlide>
@@ -127,85 +178,27 @@ const podcastItemList = [
   },
 ];
 
-function ContentItem({
-  role,
-  position,
-  content,
-}: {
-  role: string;
-  position: number;
-  content: string;
-}) {
+export interface SrtItem {
+  id: any;
+  startTime: any;
+  endTime: any;
+  text: any;
+}
+
+function ContentItem(item: SrtItem) {
+  const { startTime, text } = item;
+  const formatTime = (startTime: string) => {
+    const [show, ...hide] = startTime.split(",");
+    return show;
+  };
   return (
     <div className="space-y-1">
       <div className="flex items-center space-x-1">
-        <Badge className="rounded-sm py-0" variant={"gray"}>
-          {role}
-        </Badge>
         <div className="text-xs text-muted-foreground">
-          {formatTime2MinSec(position)}
+          {formatTime(startTime)}
         </div>
       </div>
-      <div className="text-sm">{content}</div>
+      <div className="text-sm">{text}</div>
     </div>
   );
 }
-
-const subTitleList = [
-  {
-    role: "青年",
-    position: 0,
-    content: "欢迎大家来到我们今天的讨论，主题是'被讨厌的勇气'。",
-  },
-  {
-    role: "长者",
-    position: 30,
-    content:
-      "这个主题非常有意思，对于我来说，'被讨厌的勇气'是指对自我价值观的坚守，即使这可能导致别人对你的不理解或者讨厌。",
-  },
-  {
-    role: "青年",
-    position: 60,
-    content:
-      "非常对，长者。我觉得我们经常因为害怕他人的看法而放弃我们的观点。这样做可能会避免短期的冲突，但会牺牲我们的自我。",
-  },
-  {
-    role: "长者",
-    position: 90,
-    content:
-      "你说得对，青年。我想我可以分享一下我的经验，有时候坚持自我意味着会被人讨厌，但这并不一定是坏事。",
-  },
-  {
-    role: "青年",
-    position: 120,
-    content: "我很期待听到您的经验，长者。我相信我们都可以从中学到很多。",
-  },
-  {
-    role: "长者",
-    position: 150,
-    content:
-      "当我年轻时，我曾经过度在意别人对我看法。但是随着岁月的流逝，我学会了尊重并接受自我。",
-  },
-  {
-    role: "青年",
-    position: 180,
-    content: "这是一个很有价值的经验，我希望我们都可以学会这种勇气。",
-  },
-  {
-    role: "长者",
-    position: 210,
-    content:
-      "生活总是充满挑战，但只要我们有勇气面对并接受可能会被讨厌的结果，我们就能活出真实的自我。",
-  },
-  {
-    role: "青年",
-    position: 240,
-    content:
-      "非常感谢您的分享，长者。我希望我们都可以将这种勇气带入我们的生活。",
-  },
-  {
-    role: "长者",
-    position: 270,
-    content: "希望今天的讨论可以帮助大家找到自己的勇气。谢谢大家的参与。",
-  },
-];

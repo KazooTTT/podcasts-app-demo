@@ -92,6 +92,9 @@ dependencies:
   sharp:
     specifier: ^0.31.3
     version: registry.npmmirror.com/sharp@0.31.3
+  subtitles-parser:
+    specifier: ^0.0.2
+    version: 0.0.2
   swiper:
     specifier: ^9.4.1
     version: 9.4.1
@@ -2505,6 +2508,10 @@ packages:
       react-is: 18.2.0
       shallowequal: 1.1.0
       supports-color: 5.5.0
+    dev: false
+
+  /subtitles-parser@0.0.2:
+    resolution: {integrity: sha512-7JermakMYQRrn9mTG5mXzbHeIqU8DINY06xuUVt3wxTVf7OiXN2aN/+g2oVVl5HISoPwabnQE0vlaFqo1mgLHQ==}
     dev: false
 
   /supports-color@5.5.0:

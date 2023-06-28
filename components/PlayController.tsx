@@ -5,7 +5,6 @@ import {
   AlignJustify,
   Check,
   Gauge,
-  Moon,
   PauseCircle,
   PlayCircle,
   Redo,
@@ -23,7 +22,6 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog";
 import { SliderDemo } from "@/components/slide";
-import { Content } from "@radix-ui/react-tabs";
 
 export function PlayController({
   open,
@@ -32,10 +30,11 @@ export function PlayController({
   playbackRate,
   setPlaybackRate,
   currentSec,
-  setTime,
+  setCurrentTime,
   totalSec,
   setIsPlaying,
   isPlaying,
+  handlePlayButtonClick,
 }: {
   open: boolean;
   setOpen: React.Dispatch<React.SetStateAction<boolean>>;
@@ -43,10 +42,11 @@ export function PlayController({
   playbackRate: number;
   setPlaybackRate: React.Dispatch<React.SetStateAction<number>>;
   currentSec: number;
-  setTime: React.Dispatch<React.SetStateAction<[number, number]>>;
+  setCurrentTime: (newTime: number) => void;
   totalSec: number;
   setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>;
   isPlaying: boolean;
+  handlePlayButtonClick: () => void;
 }) {
   return (
     <div className="sticky bottom-0 mt-4 flex w-full justify-around">
@@ -105,7 +105,7 @@ export function PlayController({
           onClick={() => {
             // 判断是否小于0
             const targetSec = currentSec - 10;
-            setTime([targetSec <= 0 ? 0 : targetSec, totalSec]);
+            setCurrentTime(targetSec <= 0 ? 0 : targetSec);
           }}
         >
           <div>
@@ -116,11 +116,7 @@ export function PlayController({
           -10s
         </div>
       </div>
-      <div
-        onClick={() => {
-          setIsPlaying(!isPlaying);
-        }}
-      >
+      <div onClick={handlePlayButtonClick}>
         {isPlaying ? (
           <PauseCircle size="48" strokeWidth={1.2} />
         ) : (
@@ -134,7 +130,7 @@ export function PlayController({
           onClick={() => {
             // 判断一下currentSec+10后是否超过了totalSec
             const targetSec = currentSec + 10;
-            setTime([targetSec > totalSec ? totalSec : targetSec, totalSec]);
+            setCurrentTime(targetSec > totalSec ? totalSec : targetSec);
           }}
         >
           <div>

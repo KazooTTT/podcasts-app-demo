@@ -21,7 +21,7 @@ export function ProgressDemo({
   currentSec: number;
   totalSec: number;
   className?: string;
-  setTime: React.Dispatch<React.SetStateAction<[number, number]>>;
+  setTime: (newTime: number) => void;
   setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   // add currentSec per second when isPlaying is true., and stop when currentSec === totalSec
@@ -32,10 +32,7 @@ export function ProgressDemo({
           clearInterval(timer);
           setIsPlaying(false);
         } else {
-          setTime(([currentSec, totalSec]) => [
-            currentSec + 1 * playbackRate,
-            totalSec,
-          ]);
+          setTime(currentSec + 1 * playbackRate);
         }
       }, 1000);
       return () => clearInterval(timer);
@@ -52,7 +49,7 @@ export function ProgressDemo({
         value={[currentSec]}
         className={cn("w-[100%]", className)}
         onValueChange={(value) => {
-          setTime([value[0], totalSec]);
+          setTime(value[0]);
         }}
       />
       <div className="mt-1 flex select-none items-center justify-between text-sm">

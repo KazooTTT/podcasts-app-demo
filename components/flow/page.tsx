@@ -161,9 +161,10 @@ export default function IndexPage() {
       title: ["为什么晋升总是轮不到你？", "可能是因为忽视了这项能力"],
       type: "img",
       cover:
-        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%92%AD%E6%94%BE%E9%A1%B5-%E5%96%9C%E9%A9%AC%E5%8A%A0%E6%B2%B9%E7%AB%99%E5%A4%B4%E5%83%8F.jpg",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%92%AD%E6%94%BE%E9%A1%B5-%E5%A3%B0%E9%9F%B3%26%E4%B8%93%E8%BE%91%E5%A4%B4%E5%83%8F%E3%80%8A%E7%BB%84%E7%BB%87%E8%BF%9B%E5%8C%96%E8%AE%BA%E3%80%8B.jpeg",
       uploaderInfo: {
-        avatar: "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/64x64",
+        avatar:
+          "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%92%AD%E6%94%BE%E9%A1%B5-%E5%96%9C%E9%A9%AC%E5%8A%A0%E6%B2%B9%E7%AB%99%E5%A4%B4%E5%83%8F.jpg",
         name: "喜马播客主加油站",
         desc: "喜马播客主成长平台官方账号。挖掘优质播客主，听到不一样的声音！",
       },

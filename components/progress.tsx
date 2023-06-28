@@ -25,19 +25,19 @@ export function ProgressDemo({
   setIsPlaying: React.Dispatch<React.SetStateAction<boolean>>;
 }) {
   // add currentSec per second when isPlaying is true., and stop when currentSec === totalSec
-  React.useEffect(() => {
-    if (isPlaying) {
-      const timer = setInterval(() => {
-        if (currentSec === totalSec) {
-          clearInterval(timer);
-          setIsPlaying(false);
-        } else {
-          setTime(currentSec + 1 * playbackRate);
-        }
-      }, 1000);
-      return () => clearInterval(timer);
-    }
-  }, [isPlaying, currentSec, totalSec, playbackRate, setTime, setIsPlaying]);
+  // React.useEffect(() => {
+  //   if (isPlaying) {
+  //     const timer = setInterval(() => {
+  //       if (currentSec === totalSec) {
+  //         clearInterval(timer);
+  //         setIsPlaying(false);
+  //       } else {
+  //         setTime(currentSec + 1 * playbackRate);
+  //       }
+  //     }, 1000);
+  //     return () => clearInterval(timer);
+  //   }
+  // }, [isPlaying, currentSec, totalSec, playbackRate, setTime, setIsPlaying]);
 
   return (
     <div className="mx-auto flex w-3/4 flex-col">

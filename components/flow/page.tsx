@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import { ImgCard } from "@/components/flow/card";
 import { SideBar } from "@/components/flow/siteBar";
@@ -31,10 +31,44 @@ function UploaderInfo(props: { uploadInfo: UploaderInfo }) {
 }
 
 function FlowItem(props: { info: CardProps; height: number }) {
-  const { height } = props;
+  const { height, info } = props;
 
-  const [[currentSec, totalSec], setTime] = React.useState([0, 268]);
-  const [isPlaying, setIsPlaying] = React.useState(false);
+  const [isPlaying, setIsPlaying] = React.useState(true);
+
+  const [currentTime, setCurrentTime] = useState(0);
+  const [duration, setDuration] = useState(270);
+  const audioRef = useRef<HTMLSourceElement>(null);
+
+  const togglePlay = () => {
+    const audioElement = audioRef.current;
+    if (isPlaying) {
+      audioElement.pause();
+    } else {
+      audioElement.play();
+    }
+    setIsPlaying(!isPlaying);
+  };
+
+  const handleTimeUpdate = () => {
+    const audioElement = audioRef.current;
+    setCurrentTime(audioElement.currentTime);
+  };
+
+  const handleLoadedMetadata = () => {
+    const audioElement = audioRef.current;
+    setDuration(audioElement.duration);
+  };
+
+  const handleProgressChange = (newTime: number) => {
+    const audioElement = audioRef.current;
+    audioElement.currentTime = newTime;
+    setCurrentTime(newTime);
+  };
+
+  const handleCanPlayThrough = () => {
+    const audioElement = audioRef.current;
+    audioElement.play();
+  };
 
   return (
     <div
@@ -44,9 +78,18 @@ function FlowItem(props: { info: CardProps; height: number }) {
         maxHeight: (height ?? window.innerHeight) - 128,
       }}
     >
+      <audio
+        ref={audioRef}
+        src={info.source}
+        type="audio/mpeg"
+        onTimeUpdate={handleTimeUpdate}
+        onLoadedMetadata={handleLoadedMetadata}
+        onCanPlayThrough={handleCanPlayThrough}
+      ></audio>
+
       <div
         className="container flex w-full flex-col items-center justify-center self-start"
-        onClick={() => setIsPlaying(!isPlaying)}
+        onClick={togglePlay}
       >
         <div className="z-10 flex w-full flex-col items-center justify-center bg-background py-4">
           <ImgCard {...props.info}></ImgCard>
@@ -117,9 +160,9 @@ function FlowItem(props: { info: CardProps; height: number }) {
           className="my-2"
           isPlaying={isPlaying}
           playbackRate={1}
-          currentSec={currentSec}
-          totalSec={totalSec}
-          setTime={setTime}
+          currentSec={currentTime}
+          totalSec={duration}
+          setTime={handleProgressChange}
           setIsPlaying={setIsPlaying}
         />
         {props.info.uploaderInfo && (
@@ -127,13 +170,13 @@ function FlowItem(props: { info: CardProps; height: number }) {
         )}
       </div>
       <SideBar reactions={props.info.reactions}></SideBar>
-      {isPlaying && (
+      {!isPlaying && (
         <div className="fixed inset-0 z-30 flex justify-center bg-black opacity-50">
           <PlayCircle
             size={96}
             strokeWidth={1.5}
             className="absolute top-1/4 text-white"
-            onClick={() => setIsPlaying(!isPlaying)}
+            onClick={togglePlay}
           />
         </div>
       )}
@@ -174,6 +217,7 @@ export default function IndexPage() {
         stars: 473,
         share: 165,
       },
+      source: "/podcast.MP3",
     },
     {
       title: "Urban Exploration",

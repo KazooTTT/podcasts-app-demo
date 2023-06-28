@@ -11,7 +11,8 @@ export interface CardProps {
   content?: string;
   cover?: string;
   uploaderInfo?: UploaderInfo
-  reactions: Reactions
+  reactions: Reactions,
+  source?: string
 }
 
 

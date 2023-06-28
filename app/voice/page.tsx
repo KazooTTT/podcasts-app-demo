@@ -98,7 +98,7 @@ export default function IndexPage() {
             setOpen={setOpen}
             formatPlaybackRate={formatPlaybackRate}
             playbackRate={playbackRate}
-            setPlaybackRate={handlePlaybackRateChange }
+            setPlaybackRate={handlePlaybackRateChange}
             currentSec={currentTime}
             setCurrentTime={setCurrentTime}
             totalSec={duration}

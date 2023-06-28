@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useRouter } from "next/navigation";
-import { Heart, Home, Mail, Upload, User } from "lucide-react";
+import { Heart, Home, Mail, PlusSquare, Upload, User } from "lucide-react";
 
 import { Menubar, MenubarMenu, MenubarTrigger } from "./ui/menubar";
 
@@ -63,13 +63,13 @@ const MenuBar = () => {
             }}
           >
             <div>
-              <Upload alt="upload"></Upload>
+              <PlusSquare alt="upload"></PlusSquare>
             </div>
           </MenubarTrigger>
           <div
             className={isActive("/upload") ? "text-hightLightMenu" : "white"}
           >
-            上传
+            创作
           </div>
         </div>
       </MenubarMenu>

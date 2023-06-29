@@ -22,7 +22,7 @@ export default function Page() {
         share: 165,
       },
       source:
-        "/https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/podcast.MP3",
+        "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/podcast.MP3",
       srtList: [
         "ocean rain sun sky rain",
         "ocean love forever forever",

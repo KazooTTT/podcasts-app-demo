@@ -15,43 +15,43 @@ export function FlowItem(props: { info: CardProps; height: number }) {
 
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(270);
-  const audioRef = useRef<HTMLSourceElement>(null);
+  const audioRef = useRef<HTMLAudioElement>(null);
 
   const togglePlay = () => {
     const audioElement = audioRef.current;
-    if (isPlaying) {
-      // @ts-ignore
-      audioElement.pause();
-    } else {
-      // @ts-ignore
-      audioElement.play();
+    if (audioElement) {
+      if (isPlaying) {
+        audioElement.pause();
+      } else {
+        audioElement.play();
+      }
     }
+
     setIsPlaying(!isPlaying);
   };
 
   const handleTimeUpdate = () => {
     const audioElement = audioRef.current;
-    // @ts-ignore
-    setCurrentTime(audioElement.currentTime);
+    if (audioElement) setCurrentTime(audioElement.currentTime);
   };
 
   const handleLoadedMetadata = () => {
     const audioElement = audioRef.current;
-    // @ts-ignore
-    setDuration(audioElement.duration);
+
+    if (audioElement) setDuration(audioElement.duration);
   };
 
   const handleProgressChange = (newTime: number) => {
     const audioElement = audioRef.current;
-    // @ts-ignore
-    audioElement.currentTime = newTime;
+
+    if (audioElement) audioElement.currentTime = newTime;
     setCurrentTime(newTime);
   };
 
   const handleCanPlayThrough = () => {
     const audioElement = audioRef.current;
-    // @ts-ignore
-    audioElement.play();
+
+    if (audioElement) audioElement.play();
   };
 
   // 监听当前进度，滚动到对应的位置
@@ -88,19 +88,55 @@ export function FlowItem(props: { info: CardProps; height: number }) {
     requestAnimationFrame(scrollStep);
   };
 
+  // 使用observer api 判断是否在视野内
+  const targetRef = useRef<HTMLDivElement>(null);
+
+  const [isInView, setIsInView] = useState(false);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries: IntersectionObserverEntry[]) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            console.log(info.title, "Element is in view!");
+            const audioElement = audioRef.current;
+            if (audioElement) audioElement?.play();
+            setIsPlaying(true);
+            setIsInView(true);
+          } else {
+            console.log(info.title, "Element is out of view");
+            const audioElement = audioRef.current;
+            if (audioElement) audioElement?.pause();
+            setIsPlaying(false);
+            setIsInView(false);
+          }
+        });
+      }
+    );
+
+    if (targetRef.current) {
+      observer.observe(targetRef.current);
+    }
+
+    return () => {
+      if (targetRef.current) {
+        observer.unobserve(targetRef.current);
+      }
+    };
+  }, []);
+
   return (
     <div
       className="flowitem relative flex flex-1 flex-col items-center justify-center border-b-2 border-dashed bg-background shadow-lg"
       style={{
-        minHeight: (height ?? window.innerHeight) - 128,
-        maxHeight: (height ?? window.innerHeight) - 128,
+        minHeight: height,
+        maxHeight: height,
       }}
+      ref={targetRef}
     >
       <audio
-        // @ts-ignore
         ref={audioRef}
         src={info.source}
-        type="audio/mpeg"
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleLoadedMetadata}
         onCanPlayThrough={handleCanPlayThrough}
@@ -148,7 +184,7 @@ export function FlowItem(props: { info: CardProps; height: number }) {
         )}
       </div>
       <SideBar reactions={props.info.reactions}></SideBar>
-      {!isPlaying && (
+      {!isPlaying && isInView && (
         <div className="fixed inset-0 z-30 flex justify-center bg-black opacity-50">
           <PlayCircle
             size={96}

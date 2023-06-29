@@ -22,18 +22,22 @@ export default function IndexPage({ infos }: { infos: CardProps[] }) {
     };
   }, []);
 
+  const flowHeight = (height ?? window.innerHeight) - 128;
+
   return (
     <>
       {height === 0 ? (
         <Loading></Loading>
       ) : (
-        infos.map((item, index) => (
-          <FlowItem
-            info={item}
-            height={height}
-            key={[item.title, index].join("_")}
-          />
-        ))
+        <div className="space-y-2">
+          {infos.map((item, index) => (
+            <FlowItem
+              info={item}
+              height={flowHeight}
+              key={[item.title, index].join("_")}
+            />
+          ))}
+        </div>
       )}
     </>
   );

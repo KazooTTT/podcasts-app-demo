@@ -87,7 +87,7 @@ export default function IndexPage() {
         onCanPlayThrough={handleCanPlayThrough}
       ></audio>
       <div className="sticky top-0 z-10 mx-auto flex w-full flex-col items-center justify-center bg-background">
-        <div className="info-container w-1/2">
+        <div className="info-container w-2/5">
           <Image
             src={
               "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/%E6%92%AD%E6%94%BE%E9%A1%B5-%E5%A3%B0%E9%9F%B3%26%E4%B8%93%E8%BE%91%E5%A4%B4%E5%83%8F%E3%80%8A%E7%BB%84%E7%BB%87%E8%BF%9B%E5%8C%96%E8%AE%BA%E3%80%8B.jpeg"

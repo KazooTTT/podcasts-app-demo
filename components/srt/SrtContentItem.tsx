@@ -1,21 +1,18 @@
 "use client";
 import React from "react";
-
-export interface SrtItem {
-  id: any;
-  startTime: any;
-  endTime: any;
-  text: any;
-}
+import { SrtItem } from "./type";
+import { cn } from "@/lib/utils";
 
 export function SrtContentItem({
   item,
   hideStartTime,
+  isActive,
 }: {
   item: SrtItem;
   hideStartTime?: boolean;
+  isActive?: boolean;
 }) {
-  const { startTime, text } = item;
+  const { startTimeStr, text } = item;
   const formatTime = (startTime: string) => {
     const [show, ...hide] = startTime.split(",");
     return show;
@@ -25,11 +22,11 @@ export function SrtContentItem({
       <div className="flex items-center space-x-1">
         {!hideStartTime && (
           <div className="text-xs text-muted-foreground">
-            {formatTime(startTime)}
+            {formatTime(startTimeStr)}
           </div>
         )}
       </div>
-      <div className="text-sm">{text}</div>
+      <div className={cn("text-sm", isActive && "text-foreground")}>{text}</div>
     </div>
   );
 }

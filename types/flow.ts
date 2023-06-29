@@ -1,3 +1,5 @@
+import { SrtItem } from "@/components/srt/type";
+
 export interface Reactions {
   likes: number;
   comments: number;
@@ -13,12 +15,7 @@ export interface CardProps {
   uploaderInfo?: UploaderInfoProps;
   reactions: Reactions;
   source?: string;
-  srtList?: {
-    id: any;
-    startTime: any;
-    endTime: any;
-    text: any;
-  }[]
+  srtList?: SrtItem[]
 }
 
 export interface UploaderInfoProps {

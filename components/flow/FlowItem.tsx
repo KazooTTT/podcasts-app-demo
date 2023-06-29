@@ -1,5 +1,5 @@
 "use client";
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { ImgCard } from "@/components/flow/card";
 import { SideBar } from "@/components/flow/siteBar";
 import { ProgressDemo } from "@/components/progress";
@@ -54,6 +54,40 @@ export function FlowItem(props: { info: CardProps; height: number }) {
     audioElement.play();
   };
 
+  // 监听当前进度，滚动到对应的位置
+  useEffect(() => {
+    const container = document.getElementById("timeline-container");
+    if (container) {
+      const scrollPosition =
+        (container.scrollHeight - container.clientHeight) *
+        (currentTime / duration);
+      smoothScrollTo(scrollPosition, 100); // 设置动画时长为500ms
+    }
+  }, [currentTime, duration]);
+
+  const smoothScrollTo = (target: number, duration: number): void => {
+    const container = document.getElementById("timeline-container");
+    if (!container) return;
+
+    const startPosition: number = container.scrollTop;
+    const distance: number = target - startPosition;
+    let startTime: number | null = null;
+
+    const scrollStep = (timestamp: number): void => {
+      if (!startTime) startTime = timestamp;
+      const progress: number = timestamp - startTime;
+      const easing: number = (progress / duration) ** 2; // 使用二次缓动函数
+
+      container.scrollTop = startPosition + distance * easing;
+
+      if (progress < duration) {
+        requestAnimationFrame(scrollStep);
+      }
+    };
+
+    requestAnimationFrame(scrollStep);
+  };
+
   return (
     <div
       className="flowitem relative flex flex-1 flex-col items-center justify-center border-b-2 border-dashed bg-background shadow-lg"
@@ -70,7 +104,7 @@ export function FlowItem(props: { info: CardProps; height: number }) {
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleLoadedMetadata}
         onCanPlayThrough={handleCanPlayThrough}
-      ></audio>
+      />
 
       <div
         className="container flex w-full flex-col items-center justify-center self-start"
@@ -80,7 +114,10 @@ export function FlowItem(props: { info: CardProps; height: number }) {
           <ImgCard {...props.info}></ImgCard>
         </div>
       </div>
-      <div className="timeline-container mt-2 flex w-4/5 flex-1 flex-col items-center space-y-1 overflow-auto text-xs text-muted-foreground  scrollbar-none">
+      <div
+        className="timeline-container mt-2 flex w-4/5 flex-1 flex-col items-center space-y-1 overflow-auto text-xs text-muted-foreground  scrollbar-none"
+        id="timeline-container"
+      >
         <div className="space-y-3 px-3 py-2">
           {props.info.srtList &&
             props.info.srtList.map((item, index: number) => (
@@ -88,6 +125,10 @@ export function FlowItem(props: { info: CardProps; height: number }) {
                 item={item}
                 key={`${item.id}${index}`}
                 hideStartTime={true}
+                isActive={
+                  currentTime >= item.startTimeSec &&
+                  currentTime < item.endTimeSec
+                }
               />
             ))}
         </div>

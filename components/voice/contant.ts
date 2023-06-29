@@ -70,4 +70,5 @@ const srt = `1
 
 `;
 
-export const srtList = fromSrt(srt, false);
+export const srtList = fromSrt(srt);
+

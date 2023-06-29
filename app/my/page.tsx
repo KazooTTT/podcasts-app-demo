@@ -6,7 +6,7 @@ export default async function IndexPage() {
 
   const data = {
     avatar:
-      "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306252128870.jpg",
+      "https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/202306291819211.jpg",
     nickName: "看理想vistopia",
     userName: "istopia",
     ip: "北京",

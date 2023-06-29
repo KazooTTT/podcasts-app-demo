@@ -43,6 +43,7 @@ export default function Page() {
         stars: 404,
         share: 501,
       },
+      srtList: srtList,
     },
     {
       title: "Gastronomy Delights",
@@ -61,6 +62,7 @@ export default function Page() {
         stars: 325,
         share: 946,
       },
+      srtList: srtList,
     },
     {
       title: "Galactic Wonders",

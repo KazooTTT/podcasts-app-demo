@@ -12,7 +12,7 @@ export function SrtContentItem({
   item: SrtItem;
   hideStartTime?: boolean;
   isActive?: boolean;
-  type: "voice" | "flow";
+  type?: "voice" | "flow";
 }) {
   const { startTimeStr, text } = item;
   const formatTime = (startTime: string) => {

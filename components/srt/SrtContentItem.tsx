@@ -7,10 +7,12 @@ export function SrtContentItem({
   item,
   hideStartTime,
   isActive,
+  type,
 }: {
   item: SrtItem;
   hideStartTime?: boolean;
   isActive?: boolean;
+  type: "voice" | "flow";
 }) {
   const { startTimeStr, text } = item;
   const formatTime = (startTime: string) => {
@@ -21,7 +23,12 @@ export function SrtContentItem({
     <div className="space-y-1">
       <div className="flex items-center space-x-1">
         {!hideStartTime && (
-          <div className="text-xs text-muted-foreground">
+          <div
+            className={cn(
+              "text-xs text-muted-foreground",
+              type === "voice" && isActive && "font-bold text-hightLightMenu"
+            )}
+          >
             {formatTime(startTimeStr)}
           </div>
         )}

@@ -151,9 +151,20 @@ export default function IndexPage() {
           <SwiperSlide>
             <div id="srt-container">
               <div className="space-y-3 py-2">
-                {srtList.map((item, index: number) => (
-                  <SrtContentItem item={item} key={`${item.id}${index}`} />
-                ))}
+                {srtList.map((item, index: number) => {
+                  const isActive =
+                    currentTime >= item.startTimeSec &&
+                    currentTime < item.endTimeSec;
+
+                  return (
+                    <SrtContentItem
+                      item={item}
+                      key={`${item.id}${index}`}
+                      isActive={isActive}
+                      type='voice'
+                    />
+                  );
+                })}
               </div>
             </div>
           </SwiperSlide>

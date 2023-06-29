@@ -97,7 +97,6 @@ export default function IndexPage() {
   useEffect(() => {
     // 获取ref的高度
     const height = ref.current?.clientHeight;
-    console.log("%c Line:99 🌽 height", "color:#465975", height);
     // 计算得出滚动的高度
     if (height && scrollRef.current) {
       const newScrollHeight = flowHeight - height;
@@ -153,6 +152,7 @@ export default function IndexPage() {
         src="https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/podcast.MP3"
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleLoadedMetadata}
+        onCanPlayThrough={handleLoadedMetadata}
       ></audio>
       <div
         className="mx-auto flex w-full flex-col items-center justify-center bg-background"

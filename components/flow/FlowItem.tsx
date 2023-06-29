@@ -98,13 +98,13 @@ export function FlowItem(props: { info: CardProps; height: number }) {
       (entries: IntersectionObserverEntry[]) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            console.log(info.title, "Element is in view!");
+            // console.log(info.title, "Element is in view!");
             const audioElement = audioRef.current;
             if (audioElement) audioElement?.play();
             setIsPlaying(true);
             setIsInView(true);
           } else {
-            console.log(info.title, "Element is out of view");
+            // console.log(info.title, "Element is out of view");
             const audioElement = audioRef.current;
             if (audioElement) audioElement?.pause();
             setIsPlaying(false);

@@ -12,7 +12,7 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { srtList } from "@/components/voice/contant";
 import { SrtContentItem } from "../../components/srt/SrtContentItem";
-import { useMount } from "ahooks";
+import { useMount, useThrottleFn } from "ahooks";
 
 export default function IndexPage() {
   const [height, setheight] = useState(0);
@@ -36,6 +36,8 @@ export default function IndexPage() {
 
   // 是否正在播放
   const [isPlaying, setIsPlaying] = React.useState(false);
+
+  const [isTouching, setIsTouching] = useState(false);
 
   // convert playbackRate to string which has two digits
   const formatPlaybackRate = (playbackRate: number) => {
@@ -105,14 +107,15 @@ export default function IndexPage() {
   }, [flowHeight, scrollHeight]);
   // 监听当前进度，滚动到对应的位置
   useEffect(() => {
+    if (isTouching) return;
     const container = document.getElementById("srt-container");
     if (container) {
       const scrollPosition =
         (container.scrollHeight - container.clientHeight) *
         (currentTime / duration);
-      smoothScrollTo(scrollPosition, 100); // 设置动画时长为500ms
+      smoothScrollTo(scrollPosition, 500); // 设置动画时长为500ms
     }
-  }, [currentTime, duration]);
+  }, [currentTime, duration, isTouching]);
 
   const smoothScrollTo = (target: number, duration: number): void => {
     const container = document.getElementById("srt-container");
@@ -136,6 +139,20 @@ export default function IndexPage() {
 
     requestAnimationFrame(scrollStep);
   };
+
+  const { run: onTouchStart } = useThrottleFn(
+    () => {
+      setIsTouching(true);
+    },
+    { wait: 500 }
+  );
+
+  const { run: onTouchEnd } = useThrottleFn(
+    () => {
+      setIsTouching(false);
+    },
+    { wait: 5000 }
+  );
 
   return (
     <div
@@ -232,6 +249,8 @@ export default function IndexPage() {
               id="srt-container"
               style={{ height: scrollHeight }}
               className="overflow-auto"
+              onTouchStart={() => setIsTouching(true)}
+              onTouchEnd={onTouchEnd}
             >
               <div className="space-y-3 py-2">
                 {srtList.map((item, index: number) => {

@@ -7,6 +7,7 @@ import { CardProps } from "@/types/flow";
 import { PlayCircle } from "lucide-react";
 import { SrtContentItem } from "../srt/SrtContentItem";
 import { UploaderInfo } from "./UploaderInfo";
+import { useThrottle, useThrottleFn } from "ahooks";
 
 export function FlowItem(props: { info: CardProps; height: number }) {
   const { height, info } = props;
@@ -15,6 +16,8 @@ export function FlowItem(props: { info: CardProps; height: number }) {
 
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(270);
+  const [isTouching, setIsTouching] = useState(false);
+
   const audioRef = useRef<HTMLAudioElement>(null);
 
   const togglePlay = () => {
@@ -56,14 +59,15 @@ export function FlowItem(props: { info: CardProps; height: number }) {
 
   // 监听当前进度，滚动到对应的位置
   useEffect(() => {
+    if (isTouching) return;
     const container = document.getElementById("timeline-container");
     if (container) {
       const scrollPosition =
         (container.scrollHeight - container.clientHeight) *
         (currentTime / duration);
-      smoothScrollTo(scrollPosition, 100); // 设置动画时长为500ms
+      smoothScrollTo(scrollPosition, 500); // 设置动画时长为500ms
     }
-  }, [currentTime, duration]);
+  }, [currentTime, duration, isTouching]);
 
   const smoothScrollTo = (target: number, duration: number): void => {
     const container = document.getElementById("timeline-container");
@@ -125,6 +129,13 @@ export function FlowItem(props: { info: CardProps; height: number }) {
     };
   }, []);
 
+  const { run: onTouchEnd } = useThrottleFn(
+    () => {
+      setIsTouching(false);
+    },
+    { wait: 5000 }
+  );
+
   return (
     <div
       className="flowitem relative flex flex-1 flex-col items-center justify-center border-b-2 border-dashed bg-background shadow-lg"
@@ -153,6 +164,8 @@ export function FlowItem(props: { info: CardProps; height: number }) {
       <div
         className="timeline-container mt-2 flex w-4/5 flex-1 flex-col items-center space-y-1 overflow-auto text-xs text-muted-foreground  scrollbar-none"
         id="timeline-container"
+        onTouchStart={() => setIsTouching(true)}
+        onTouchEnd={onTouchEnd}
       >
         <div className="space-y-3 px-3 py-2">
           {props.info.srtList &&

@@ -41,14 +41,14 @@ export function Client({
   return (
     <>
       <div className="info sticky top-0 z-20 -mb-1 bg-background">
-        <div className="userinfo container mb-8">
+        <div className="userinfo container mb-2">
           <div className="flex space-x-6">
             <Image
               src={data.avatar}
               alt="avatar"
               width={72}
               height={72}
-              className="rounded-full"
+              className="rounded-full shadow-lg"
               placeholder="blur"
               blurDataURL={placeHolderBase64}
             />

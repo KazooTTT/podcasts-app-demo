@@ -1,8 +1,6 @@
 "use client";
 
-import { Search, Settings, Share, Share2 } from "lucide-react";
-
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
+import { Settings, Share2 } from "lucide-react";
 
 import { Button } from "../ui/button";
 

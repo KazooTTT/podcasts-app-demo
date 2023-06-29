@@ -27,7 +27,7 @@ export default function IndexPage() {
   const [open, setOpen] = React.useState(false);
 
   const [currentTime, setCurrentTime] = useState(0);
-  const [duration, setDuration] = useState(270);
+  const [duration, setDuration] = useState(0);
 
   // 从public文件中导入音频文件
 
@@ -62,11 +62,6 @@ export default function IndexPage() {
     setCurrentTime(newTime);
   };
 
-  const handleCanPlayThrough = () => {
-    const audioElement = audioRef.current; // @ts-ignore
-    audioElement.play();
-  };
-
   const handlePlaybackRateChange = (newRate: number) => {
     // @ts-ignore
     const rate = parseFloat(newRate);
@@ -76,7 +71,7 @@ export default function IndexPage() {
   };
 
   return (
-    <div className="container relative flex flex-col items-center justify-center">
+    <div className="container relative flex flex-col items-center justify-center overflow-auto">
       {/* 插入本地的音频文件 */}
       <audio
         // @ts-ignore
@@ -85,9 +80,8 @@ export default function IndexPage() {
         type="audio/mpeg"
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleLoadedMetadata}
-        onCanPlayThrough={handleCanPlayThrough}
       ></audio>
-      <div className="sticky top-0 z-10 mx-auto flex w-full flex-col items-center justify-center bg-background">
+      <div className="mx-auto flex w-full flex-col items-center justify-center bg-background">
         <div className="info-container w-2/5">
           <Image
             src={
@@ -107,7 +101,7 @@ export default function IndexPage() {
             playbackRate={playbackRate}
             setPlaybackRate={handlePlaybackRateChange}
             currentSec={currentTime}
-            setCurrentTime={setCurrentTime}
+            setCurrentTime={handleProgressChange}
             totalSec={duration}
             setIsPlaying={setIsPlaying}
             isPlaying={isPlaying}
@@ -155,10 +149,12 @@ export default function IndexPage() {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="space-y-3 py-2">
-              {srtList.map((item, index: number) => (
-                <SrtContentItem item={item} key={`${item.id}${index}`} />
-              ))}
+            <div id="srt-container">
+              <div className="space-y-3 py-2">
+                {srtList.map((item, index: number) => (
+                  <SrtContentItem item={item} key={`${item.id}${index}`} />
+                ))}
+              </div>
             </div>
           </SwiperSlide>
         </Swiper>

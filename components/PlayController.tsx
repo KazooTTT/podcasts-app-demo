@@ -48,8 +48,9 @@ export function PlayController({
   isPlaying: boolean;
   handlePlayButtonClick: () => void;
 }) {
+
   return (
-    <div className="sticky bottom-0 mt-4 flex w-full justify-around">
+    <div className="sticky bottom-0 mt-2 flex w-full justify-around">
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
           <div className="text-center">
@@ -79,7 +80,6 @@ export function PlayController({
             <SliderDemo
               value={[playbackRate]}
               onValueChange={(value: number[]) => {
-                console.log("%c Line:95 🍅 value", "color:#6ec1c2", value);
                 setPlaybackRate(value[0]);
               }}
             ></SliderDemo>

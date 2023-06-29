@@ -81,6 +81,7 @@ export default function Page() {
         stars: 983,
         share: 381,
       },
+      srtList: srtList,
     },
     {
       title: "Ocean's Depth",
@@ -99,6 +100,7 @@ export default function Page() {
         stars: 122,
         share: 354,
       },
+      srtList: srtList,
     },
   ];
   return (

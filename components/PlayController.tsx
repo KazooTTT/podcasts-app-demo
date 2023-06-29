@@ -50,7 +50,7 @@ export function PlayController({
 }) {
 
   return (
-    <div className="sticky bottom-0 mt-2 flex w-full justify-around">
+    <div className="sticky bottom-0 mt-2 flex w-full select-none justify-around">
       <Dialog open={open} onOpenChange={setOpen}>
         <DialogTrigger asChild>
           <div className="text-center">

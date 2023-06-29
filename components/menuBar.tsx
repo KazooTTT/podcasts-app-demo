@@ -17,7 +17,7 @@ const MenuBar = () => {
     prefix === "/" ? pathname === "/" : pathname.startsWith(prefix);
 
   return (
-    <Menubar className="z-50 h-18 justify-around border-t bg-background">
+    <Menubar className="z-50 h-18 select-none justify-around border-t bg-background">
       <MenubarMenu>
         <div className="text-center">
           <MenubarTrigger

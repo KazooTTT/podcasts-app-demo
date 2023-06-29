@@ -11,6 +11,7 @@ import { formatDuration, formatTime2MinSec } from "@/lib/format";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import { srtList } from "@/components/voice/contant";
+import { SrtContentItem } from "../../components/srt/SrtContentItem";
 
 export default function IndexPage() {
   // 当前播放速率
@@ -156,7 +157,7 @@ export default function IndexPage() {
           <SwiperSlide>
             <div className="space-y-3 py-2">
               {srtList.map((item, index: number) => (
-                <ContentItem {...item} key={`${item.id}${index}`} />
+                <SrtContentItem item={item} key={`${item.id}${index}`} />
               ))}
             </div>
           </SwiperSlide>
@@ -183,28 +184,3 @@ const podcastItemList = [
     position: 411,
   },
 ];
-
-export interface SrtItem {
-  id: any;
-  startTime: any;
-  endTime: any;
-  text: any;
-}
-
-function ContentItem(item: SrtItem) {
-  const { startTime, text } = item;
-  const formatTime = (startTime: string) => {
-    const [show, ...hide] = startTime.split(",");
-    return show;
-  };
-  return (
-    <div className="space-y-1">
-      <div className="flex items-center space-x-1">
-        <div className="text-xs text-muted-foreground">
-          {formatTime(startTime)}
-        </div>
-      </div>
-      <div className="text-sm">{text}</div>
-    </div>
-  );
-}

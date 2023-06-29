@@ -13,7 +13,12 @@ export interface CardProps {
   uploaderInfo?: UploaderInfoProps;
   reactions: Reactions;
   source?: string;
-  srtList?: string[]
+  srtList?: {
+    id: any;
+    startTime: any;
+    endTime: any;
+    text: any;
+  }[]
 }
 
 export interface UploaderInfoProps {

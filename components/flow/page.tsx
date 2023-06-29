@@ -11,6 +11,7 @@ import { CardProps, UploaderInfoProps } from "@/types/flow";
 import { useMount } from "ahooks";
 import { PlayCircle } from "lucide-react";
 import Loading from "./loading";
+import { SrtContentItem } from "../srt/SrtContentItem";
 
 function UploaderInfo(props: { uploadInfo: UploaderInfoProps }) {
   return (
@@ -102,13 +103,17 @@ function FlowItem(props: { info: CardProps; height: number }) {
           <ImgCard {...props.info}></ImgCard>
         </div>
       </div>
-      <div className="timeline-container mt-2 flex w-4/5 flex-1 flex-col items-center space-y-1 overflow-auto text-xs text-muted-foreground scrollbar-none">
-        {info?.srtList &&
-          info?.srtList.map((item, index) => (
-            <div key={`${item}${index}`}>
-              {index}-{item}
-            </div>
-          ))}
+      <div className="timeline-container mt-2 flex w-4/5 flex-1 flex-col items-center space-y-1 overflow-auto text-xs text-muted-foreground  scrollbar-none">
+        <div className="space-y-3 px-3 py-2">
+          {props.info.srtList &&
+            props.info.srtList.map((item, index: number) => (
+              <SrtContentItem
+                item={item}
+                key={`${item.id}${index}`}
+                hideStartTime={true}
+              />
+            ))}
+        </div>
       </div>
       <div className="container bottom-18 z-20 flex w-full flex-col bg-background py-2">
         <ProgressDemo

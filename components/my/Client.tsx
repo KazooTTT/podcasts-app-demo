@@ -1,6 +1,8 @@
 "use client";
 import Image from "next/image";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { Button } from "../ui/button";
+import { PlusSquare } from "lucide-react";
 
 export function Client({
   data,
@@ -53,9 +55,21 @@ export function Client({
               blurDataURL={placeHolderBase64}
             />
             <div className="flex flex-1 flex-col justify-center space-y-1">
-              <div className="text-xl">{data.nickName}</div>
+              <div className="flex w-full flex-row items-center justify-between text-xl">
+                <div>{data.nickName}</div>
+                <div className="flex flex-row items-center justify-between">
+                  <Button className="h-2 space-x-1 py-3 text-xs">
+                    <PlusSquare
+                      alt="upload
+                    "
+                      size={16}
+                    />
+                    <div>创作</div>
+                  </Button>
+                </div>
+              </div>
               <div className="text-xs text-muted-foreground">
-                @{data.userName}
+                <div>@{data.userName}</div>
               </div>
               <div className="text-xs text-muted-foreground">
                 ip属地：{data.ip}
@@ -84,19 +98,19 @@ export function Client({
           <TabsList className="sticky top-0 z-40 w-full rounded-none bg-background px-0">
             <TabsTrigger
               value="creation"
-              className="flex-1 text-center text-lg decoration-hightLightMenu decoration-1.5 underline-offset-8 data-[state=active]:underline"
+              className="text-md flex-1 text-center decoration-hightLightMenu decoration-1.5 underline-offset-8 data-[state=active]:underline"
             >
-              创作
+              作品
             </TabsTrigger>
             <TabsTrigger
               value="collections"
-              className="flex-1 text-center text-lg decoration-hightLightMenu decoration-1.5 underline-offset-8 data-[state=active]:underline"
+              className="text-md flex-1 text-center decoration-hightLightMenu decoration-1.5 underline-offset-8 data-[state=active]:underline"
             >
               收藏
             </TabsTrigger>
             <TabsTrigger
               value="likes"
-              className="flex-1 text-center text-lg decoration-hightLightMenu decoration-1.5 underline-offset-8 data-[state=active]:underline"
+              className="text-md flex-1 text-center decoration-hightLightMenu decoration-1.5 underline-offset-8 data-[state=active]:underline"
             >
               赞过
             </TabsTrigger>

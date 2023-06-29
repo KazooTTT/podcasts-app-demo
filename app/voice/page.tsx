@@ -80,7 +80,7 @@ export default function IndexPage() {
       <audio
         // @ts-ignore
         ref={audioRef}
-        src="/podcast.MP3"
+        src="/https://kazoottt-1256684243.cos.ap-chengdu.myqcloud.com/podcast.MP3"
         type="audio/mpeg"
         onTimeUpdate={handleTimeUpdate}
         onLoadedMetadata={handleLoadedMetadata}

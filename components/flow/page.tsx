@@ -7,12 +7,12 @@ import { SideBar } from "@/components/flow/siteBar";
 import { ProgressDemo } from "@/components/progress";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
-import { CardProps, UploaderInfo } from "@/types/flow";
+import { CardProps, UploaderInfoProps } from "@/types/flow";
 import { useMount } from "ahooks";
 import { PlayCircle } from "lucide-react";
 import Loading from "./loading";
 
-function UploaderInfo(props: { uploadInfo: UploaderInfo }) {
+function UploaderInfo(props: { uploadInfo: UploaderInfoProps }) {
   return (
     <div>
       <div className="flex items-center space-x-2">
@@ -25,7 +25,7 @@ function UploaderInfo(props: { uploadInfo: UploaderInfo }) {
           关注
         </Badge>
       </div>
-      <div className="mt-1">{props.uploadInfo.desc}</div>
+      <div className="mt-1 text-sm">{props.uploadInfo.desc}</div>
     </div>
   );
 }
@@ -76,9 +76,63 @@ function FlowItem(props: { info: CardProps; height: number }) {
     audioElement.play();
   };
 
+  const subtitles = [
+    "ocean rain sun sky rain",
+    "ocean love forever forever",
+    "love dream",
+    "dream forever love love dream",
+    "sun sun ocean sun love",
+    "rain love",
+    "time time sun forever",
+    "forever time sky",
+    "sun ocean dream time time forever",
+    "love love ocean heart",
+    "dream forever love love dream",
+    "sun sun ocean sun love",
+    "rain love",
+    "time time sun forever",
+    "forever time sky",
+    "sun ocean dream time time forever",
+    "love love ocean heart",
+    "dream forever love love dream",
+    "sun sun ocean sun love",
+    "rain love",
+    "time time sun forever",
+    "forever time sky",
+    "sun ocean dream time time forever",
+    "love love ocean heart",
+    "dream forever love love dream",
+    "sun sun ocean sun love",
+    "rain love",
+    "time time sun forever",
+    "forever time sky",
+    "sun ocean dream time time forever",
+    "love love ocean heart",
+    "dream forever love love dream",
+    "sun sun ocean sun love",
+    "rain love",
+    "time time sun forever",
+    "forever time sky",
+    "sun ocean dream time time forever",
+    "love love ocean heart",
+    "dream forever love love dream",
+    "sun sun ocean sun love",
+    "rain love",
+    "time time sun forever",
+    "forever time sky",
+    "sun ocean dream time time forever",
+    "love love ocean heart",
+    "dream forever love love dream",
+    "sun sun ocean sun love",
+    "rain love",
+    "time time sun forever",
+    "forever time sky",
+    "sun ocean dream time time forever",
+    "love love ocean heart",
+  ];
   return (
     <div
-      className="flowitem relative flex flex-1 flex-col items-center justify-center bg-background"
+      className="flowitem relative flex flex-1 flex-col items-center justify-center border-b-2 border-dashed bg-background shadow-lg"
       style={{
         minHeight: (height ?? window.innerHeight) - 128,
         maxHeight: (height ?? window.innerHeight) - 128,
@@ -103,60 +157,7 @@ function FlowItem(props: { info: CardProps; height: number }) {
         </div>
       </div>
       <div className="timeline-container mt-2 flex w-4/5 flex-1 flex-col items-center space-y-1 overflow-auto text-xs text-muted-foreground scrollbar-none">
-        {[
-          "ocean rain sun sky rain",
-          "ocean love forever forever",
-          "love dream",
-          "dream forever love love dream",
-          "sun sun ocean sun love",
-          "rain love",
-          "time time sun forever",
-          "forever time sky",
-          "sun ocean dream time time forever",
-          "love love ocean heart",
-          "dream forever love love dream",
-          "sun sun ocean sun love",
-          "rain love",
-          "time time sun forever",
-          "forever time sky",
-          "sun ocean dream time time forever",
-          "love love ocean heart",
-          "dream forever love love dream",
-          "sun sun ocean sun love",
-          "rain love",
-          "time time sun forever",
-          "forever time sky",
-          "sun ocean dream time time forever",
-          "love love ocean heart",
-          "dream forever love love dream",
-          "sun sun ocean sun love",
-          "rain love",
-          "time time sun forever",
-          "forever time sky",
-          "sun ocean dream time time forever",
-          "love love ocean heart",
-          "dream forever love love dream",
-          "sun sun ocean sun love",
-          "rain love",
-          "time time sun forever",
-          "forever time sky",
-          "sun ocean dream time time forever",
-          "love love ocean heart",
-          "dream forever love love dream",
-          "sun sun ocean sun love",
-          "rain love",
-          "time time sun forever",
-          "forever time sky",
-          "sun ocean dream time time forever",
-          "love love ocean heart",
-          "dream forever love love dream",
-          "sun sun ocean sun love",
-          "rain love",
-          "time time sun forever",
-          "forever time sky",
-          "sun ocean dream time time forever",
-          "love love ocean heart",
-        ].map((item, index) => (
+        {subtitles.map((item, index) => (
           <div key={`${item}${index}`}>
             {index}-{item}
           </div>

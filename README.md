@@ -1,21 +1,7 @@
-# next-template
+# Intro
+a simple podcasts app demo.
+![AB14B911-B7CE-4DF6-9F0A-E3DD9B201AC8](https://github.com/KazooTTT/podcasts-app-demo/assets/31075337/25952944-116b-4643-ab77-b63519501a94)
 
-A Next.js 13 template for building apps with Radix UI and Tailwind CSS.
-
-## Usage
-
-```bash
-npx create-next-app -e https://github.com/shadcn/next-template
-```
-
-## Features
-
-- Next.js 13 App Directory
-- Radix UI Primitives
-- Tailwind CSS
-- Icons from [Lucide](https://lucide.dev)
-- Dark mode with `next-themes`
-- Tailwind CSS class sorting, merging and linting.
 
 ## License
 

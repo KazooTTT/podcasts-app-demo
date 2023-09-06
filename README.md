@@ -7,4 +7,4 @@ a simple podcasts app demo.
 
 Licensed under the [MIT license](https://github.com/shadcn/ui/blob/main/LICENSE.md).
 
-[![wakatime](https://wakatime.com/badge/user/d3dc2570-e4bf-4469-b0c2-127b495e8b91/project/b53c494d-9308-4dae-ac9c-febcce5ad1cc.svg)](https://wakatime.com/badge/user/d3dc2570-e4bf-4469-b0c2-127b495e8b91/project/b53c494d-9308-4dae-ac9c-febcce5ad1cc)
+[![wakatime](https://wakatime.com/badge/github/KazooTTT/podcasts-app-demo.svg)](https://wakatime.com/badge/github/KazooTTT/podcasts-app-demo)
